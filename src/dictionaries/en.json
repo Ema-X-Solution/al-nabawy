@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "siteName": "Al-Nabawy Dairy Factory",
+    "slogan": "From Nature's Best",
+    "description": "Premium dairy products manufactured and exported worldwide. Quality you can trust.",
+    "keywords": "dairy, milk, cheese, butter, cream, milk powder, export, halal"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "gallery": "Gallery",
+    "certifications": "Certifications",
+    "export": "Export Markets",
+    "contact": "Contact",
+    "requestQuote": "Request Quote"
+  },
+  "hero": {
+    "headline": "Premium Dairy Products",
+    "headlineSub": "From Nature To The World",
+    "subheadline": "High quality dairy products produced with care and exported to global markets across 3 continents",
+    "cta1": "Explore Products",
+    "cta2": "Contact Us"
+  },
+  "overview": {
+    "label": "About Al-Nabawy",
+    "title": "A Leader in Dairy Manufacturing",
+    "body": "Al-Nabawy is a leading dairy manufacturer specialized in producing high quality dairy products and exporting them worldwide. Our state-of-the-art facilities and commitment to quality ensure every product meets international standards.",
+    "readMore": "Read More",
+    "stats": {
+      "years": "Years of Experience",
+      "products": "Dairy Products",
+      "countries": "Export Countries"
+    }
+  },
+  "categories": {
+    "label": "Our Products",
+    "title": "Product Categories",
+    "subtitle": "Explore our full range of premium dairy products crafted to international standards",
+    "items": {
+      "milk": { "name": "Milk Products", "desc": "Fresh UHT, pasteurized, and skimmed milk products." },
+      "cheese": { "name": "Cheese", "desc": "Mozzarella, cheddar, white cheese and specialty varieties." },
+      "butter": { "name": "Butter", "desc": "Premium unsalted and salted dairy butter." },
+      "cream": { "name": "Cream", "desc": "Heavy cream, whipped cream and cooking cream." },
+      "milkPowder": { "name": "Milk Powder", "desc": "Full cream and skimmed milk powder in bulk." },
+      "ingredients": { "name": "Dairy Ingredients", "desc": "Whey powder, lactose, casein and more." }
+    },
+    "viewDetails": "View Details"
+  },
+  "whyUs": {
+    "label": "Why Choose Us",
+    "title": "Our Competitive Advantages",
+    "subtitle": "We set the benchmark for quality, safety, and reliability in the global dairy industry",
+    "items": {
+      "natural": { "title": "100% Natural", "desc": "Made from real milk and natural ingredients with no artificial additives." },
+      "quality": { "title": "International Quality", "desc": "ISO, HACCP, HALAL and FDA certified manufacturing processes." },
+      "expert": { "title": "Expert Team", "desc": "Experienced team with deep knowledge of the dairy industry." },
+      "global": { "title": "Global Export", "desc": "Exporting to over 17 countries worldwide across 3 continents." }
+    }
+  },
+  "facility": {
+    "label": "Our Factory",
+    "title": "State-of-the-Art Production Facility",
+    "subtitle": "Modern machinery, hygienic production lines, and strict quality controls",
+    "viewGallery": "View Gallery"
+  },
+  "certs": {
+    "label": "Certifications",
+    "title": "Internationally Certified",
+    "subtitle": "Our products meet the highest global food safety and quality standards",
+    "items": {
+      "iso": { "title": "ISO 22000", "desc": "International food safety management standard." },
+      "haccp": { "title": "HACCP", "desc": "Hazard Analysis and Critical Control Points." },
+      "halal": { "title": "HALAL", "desc": "Certified halal for global Muslim markets." },
+      "fda": { "title": "FDA", "desc": "United States Food & Drug Administration approved." }
+    }
+  },
+  "exportMap": {
+    "label": "Global Reach",
+    "title": "Exporting To The World",
+    "subtitle": "Our products reach customers across the Middle East, Europe and Africa",
+    "viewAll": "View All Countries",
+    "regions": {
+      "middleEast": "Middle East",
+      "europe": "Europe",
+      "africa": "Africa"
+    }
+  },
+  "catalog": {
+    "label": "Company Catalog",
+    "title": "Download Our Product Catalog",
+    "subtitle": "Get the complete catalog with all specifications, packaging options and export details",
+    "download": "Download Catalog (PDF)",
+    "requestCustom": "Request Custom Quotation"
+  },
+  "cta": {
+    "title": "Ready To Import Premium Dairy Products?",
+    "subtitle": "Contact our export team today and let us build a partnership that grows your business.",
+    "quote": "Request Quotation",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "slogan": "From Nature's Best",
+    "quickLinks": "Quick Links",
+    "products": "Products",
+    "contactInfo": "Contact Information",
+    "address": "Industrial Area, Egypt",
+    "copyright": "© 2024 Al-Nabawy Dairy Factory. All Rights Reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions"
+  },
+  "about": {
+    "heroTitle": "About Al-Nabawy",
+    "heroSub": "Crafting premium dairy since 2009",
+    "storyLabel": "Our Story",
+    "storyTitle": "15+ Years of Dairy Excellence",
+    "storyBody": "Founded in 2009, Al-Nabawy Dairy Factory has grown from a local producer into an international exporter trusted by importers and distributors across three continents. Our journey is defined by passion for quality, strict adherence to international standards, and a deep respect for the natural origins of every product we make.",
+    "vision": "Our Vision",
+    "visionBody": "To be the leading dairy exporter from Egypt, recognized globally for product quality, food safety, and reliable supply chains.",
+    "mission": "Our Mission",
+    "missionBody": "To manufacture and export premium dairy products that meet international quality standards while maintaining competitive pricing and exceptional customer service.",
+    "values": "Core Values",
+    "qualityLabel": "Quality First",
+    "integrityLabel": "Integrity",
+    "innovationLabel": "Innovation",
+    "sustainLabel": "Sustainability",
+    "capacityLabel": "Production Capacity",
+    "capacityTitle": "Large-Scale Manufacturing",
+    "capacityBody": "Our factory operates with state-of-the-art machinery capable of processing thousands of tons of milk annually.",
+    "timelineLabel": "Our Journey",
+    "timelineTitle": "Milestones"
+  },
+  "products": {
+    "heroTitle": "Our Products",
+    "heroSub": "Premium dairy products for importers and distributors",
+    "search": "Search products...",
+    "allCategories": "All Categories",
+    "viewDetails": "View Details",
+    "noResults": "No products found."
+  },
+  "productDetail": {
+    "packaging": "Packaging",
+    "weight": "Weight",
+    "shelfLife": "Shelf Life",
+    "storage": "Storage Conditions",
+    "origin": "Origin",
+    "specsTitle": "Specifications",
+    "packagingTitle": "Packaging Options",
+    "exportTitle": "Export Information",
+    "related": "Related Products",
+    "requestInfo": "Request Information",
+    "whatsapp": "WhatsApp Us",
+    "downloadSpec": "Download Specification"
+  },
+  "certifications": {
+    "heroTitle": "Our Certifications",
+    "heroSub": "Internationally recognized quality and safety standards",
+    "label": "Certifications",
+    "validity": "Valid Until"
+  },
+  "exportMarkets": {
+    "heroTitle": "Export Markets",
+    "heroSub": "We deliver premium dairy products across the globe",
+    "countriesLabel": "Countries We Serve",
+    "processLabel": "Export Process",
+    "processTitle": "How We Export",
+    "steps": {
+      "inquiry": "Inquiry",
+      "quotation": "Quotation",
+      "production": "Production",
+      "packaging": "Packaging",
+      "shipping": "Shipping",
+      "delivery": "Delivery"
+    },
+    "logisticsLabel": "Logistics",
+    "logisticsTitle": "Reliable Shipping Worldwide",
+    "logisticsBody": "We partner with leading freight companies to ensure your order arrives on time and in perfect condition, anywhere in the world."
+  },
+  "gallery": {
+    "heroTitle": "Gallery",
+    "heroSub": "See our factory, products, and operations",
+    "all": "All",
+    "factory": "Factory",
+    "production": "Production",
+    "products": "Products",
+    "packaging": "Packaging",
+    "exhibitions": "Exhibitions"
+  },
+  "contact": {
+    "heroTitle": "Contact Us",
+    "heroSub": "Let's build a partnership",
+    "formTitle": "Send Us a Message",
+    "formSubtitle": "Fill in the form and our export team will get back to you soon.",
+    "name": "Full Name",
+    "company": "Company Name",
+    "country": "Country",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "interest": "Product Interest",
+    "message": "Message",
+    "submit": "Submit Request",
+    "submitting": "Sending...",
+    "success": "Thank you! We'll contact you soon.",
+    "error": "Something went wrong. Please try again.",
+    "infoTitle": "Contact Information",
+    "address": "Industrial Area, Egypt",
+    "phone": "+20 123 456 7890",
+    "whatsapp": "+20 123 456 789",
+    "email": "info@alnabawy.com",
+    "hours": "Business Hours",
+    "hoursValue": "Sunday – Thursday: 9:00 AM – 5:00 PM"
+  }
+}
