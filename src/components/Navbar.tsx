@@ -65,32 +65,7 @@ export default function Navbar({ lang, t }: NavbarProps) {
             style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}
           >
             <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
-            {/* <div>
-              <div
-                style={{
-                  fontWeight: 800,
-                  fontSize: '1.15rem',
-                  color: scrolled ? '#1F2937' : 'white',
-                  lineHeight: 1.1,
-                  fontFamily: lang === 'ar' ? 'Cairo, sans-serif' : 'Poppins, sans-serif',
-                  transition: 'color 0.3s',
-                  textShadow: scrolled ? 'none' : '0 1px 3px rgba(0,0,0,0.3)',
-                }}
-              >
-                {lang === 'ar' ? 'النبوي' : 'Al-Nabawy'}
-              </div>
-              <div
-                style={{
-                  fontSize: '0.65rem',
-                  color: scrolled ? '#169DF7' : 'rgba(255,255,255,0.85)',
-                  fontWeight: 500,
-                  letterSpacing: '0.03em',
-                  transition: 'color 0.3s',
-                }}
-              >
-                {lang === 'ar' ? 'من خير الطبيعة' : "From Nature's Best"}
-              </div>
-            </div> */}
+            
           </Link>
 
           {/* Desktop Nav Links */}
@@ -131,19 +106,7 @@ export default function Navbar({ lang, t }: NavbarProps) {
           {/* Right side */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <LanguageSwitcher currentLang={lang} />
-            <Link
-              href={`/${lang}/contact`}
-              className="btn-primary"
-              style={{
-                padding: '0.5rem 1.2rem',
-                fontSize: '0.85rem',
-                background: scrolled ? '#169DF7' : 'rgba(255,255,255,0.2)',
-                border: scrolled ? 'none' : '1.5px solid rgba(255,255,255,0.6)',
-              }}
-            >
-              {t.requestQuote}
-            </Link>
-
+          
             {/* Hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
