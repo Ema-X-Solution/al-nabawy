@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "siteName": "Usine Laitière Al-Nabawy",
+    "slogan": "Le Meilleur de la Nature",
+    "description": "Produits laitiers de qualité supérieure fabriqués et exportés dans le monde entier. Une qualité en laquelle vous pouvez avoir confiance.",
+    "keywords": "laitier, lait, fromage, beurre, crème, poudre de lait, export, halal"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "products": "Produits",
+    "gallery": "Galerie",
+    "certifications": "Certifications",
+    "export": "Marchés d'Exportation",
+    "contact": "Contact",
+    "requestQuote": "Demander un Devis"
+  },
+  "hero": {
+    "headline": "Produits Laitiers Premium",
+    "headlineSub": "De la Nature au Monde",
+    "subheadline": "Des produits laitiers de haute qualité produits avec soin et exportés vers les marchés mondiaux sur 3 continents",
+    "cta1": "Explorer les Produits",
+    "cta2": "Contactez-nous"
+  },
+  "overview": {
+    "label": "À Propos d'Al-Nabawy",
+    "title": "Un Leader de la Fabrication Laitière",
+    "body": "Al-Nabawy est un fabricant laitier de premier plan spécialisé dans la production de produits laitiers de haute qualité et leur exportation dans le monde entier. Nos installations de pointe et notre engagement envers la qualité garantissent que chaque produit répond aux normes internationales.",
+    "readMore": "Lire la Suite",
+    "stats": {
+      "years": "Années d'Expérience",
+      "products": "Produits Laitiers",
+      "countries": "Pays d'Exportation"
+    }
+  },
+  "categories": {
+    "label": "Nos Produits",
+    "title": "Catégories de Produits",
+    "subtitle": "Découvrez notre gamme complète de produits laitiers premium fabriqués selon les normes internationales",
+    "items": {
+      "milk": { "name": "Produits Laitiers", "desc": "Produits laitiers UHT, pasteurisés et écrémés frais." },
+      "cheese": { "name": "Fromage", "desc": "Mozzarella, cheddar, fromage blanc et variétés de spécialité." },
+      "butter": { "name": "Beurre", "desc": "Beurre laitier de première qualité non salé et salé." },
+      "cream": { "name": "Crème", "desc": "Crème entière, crème fouettée et crème de cuisson." },
+      "milkPowder": { "name": "Poudre de Lait", "desc": "Poudre de lait entier et écrémé en vrac." },
+      "ingredients": { "name": "Ingrédients Laitiers", "desc": "Poudre de lactosérum, lactose, caséine et plus." }
+    },
+    "viewDetails": "Voir les Détails"
+  },
+  "whyUs": {
+    "label": "Pourquoi Nous Choisir",
+    "title": "Nos Avantages Concurrentiels",
+    "subtitle": "Nous fixons la norme en matière de qualité, de sécurité et de fiabilité dans l'industrie laitière mondiale",
+    "items": {
+      "natural": { "title": "100% Naturel", "desc": "Fabriqué à partir de vrai lait et d'ingrédients naturels sans additifs artificiels." },
+      "quality": { "title": "Qualité Internationale", "desc": "Processus de fabrication certifiés ISO, HACCP, HALAL et FDA." },
+      "expert": { "title": "Équipe d'Experts", "desc": "Une équipe expérimentée avec une connaissance approfondie de l'industrie laitière." },
+      "global": { "title": "Exportation Mondiale", "desc": "Exportation vers plus de 17 pays dans le monde sur 3 continents." }
+    }
+  },
+  "facility": {
+    "label": "Notre Usine",
+    "title": "Installation de Production de Pointe",
+    "subtitle": "Machines modernes, lignes de production hygiéniques et contrôles de qualité stricts",
+    "viewGallery": "Voir la Galerie"
+  },
+  "certs": {
+    "label": "Certifications",
+    "title": "Certifié Internationalement",
+    "subtitle": "Nos produits répondent aux normes mondiales les plus strictes en matière de sécurité et de qualité alimentaires",
+    "items": {
+      "iso": { "title": "ISO 22000", "desc": "Norme internationale de gestion de la sécurité alimentaire." },
+      "haccp": { "title": "HACCP", "desc": "Analyse des risques et maîtrise des points critiques." },
+      "halal": { "title": "HALAL", "desc": "Certifié halal pour les marchés musulmans mondiaux." },
+      "fda": { "title": "FDA", "desc": "Approuvé par la Food and Drug Administration des États-Unis." }
+    }
+  },
+  "exportMap": {
+    "label": "Portée Mondiale",
+    "title": "Exporter vers le Monde",
+    "subtitle": "Nos produits atteignent des clients au Moyen-Orient, en Europe et en Afrique",
+    "viewAll": "Voir Tous les Pays",
+    "regions": {
+      "middleEast": "Moyen-Orient",
+      "europe": "Europe",
+      "africa": "Afrique"
+    }
+  },
+  "catalog": {
+    "label": "Catalogue de l'Entreprise",
+    "title": "Télécharger Notre Catalogue",
+    "subtitle": "Obtenez le catalogue complet avec toutes les spécifications, options d'emballage et détails d'exportation",
+    "download": "Télécharger le Catalogue (PDF)",
+    "requestCustom": "Demander un Devis Personnalisé"
+  },
+  "cta": {
+    "title": "Prêt à Importer des Produits Laitiers Premium ?",
+    "subtitle": "Contactez notre équipe d'exportation aujourd'hui et laissez-nous construire un partenariat qui développera votre entreprise.",
+    "quote": "Demander un Devis",
+    "contact": "Contactez-nous"
+  },
+  "footer": {
+    "slogan": "Le Meilleur de la Nature",
+    "quickLinks": "Liens Rapides",
+    "products": "Produits",
+    "contactInfo": "Informations de Contact",
+    "address": "Zone Industrielle, Égypte",
+    "copyright": "© 2024 Usine Laitière Al-Nabawy. Tous Droits Réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Termes & Conditions"
+  },
+  "about": {
+    "heroTitle": "À Propos d'Al-Nabawy",
+    "heroSub": "Création de produits laitiers premium depuis 2009",
+    "storyLabel": "Notre Histoire",
+    "storyTitle": "15+ Années d'Excellence Laitière",
+    "storyBody": "Fondée en 2009, l'Usine Laitière Al-Nabawy est passée d'un producteur local à un exportateur international de confiance pour les importateurs et distributeurs sur trois continents. Notre parcours est défini par la passion pour la qualité, le strict respect des normes internationales et un profond respect des origines naturelles de chaque produit que nous fabriquons.",
+    "vision": "Notre Vision",
+    "visionBody": "Être le principal exportateur de produits laitiers d'Égypte, reconnu mondialement pour la qualité de ses produits, la sécurité alimentaire et ses chaînes d'approvisionnement fiables.",
+    "mission": "Notre Mission",
+    "missionBody": "Fabriquer et exporter des produits laitiers premium qui répondent aux normes de qualité internationales tout en maintenant des prix compétitifs et un service client exceptionnel.",
+    "values": "Valeurs Fondamentales",
+    "qualityLabel": "La Qualité d'Abord",
+    "integrityLabel": "Intégrité",
+    "innovationLabel": "Innovation",
+    "sustainLabel": "Durabilité",
+    "capacityLabel": "Capacité de Production",
+    "capacityTitle": "Fabrication à Grande Échelle",
+    "capacityBody": "Notre usine fonctionne avec des machines de pointe capables de traiter des milliers de tonnes de lait chaque année.",
+    "timelineLabel": "Notre Parcours",
+    "timelineTitle": "Jalons"
+  },
+  "products": {
+    "heroTitle": "Nos Produits",
+    "heroSub": "Produits laitiers premium pour les importateurs et distributeurs",
+    "search": "Rechercher des produits...",
+    "allCategories": "Toutes les Catégories",
+    "viewDetails": "Voir les Détails",
+    "noResults": "Aucun produit trouvé."
+  },
+  "productDetail": {
+    "packaging": "Emballage",
+    "weight": "Poids",
+    "shelfLife": "Durée de Conservation",
+    "storage": "Conditions de Stockage",
+    "origin": "Origine",
+    "specsTitle": "Spécifications",
+    "packagingTitle": "Options d'Emballage",
+    "exportTitle": "Informations d'Exportation",
+    "related": "Produits Liés",
+    "requestInfo": "Demander des Informations",
+    "whatsapp": "Contactez-nous sur WhatsApp",
+    "downloadSpec": "Télécharger les Spécifications"
+  },
+  "certifications": {
+    "heroTitle": "Nos Certifications",
+    "heroSub": "Normes de qualité et de sécurité reconnues internationalement",
+    "label": "Certifications",
+    "validity": "Valide Jusqu'au"
+  },
+  "exportMarkets": {
+    "heroTitle": "Marchés d'Exportation",
+    "heroSub": "Nous livrons des produits laitiers premium à travers le monde",
+    "countriesLabel": "Pays que Nous Servons",
+    "processLabel": "Processus d'Exportation",
+    "processTitle": "Comment Nous Exportons",
+    "steps": {
+      "inquiry": "Demande",
+      "quotation": "Devis",
+      "production": "Production",
+      "packaging": "Emballage",
+      "shipping": "Expédition",
+      "delivery": "Livraison"
+    },
+    "logisticsLabel": "Logistique",
+    "logisticsTitle": "Expédition Fiable dans le Monde Entier",
+    "logisticsBody": "Nous travaillons avec des sociétés de transport de premier plan pour garantir que votre commande arrive à temps et en parfait état, n'importe où dans le monde."
+  },
+  "gallery": {
+    "heroTitle": "Galerie",
+    "heroSub": "Voir notre usine, nos produits et nos opérations",
+    "all": "Tout",
+    "factory": "Usine",
+    "production": "Production",
+    "products": "Produits",
+    "packaging": "Emballage",
+    "exhibitions": "Expositions"
+  },
+  "contact": {
+    "heroTitle": "Contactez-nous",
+    "heroSub": "Construisons un partenariat",
+    "formTitle": "Envoyez-nous un Message",
+    "formSubtitle": "Remplissez le formulaire et notre équipe d'exportation vous contactera bientôt.",
+    "name": "Nom Complet",
+    "company": "Nom de l'Entreprise",
+    "country": "Pays",
+    "email": "Adresse E-mail",
+    "phone": "Numéro de Téléphone",
+    "interest": "Produit d'Intérêt",
+    "message": "Message",
+    "submit": "Soumettre la Demande",
+    "submitting": "Envoi...",
+    "success": "Merci ! Nous vous contacterons bientôt.",
+    "error": "Un problème est survenu. Veuillez réessayer.",
+    "infoTitle": "Informations de Contact",
+    "address": "Zone Industrielle, Égypte",
+    "phone": "+20 123 456 7890",
+    "whatsapp": "+20 123 456 789",
+    "email": "info@alnabawy.com",
+    "hours": "Heures d'Ouverture",
+    "hoursValue": "Dimanche – Jeudi : 9h00 – 17h00"
+  }
+}

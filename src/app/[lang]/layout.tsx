@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import '@/app/globals.css'
 
-export const locales: Locale[] = ['en', 'ar', 'tr', 'pl']
+export const locales: Locale[] = ['en', 'ar', 'tr', 'pl', 'de', 'fr']
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }))

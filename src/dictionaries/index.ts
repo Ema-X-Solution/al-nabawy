@@ -5,9 +5,11 @@ const dictionaries = {
   ar: () => import('./ar.json').then((m) => m.default),
   tr: () => import('./tr.json').then((m) => m.default),
   pl: () => import('./pl.json').then((m) => m.default),
+  de: () => import('./de.json').then((m) => m.default),
+  fr: () => import('./fr.json').then((m) => m.default),
 }
 
-export const locales = ['en', 'ar', 'tr', 'pl'] as const
+export const locales = ['en', 'ar', 'tr', 'pl', 'de', 'fr'] as const
 export type Locale = (typeof locales)[number]
 
 export const hasLocale = (locale: string): locale is Locale =>

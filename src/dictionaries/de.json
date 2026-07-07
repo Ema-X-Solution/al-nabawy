@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "siteName": "Al-Nabawy Molkerei",
+    "slogan": "Das Beste aus der Natur",
+    "description": "Hochwertige Milchprodukte, hergestellt und weltweit exportiert. Qualität, der Sie vertrauen können.",
+    "keywords": "Milchprodukte, Milch, Käse, Butter, Sahne, Milchpulver, Export, Halal"
+  },
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "products": "Produkte",
+    "gallery": "Galerie",
+    "certifications": "Zertifikate",
+    "export": "Exportmärkte",
+    "contact": "Kontakt",
+    "requestQuote": "Angebot anfordern"
+  },
+  "hero": {
+    "headline": "Premium Milchprodukte",
+    "headlineSub": "Von der Natur in die Welt",
+    "subheadline": "Hochwertige Milchprodukte, mit Sorgfalt hergestellt und auf 3 Kontinente weltweit exportiert",
+    "cta1": "Produkte entdecken",
+    "cta2": "Kontaktieren Sie uns"
+  },
+  "overview": {
+    "label": "Über Al-Nabawy",
+    "title": "Ein führender Hersteller von Milchprodukten",
+    "body": "Al-Nabawy ist ein führender Milchprodukthersteller, der sich auf die Herstellung hochwertiger Molkereiprodukte und deren weltweiten Export spezialisiert hat. Unsere hochmodernen Anlagen und unser Engagement für Qualität stellen sicher, dass jedes Produkt internationalen Standards entspricht.",
+    "readMore": "Mehr lesen",
+    "stats": {
+      "years": "Jahre Erfahrung",
+      "products": "Milchprodukte",
+      "countries": "Exportländer"
+    }
+  },
+  "categories": {
+    "label": "Unsere Produkte",
+    "title": "Produktkategorien",
+    "subtitle": "Entdecken Sie unser gesamtes Sortiment an Premium-Milchprodukten, die nach internationalen Standards hergestellt werden",
+    "items": {
+      "milk": { "name": "Milchprodukte", "desc": "Frische UHT-, pasteurisierte und Magermilchprodukte." },
+      "cheese": { "name": "Käse", "desc": "Mozzarella, Cheddar, Weißkäse und Spezialsorten." },
+      "butter": { "name": "Butter", "desc": "Premium ungesalzene und gesalzene Molkereibutter." },
+      "cream": { "name": "Sahne", "desc": "Schlagsahne und Kochsahne." },
+      "milkPowder": { "name": "Milchpulver", "desc": "Vollmilch- und Magermilchpulver in großen Mengen." },
+      "ingredients": { "name": "Milchzutaten", "desc": "Molkenpulver, Laktose, Kasein und mehr." }
+    },
+    "viewDetails": "Details ansehen"
+  },
+  "whyUs": {
+    "label": "Warum Wir",
+    "title": "Unsere Wettbewerbsvorteile",
+    "subtitle": "Wir setzen den Maßstab für Qualität, Sicherheit und Zuverlässigkeit in der globalen Milchindustrie",
+    "items": {
+      "natural": { "title": "100% Natürlich", "desc": "Hergestellt aus echter Milch und natürlichen Zutaten ohne künstliche Zusätze." },
+      "quality": { "title": "Internationale Qualität", "desc": "ISO-, HACCP-, HALAL- und FDA-zertifizierte Herstellungsprozesse." },
+      "expert": { "title": "Expertenteam", "desc": "Erfahrenes Team mit fundierten Kenntnissen der Milchindustrie." },
+      "global": { "title": "Globaler Export", "desc": "Export in über 17 Länder weltweit auf 3 Kontinenten." }
+    }
+  },
+  "facility": {
+    "label": "Unsere Fabrik",
+    "title": "Hochmoderne Produktionsanlage",
+    "subtitle": "Moderne Maschinen, hygienische Produktionslinien und strenge Qualitätskontrollen",
+    "viewGallery": "Galerie ansehen"
+  },
+  "certs": {
+    "label": "Zertifikate",
+    "title": "International zertifiziert",
+    "subtitle": "Unsere Produkte erfüllen die höchsten globalen Standards für Lebensmittelsicherheit und Qualität",
+    "items": {
+      "iso": { "title": "ISO 22000", "desc": "Internationaler Standard für Lebensmittelsicherheitsmanagement." },
+      "haccp": { "title": "HACCP", "desc": "Gefahrenanalyse und kritische Kontrollpunkte." },
+      "halal": { "title": "HALAL", "desc": "Halal-zertifiziert für globale muslimische Märkte." },
+      "fda": { "title": "FDA", "desc": "Zugelassen von der United States Food & Drug Administration." }
+    }
+  },
+  "exportMap": {
+    "label": "Globale Reichweite",
+    "title": "Export in die Welt",
+    "subtitle": "Unsere Produkte erreichen Kunden im Nahen Osten, in Europa und Afrika",
+    "viewAll": "Alle Länder ansehen",
+    "regions": {
+      "middleEast": "Naher Osten",
+      "europe": "Europa",
+      "africa": "Afrika"
+    }
+  },
+  "catalog": {
+    "label": "Unternehmenskatalog",
+    "title": "Laden Sie unseren Produktkatalog herunter",
+    "subtitle": "Erhalten Sie den kompletten Katalog mit allen Spezifikationen, Verpackungsoptionen und Exportdetails",
+    "download": "Katalog herunterladen (PDF)",
+    "requestCustom": "Individuelles Angebot anfordern"
+  },
+  "cta": {
+    "title": "Bereit, Premium-Milchprodukte zu importieren?",
+    "subtitle": "Kontaktieren Sie noch heute unser Exportteam und lassen Sie uns eine Partnerschaft aufbauen, die Ihr Geschäft voranbringt.",
+    "quote": "Angebot anfordern",
+    "contact": "Kontaktieren Sie uns"
+  },
+  "footer": {
+    "slogan": "Das Beste aus der Natur",
+    "quickLinks": "Schnelllinks",
+    "products": "Produkte",
+    "contactInfo": "Kontaktinformationen",
+    "address": "Industriegebiet, Ägypten",
+    "copyright": "© 2024 Al-Nabawy Molkerei. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen"
+  },
+  "about": {
+    "heroTitle": "Über Al-Nabawy",
+    "heroSub": "Herstellung von Premium-Milchprodukten seit 2009",
+    "storyLabel": "Unsere Geschichte",
+    "storyTitle": "15+ Jahre Molkerei-Exzellenz",
+    "storyBody": "Die 2009 gegründete Al-Nabawy Molkerei hat sich von einem lokalen Produzenten zu einem internationalen Exporteur entwickelt, dem Importeure und Händler auf drei Kontinenten vertrauen. Unsere Reise ist geprägt von der Leidenschaft für Qualität, der strikten Einhaltung internationaler Standards und einem tiefen Respekt für die natürlichen Ursprünge jedes von uns hergestellten Produkts.",
+    "vision": "Unsere Vision",
+    "visionBody": "Der führende Milchexporteur aus Ägypten zu sein, der weltweit für Produktqualität, Lebensmittelsicherheit und zuverlässige Lieferketten anerkannt ist.",
+    "mission": "Unsere Mission",
+    "missionBody": "Premium-Milchprodukte herzustellen und zu exportieren, die den internationalen Qualitätsstandards entsprechen und gleichzeitig wettbewerbsfähige Preise und außergewöhnlichen Kundenservice bieten.",
+    "values": "Kernwerte",
+    "qualityLabel": "Qualität an erster Stelle",
+    "integrityLabel": "Integrität",
+    "innovationLabel": "Innovation",
+    "sustainLabel": "Nachhaltigkeit",
+    "capacityLabel": "Produktionskapazität",
+    "capacityTitle": "Großflächige Herstellung",
+    "capacityBody": "Unsere Fabrik arbeitet mit modernsten Maschinen, die in der Lage sind, Tausende von Tonnen Milch pro Jahr zu verarbeiten.",
+    "timelineLabel": "Unsere Reise",
+    "timelineTitle": "Meilensteine"
+  },
+  "products": {
+    "heroTitle": "Unsere Produkte",
+    "heroSub": "Premium-Milchprodukte für Importeure und Händler",
+    "search": "Produkte suchen...",
+    "allCategories": "Alle Kategorien",
+    "viewDetails": "Details ansehen",
+    "noResults": "Keine Produkte gefunden."
+  },
+  "productDetail": {
+    "packaging": "Verpackung",
+    "weight": "Gewicht",
+    "shelfLife": "Haltbarkeit",
+    "storage": "Lagerbedingungen",
+    "origin": "Herkunft",
+    "specsTitle": "Spezifikationen",
+    "packagingTitle": "Verpackungsoptionen",
+    "exportTitle": "Exportinformationen",
+    "related": "Verwandte Produkte",
+    "requestInfo": "Informationen anfordern",
+    "whatsapp": "WhatsApp an uns",
+    "downloadSpec": "Spezifikation herunterladen"
+  },
+  "certifications": {
+    "heroTitle": "Unsere Zertifikate",
+    "heroSub": "International anerkannte Qualitäts- und Sicherheitsstandards",
+    "label": "Zertifikate",
+    "validity": "Gültig bis"
+  },
+  "exportMarkets": {
+    "heroTitle": "Exportmärkte",
+    "heroSub": "Wir liefern Premium-Milchprodukte in die ganze Welt",
+    "countriesLabel": "Länder, die wir beliefern",
+    "processLabel": "Exportprozess",
+    "processTitle": "Wie wir exportieren",
+    "steps": {
+      "inquiry": "Anfrage",
+      "quotation": "Angebot",
+      "production": "Produktion",
+      "packaging": "Verpackung",
+      "shipping": "Versand",
+      "delivery": "Lieferung"
+    },
+    "logisticsLabel": "Logistik",
+    "logisticsTitle": "Zuverlässiger weltweiter Versand",
+    "logisticsBody": "Wir arbeiten mit führenden Frachtunternehmen zusammen, um sicherzustellen, dass Ihre Bestellung pünktlich und in einwandfreiem Zustand überall auf der Welt ankommt."
+  },
+  "gallery": {
+    "heroTitle": "Galerie",
+    "heroSub": "Sehen Sie sich unsere Fabrik, Produkte und Abläufe an",
+    "all": "Alle",
+    "factory": "Fabrik",
+    "production": "Produktion",
+    "products": "Produkte",
+    "packaging": "Verpackung",
+    "exhibitions": "Ausstellungen"
+  },
+  "contact": {
+    "heroTitle": "Kontaktieren Sie uns",
+    "heroSub": "Lassen Sie uns eine Partnerschaft aufbauen",
+    "formTitle": "Senden Sie uns eine Nachricht",
+    "formSubtitle": "Füllen Sie das Formular aus und unser Exportteam wird sich in Kürze bei Ihnen melden.",
+    "name": "Vollständiger Name",
+    "company": "Firmenname",
+    "country": "Land",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefonnummer",
+    "interest": "Produktinteresse",
+    "message": "Nachricht",
+    "submit": "Anfrage senden",
+    "submitting": "Senden...",
+    "success": "Danke! Wir werden Sie in Kürze kontaktieren.",
+    "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.",
+    "infoTitle": "Kontaktinformationen",
+    "address": "Industriegebiet, Ägypten",
+    "phone": "+20 123 456 7890",
+    "whatsapp": "+20 123 456 789",
+    "email": "info@alnabawy.com",
+    "hours": "Geschäftszeiten",
+    "hoursValue": "Sonntag – Donnerstag: 9:00 – 17:00 Uhr"
+  }
+}
