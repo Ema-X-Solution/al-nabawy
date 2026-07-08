@@ -1,25 +1,19 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Locale } from '@/dictionaries'
+import type { HomeHero, HomeLocale } from '@/types/home.types'
 
 interface HeroSectionProps {
-  lang: Locale
-  t: {
-    headline: string
-    headlineSub: string
-    subheadline: string
-    cta1: string
-    cta2: string
-  }
+  lang: HomeLocale
+  config: HomeHero
 }
 
-export default function HeroSection({ lang, t }: HeroSectionProps) {
+export default function HeroSection({ lang, config }: HeroSectionProps) {
   return (
     <section className="hero-section" id="hero">
       {/* Background Image */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Image
-          src="/images/hero_bg.png"
+          src={config.bgImage?.secure_url || "/images/hero_bg.png"}
           alt="Al-Nabawy dairy products"
           fill
           style={{ objectFit: 'cover' }}
@@ -52,6 +46,25 @@ export default function HeroSection({ lang, t }: HeroSectionProps) {
       <div className="container" style={{ position: 'relative', zIndex: 1, padding: '0 1.5rem' }}>
         <div style={{ maxWidth: '700px' }}>
           {/* Badge */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'rgba(255,255,255,0.1)',
+              backdropFilter: 'blur(10px)',
+              color: 'white',
+              borderRadius: '9999px',
+              padding: '0.4rem 1.2rem',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              border: '1px solid rgba(255,255,255,0.2)',
+              animation: 'fadeUp 0.8s ease both',
+              letterSpacing: '0.1em',
+            }}
+          >
+            {config.badge[lang]}
+          </div>
 
           {/* Headline */}
           <h1
@@ -67,9 +80,9 @@ export default function HeroSection({ lang, t }: HeroSectionProps) {
               fontFamily: lang === 'ar' ? 'Cairo, sans-serif' : 'Poppins, sans-serif',
             }}
           >
-            {t.headline}
+            {config.headline[lang]}
             <br />
-            <span style={{ color: '#BEE9FF' }}>{t.headlineSub}</span>
+            <span style={{ color: '#BEE9FF' }}>{config.headlineSub[lang]}</span>
           </h1>
 
           {/* Sub */}
@@ -83,7 +96,7 @@ export default function HeroSection({ lang, t }: HeroSectionProps) {
               maxWidth: '540px',
             }}
           >
-            {t.subheadline}
+            {config.subheadline[lang]}
           </p>
 
           {/* CTAs */}
@@ -96,13 +109,13 @@ export default function HeroSection({ lang, t }: HeroSectionProps) {
             }}
           >
             <Link href={`/${lang}/products`} className="btn-primary" id="hero-cta-products">
-              {t.cta1}
+              {config.cta1[lang]}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </Link>
             <Link href={`/${lang}/contact`} className="btn-secondary" id="hero-cta-contact">
-              {t.cta2}
+              {config.cta2[lang]}
             </Link>
           </div>
         </div>

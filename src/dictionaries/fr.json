@@ -209,5 +209,76 @@
     "email": "info@alnabawy.com",
     "hours": "Heures d'Ouverture",
     "hoursValue": "Dimanche – Jeudi : 9h00 – 17h00"
+  },
+  "admin": {
+    "login": {
+      "title": "Connexion Administrateur",
+      "subtitle": "Connectez-vous pour gérer votre site",
+      "email": "Adresse E-mail",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "submitting": "Connexion en cours…",
+      "error": "E-mail ou mot de passe invalide.",
+      "rememberMe": "Se souvenir de moi",
+      "backToSite": "Retour au site"
+    },
+    "nav": {
+      "dashboard": "Tableau de bord",
+      "websiteManagement": "Gestion du site",
+      "home": "Accueil",
+      "about": "À propos",
+      "products": "Produits",
+      "categories": "Catégories",
+      "gallery": "Galerie",
+      "certifications": "Certifications",
+      "exportMarkets": "Marchés export",
+      "contactPage": "Page contact",
+      "content": "Contenu",
+      "navigation": "Navigation",
+      "mediaLibrary": "Médiathèque",
+      "communication": "Communication",
+      "contactRequests": "Demandes de contact",
+      "system": "Système",
+      "settings": "Paramètres du site",
+      "users": "Utilisateurs"
+    },
+    "dashboard": {
+      "title": "Tableau de bord",
+      "welcome": "Bon retour",
+      "totalProducts": "Total produits",
+      "categories": "Catégories",
+      "contactRequests": "Demandes de contact",
+      "newRequests": "Nouvelles demandes",
+      "mediaAssets": "Ressources média",
+      "certifications": "Certifications",
+      "viewAll": "Tout voir",
+      "manage": "Gérer"
+    },
+    "common": {
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "delete": "Supprimer",
+      "edit": "Modifier",
+      "add": "Ajouter",
+      "create": "Créer",
+      "update": "Mettre à jour",
+      "loading": "Chargement…",
+      "error": "Une erreur est survenue.",
+      "empty": "Aucun élément trouvé.",
+      "search": "Rechercher…",
+      "filter": "Filtrer",
+      "actions": "Actions",
+      "confirm": "Confirmer",
+      "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.",
+      "status": "Statut",
+      "active": "Actif",
+      "inactive": "Inactif"
+    },
+    "topbar": {
+      "viewSite": "Voir le site",
+      "logout": "Se déconnecter"
+    },
+    "comingSoon": "Bientôt disponible",
+    "comingSoonDesc": "Ce module est en cours de développement."
   }
 }

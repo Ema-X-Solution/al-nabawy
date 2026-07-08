@@ -1,21 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Locale } from '@/dictionaries'
+import type { HomeFacility, HomeLocale } from '@/types/home.types'
+import { Icons } from '@/lib/icons'
 
 interface Props {
-  lang: Locale
-  t: { label: string; title: string; subtitle: string; viewGallery: string }
+  lang: HomeLocale
+  config: HomeFacility
 }
 
-export default function ProductionFacility({ lang, t }: Props) {
+export default function ProductionFacility({ lang, config }: Props) {
   return (
     <section className="section bg-section-light" id="facility">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <span className="section-label">{t.label}</span>
+          <span className="section-label">{config.label[lang]}</span>
           <div className="divider" style={{ margin: '0.75rem auto 1rem' }} />
-          <h2 className="section-title">{t.title}</h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>{t.subtitle}</p>
+          <h2 className="section-title">{config.title[lang]}</h2>
+          <p className="section-subtitle" style={{ margin: '0 auto' }}>{config.subtitle[lang]}</p>
         </div>
 
         {/* Main image */}
@@ -29,7 +30,7 @@ export default function ProductionFacility({ lang, t }: Props) {
           }}
         >
           <Image
-            src="/images/factory.png"
+            src={config.image?.secure_url || "/images/factory.png"}
             alt="Al-Nabawy production facility"
             width={1200}
             height={500}
@@ -47,10 +48,10 @@ export default function ProductionFacility({ lang, t }: Props) {
           >
             <div>
               <h3 style={{ color: 'white', fontWeight: 700, fontSize: '1.5rem', marginBottom: '0.5rem' }}>
-                {t.title}
+                {config.title[lang]}
               </h3>
               <Link href={`/${lang}/gallery`} className="btn-secondary" id="facility-gallery-link">
-                {t.viewGallery}
+                {config.viewGallery[lang]}
               </Link>
             </div>
           </div>
@@ -65,10 +66,10 @@ export default function ProductionFacility({ lang, t }: Props) {
           }}
         >
           {[
-            { icon: '⚙️', label: lang === 'ar' ? 'خطوط إنتاج حديثة' : 'Modern Production Lines' },
-            { icon: '🧪', label: lang === 'ar' ? 'مختبر مراقبة الجودة' : 'Quality Control Lab' },
-            { icon: '📦', label: lang === 'ar' ? 'تعبئة متقدمة' : 'Advanced Packaging' },
-            { icon: '❄️', label: lang === 'ar' ? 'سلسلة تبريد كاملة' : 'Full Cold Chain' },
+            { icon: <Icons.Settings size={28} color="#169DF7" />, label: config.chip1[lang] },
+            { icon: <Icons.FlaskConical size={28} color="#169DF7" />, label: config.chip2[lang] },
+            { icon: <Icons.Package size={28} color="#169DF7" />, label: config.chip3[lang] },
+            { icon: <Icons.Snowflake size={28} color="#169DF7" />, label: config.chip4[lang] },
           ].map((f) => (
             <div
               key={f.label}
@@ -83,7 +84,7 @@ export default function ProductionFacility({ lang, t }: Props) {
                 border: '1px solid rgba(22,157,247,0.1)',
               }}
             >
-              <span style={{ fontSize: '1.75rem' }}>{f.icon}</span>
+              <span style={{ display: 'flex', alignItems: 'center' }}>{f.icon}</span>
               <span style={{ fontWeight: 600, fontSize: '0.9rem', color: '#1F2937' }}>{f.label}</span>
             </div>
           ))}

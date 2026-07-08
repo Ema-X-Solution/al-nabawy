@@ -251,5 +251,76 @@
     "email": "info@alnabawy.com",
     "hours": "Godziny Pracy",
     "hoursValue": "Niedziela – Czwartek: 9:00 – 17:00"
+  },
+  "admin": {
+    "login": {
+      "title": "Logowanie Administratora",
+      "subtitle": "Zaloguj się, aby zarządzać stroną",
+      "email": "Adres E-mail",
+      "password": "Hasło",
+      "submit": "Zaloguj się",
+      "submitting": "Logowanie…",
+      "error": "Nieprawidłowy e-mail lub hasło.",
+      "rememberMe": "Zapamiętaj mnie",
+      "backToSite": "Wróć do strony"
+    },
+    "nav": {
+      "dashboard": "Panel",
+      "websiteManagement": "Zarządzanie Stroną",
+      "home": "Strona Główna",
+      "about": "O Nas",
+      "products": "Produkty",
+      "categories": "Kategorie",
+      "gallery": "Galeria",
+      "certifications": "Certyfikaty",
+      "exportMarkets": "Rynki Eksportowe",
+      "contactPage": "Strona Kontaktowa",
+      "content": "Treść",
+      "navigation": "Nawigacja",
+      "mediaLibrary": "Biblioteka Mediów",
+      "communication": "Komunikacja",
+      "contactRequests": "Zapytania Kontaktowe",
+      "system": "System",
+      "settings": "Ustawienia Strony",
+      "users": "Użytkownicy"
+    },
+    "dashboard": {
+      "title": "Panel",
+      "welcome": "Witaj z powrotem",
+      "totalProducts": "Łącznie Produktów",
+      "categories": "Kategorie",
+      "contactRequests": "Zapytania",
+      "newRequests": "Nowe Zapytania",
+      "mediaAssets": "Zasoby Mediów",
+      "certifications": "Certyfikaty",
+      "viewAll": "Zobacz Wszystkie",
+      "manage": "Zarządzaj"
+    },
+    "common": {
+      "save": "Zapisz",
+      "cancel": "Anuluj",
+      "delete": "Usuń",
+      "edit": "Edytuj",
+      "add": "Dodaj",
+      "create": "Utwórz",
+      "update": "Aktualizuj",
+      "loading": "Ładowanie…",
+      "error": "Wystąpił błąd.",
+      "empty": "Nie znaleziono elementów.",
+      "search": "Szukaj…",
+      "filter": "Filtruj",
+      "actions": "Akcje",
+      "confirm": "Potwierdź",
+      "confirmDelete": "Czy na pewno chcesz usunąć ten element? Tej akcji nie można cofnąć.",
+      "status": "Status",
+      "active": "Aktywny",
+      "inactive": "Nieaktywny"
+    },
+    "topbar": {
+      "viewSite": "Zobacz Stronę",
+      "logout": "Wyloguj się"
+    },
+    "comingSoon": "Wkrótce",
+    "comingSoonDesc": "Ten moduł jest w trakcie aktywnego rozwoju."
   }
 }

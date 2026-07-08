@@ -251,5 +251,76 @@
     "email": "info@alnabawy.com",
     "hours": "ساعات العمل",
     "hoursValue": "الأحد – الخميس: 9:00 ص – 5:00 م"
+  },
+  "admin": {
+    "login": {
+      "title": "تسجيل دخول المشرف",
+      "subtitle": "سجّل الدخول لإدارة موقعك",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "submitting": "جارٍ تسجيل الدخول…",
+      "error": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+      "rememberMe": "تذكّرني",
+      "backToSite": "العودة إلى الموقع"
+    },
+    "nav": {
+      "dashboard": "لوحة التحكم",
+      "websiteManagement": "إدارة الموقع",
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "gallery": "المعرض",
+      "certifications": "الشهادات",
+      "exportMarkets": "أسواق التصدير",
+      "contactPage": "صفحة التواصل",
+      "content": "المحتوى",
+      "navigation": "قوائم التنقل",
+      "mediaLibrary": "مكتبة الوسائط",
+      "communication": "التواصل",
+      "contactRequests": "طلبات التواصل",
+      "system": "النظام",
+      "settings": "إعدادات الموقع",
+      "users": "المستخدمون"
+    },
+    "dashboard": {
+      "title": "لوحة التحكم",
+      "welcome": "مرحباً بعودتك",
+      "totalProducts": "إجمالي المنتجات",
+      "categories": "الفئات",
+      "contactRequests": "طلبات التواصل",
+      "newRequests": "طلبات جديدة",
+      "mediaAssets": "ملفات الوسائط",
+      "certifications": "الشهادات",
+      "viewAll": "عرض الكل",
+      "manage": "إدارة"
+    },
+    "common": {
+      "save": "حفظ",
+      "cancel": "إلغاء",
+      "delete": "حذف",
+      "edit": "تعديل",
+      "add": "إضافة",
+      "create": "إنشاء",
+      "update": "تحديث",
+      "loading": "جارٍ التحميل…",
+      "error": "حدث خطأ ما.",
+      "empty": "لا توجد عناصر.",
+      "search": "بحث…",
+      "filter": "تصفية",
+      "actions": "إجراءات",
+      "confirm": "تأكيد",
+      "confirmDelete": "هل أنت متأكد من حذف هذا العنصر؟ لا يمكن التراجع عن هذا الإجراء.",
+      "status": "الحالة",
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "topbar": {
+      "viewSite": "عرض الموقع",
+      "logout": "تسجيل الخروج"
+    },
+    "comingSoon": "قريباً",
+    "comingSoonDesc": "هذه الوحدة قيد التطوير."
   }
 }

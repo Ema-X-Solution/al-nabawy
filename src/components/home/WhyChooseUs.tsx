@@ -1,14 +1,9 @@
 import ScrollAnimation from '@/components/ScrollAnimation'
-import type { Locale } from '@/dictionaries'
+import type { HomeWhyUs, HomeLocale } from '@/types/home.types'
 
 interface Props {
-  lang: Locale
-  t: {
-    label: string
-    title: string
-    subtitle: string
-    items: Record<string, { title: string; desc: string }>
-  }
+  lang: HomeLocale
+  config: HomeWhyUs
 }
 
 const icons = {
@@ -34,7 +29,14 @@ const icons = {
   ),
 }
 
-export default function WhyChooseUs({ lang, t }: Props) {
+export default function WhyChooseUs({ lang, config }: Props) {
+  const items = [
+    { key: 'natural', ...config.natural },
+    { key: 'quality', ...config.quality },
+    { key: 'expert', ...config.expert },
+    { key: 'global', ...config.global },
+  ]
+
   return (
     <section
       className="section"
@@ -48,14 +50,14 @@ export default function WhyChooseUs({ lang, t }: Props) {
               className="section-label"
               style={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.15em' }}
             >
-              {t.label}
+              {config.label[lang]}
             </span>
             <div className="divider" style={{ margin: '0.75rem auto 1rem', background: 'rgba(255,255,255,0.4)' }} />
             <h2 className="section-title" style={{ color: 'white' }}>
-              {t.title}
+              {config.title[lang]}
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '560px', margin: '0 auto', lineHeight: 1.7 }}>
-              {t.subtitle}
+              {config.subtitle[lang]}
             </p>
           </div>
         </ScrollAnimation>
@@ -67,8 +69,8 @@ export default function WhyChooseUs({ lang, t }: Props) {
             gap: '1.5rem',
           }}
         >
-          {Object.entries(t.items).map(([key, item], i) => (
-            <ScrollAnimation key={key} delay={i * 100}>
+          {items.map((item, i) => (
+            <ScrollAnimation key={item.key} delay={i * 100}>
               <div
                 className="glass"
                 style={{
@@ -93,10 +95,10 @@ export default function WhyChooseUs({ lang, t }: Props) {
                     color: 'white',
                   }}
                 >
-                  {icons[key as keyof typeof icons]}
+                  {icons[item.key as keyof typeof icons]}
                 </div>
-                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.75rem' }}>{item.title}</h3>
-                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>{item.desc}</p>
+                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.75rem' }}>{item.title[lang]}</h3>
+                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>{item.desc[lang]}</p>
               </div>
             </ScrollAnimation>
           ))}

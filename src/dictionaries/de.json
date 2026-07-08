@@ -209,5 +209,76 @@
     "email": "info@alnabawy.com",
     "hours": "Geschäftszeiten",
     "hoursValue": "Sonntag – Donnerstag: 9:00 – 17:00 Uhr"
+  },
+  "admin": {
+    "login": {
+      "title": "Admin-Anmeldung",
+      "subtitle": "Melden Sie sich an, um Ihre Website zu verwalten",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Anmelden",
+      "submitting": "Anmeldung läuft…",
+      "error": "Ungültige E-Mail oder falsches Passwort.",
+      "rememberMe": "Angemeldet bleiben",
+      "backToSite": "Zurück zur Website"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "websiteManagement": "Website-Verwaltung",
+      "home": "Startseite",
+      "about": "Über uns",
+      "products": "Produkte",
+      "categories": "Kategorien",
+      "gallery": "Galerie",
+      "certifications": "Zertifizierungen",
+      "exportMarkets": "Exportmärkte",
+      "contactPage": "Kontaktseite",
+      "content": "Inhalt",
+      "navigation": "Navigation",
+      "mediaLibrary": "Medienbibliothek",
+      "communication": "Kommunikation",
+      "contactRequests": "Kontaktanfragen",
+      "system": "System",
+      "settings": "Website-Einstellungen",
+      "users": "Benutzer"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Willkommen zurück",
+      "totalProducts": "Produkte gesamt",
+      "categories": "Kategorien",
+      "contactRequests": "Kontaktanfragen",
+      "newRequests": "Neue Anfragen",
+      "mediaAssets": "Medien-Assets",
+      "certifications": "Zertifizierungen",
+      "viewAll": "Alle anzeigen",
+      "manage": "Verwalten"
+    },
+    "common": {
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "delete": "Löschen",
+      "edit": "Bearbeiten",
+      "add": "Hinzufügen",
+      "create": "Erstellen",
+      "update": "Aktualisieren",
+      "loading": "Laden…",
+      "error": "Ein Fehler ist aufgetreten.",
+      "empty": "Keine Einträge gefunden.",
+      "search": "Suchen…",
+      "filter": "Filter",
+      "actions": "Aktionen",
+      "confirm": "Bestätigen",
+      "confirmDelete": "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "status": "Status",
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "topbar": {
+      "viewSite": "Website anzeigen",
+      "logout": "Abmelden"
+    },
+    "comingSoon": "Demnächst",
+    "comingSoonDesc": "Dieses Modul befindet sich in aktiver Entwicklung."
   }
 }

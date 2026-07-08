@@ -1,35 +1,28 @@
 import ScrollAnimation from '@/components/ScrollAnimation'
-import type { Locale } from '@/dictionaries'
+import type { HomeCertificationsConfig, HomeLocale } from '@/types/home.types'
+import { Icons } from '@/lib/icons'
+
+import type { CertificationsDocument } from '@/types/certifications.types'
 
 interface Props {
-  lang: Locale
-  t: { label: string; title: string; subtitle: string; items: Record<string, { title: string; desc: string }> }
+  lang: HomeLocale
+  config: HomeCertificationsConfig
+  certsData?: CertificationsDocument
 }
 
-const certColors: Record<string, string> = {
-  iso: '#169DF7',
-  haccp: '#8BC34A',
-  halal: '#4FC3F7',
-  fda: '#1F2937',
-}
+export default function CertificationsSection({ lang, config, certsData }: Props) {
+  // Use dynamic items if available, else empty array
+  const items = certsData?.items?.filter(item => item.status === 'published').sort((a, b) => a.order - b.order) || []
 
-const certEmoji: Record<string, string> = {
-  iso: '🏅',
-  haccp: '✅',
-  halal: '☪️',
-  fda: '🏛️',
-}
-
-export default function CertificationsSection({ lang, t }: Props) {
   return (
     <section className="section" id="certs">
       <div className="container">
         <ScrollAnimation>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <span className="section-label">{t.label}</span>
+            <span className="section-label">{config.label[lang]}</span>
             <div className="divider" style={{ margin: '0.75rem auto 1rem' }} />
-            <h2 className="section-title">{t.title}</h2>
-            <p className="section-subtitle" style={{ margin: '0 auto' }}>{t.subtitle}</p>
+            <h2 className="section-title">{config.title[lang]}</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto' }}>{config.subtitle[lang]}</p>
           </div>
         </ScrollAnimation>
 
@@ -40,24 +33,30 @@ export default function CertificationsSection({ lang, t }: Props) {
             gap: '1.5rem',
           }}
         >
-          {Object.entries(t.items).map(([key, item], i) => (
-            <ScrollAnimation key={key} delay={i * 100}>
+          {items.slice(0, config.maxItems).map((item, i) => (
+            <ScrollAnimation key={item.id} delay={i * 100}>
               <div
                 className="cert-card"
-                style={{ borderTop: `4px solid ${certColors[key] || '#169DF7'}` }}
+                style={{ borderTop: `4px solid ${item.color || '#169DF7'}` }}
               >
-                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{certEmoji[key]}</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+                  {item.image ? (
+                    <img src={item.image} alt={item.title[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']} style={{ width: 48, height: 48, objectFit: 'contain' }} />
+                  ) : (
+                    <Icons.Award size={48} color={item.color || "#169DF7"} />
+                  )}
+                </div>
                 <div
                   style={{
                     fontWeight: 800,
                     fontSize: '1.3rem',
-                    color: certColors[key] || '#169DF7',
+                    color: item.color || '#169DF7',
                     marginBottom: '0.5rem',
                   }}
                 >
-                  {item.title}
+                  {item.title[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']}
                 </div>
-                <p style={{ fontSize: '0.875rem', color: '#6b7280', lineHeight: 1.6 }}>{item.desc}</p>
+                <p style={{ fontSize: '0.875rem', color: '#6b7280', lineHeight: 1.6 }}>{item.desc[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']}</p>
               </div>
             </ScrollAnimation>
           ))}

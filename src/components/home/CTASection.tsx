@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Locale } from '@/dictionaries'
+import type { HomeCTA, HomeLocale } from '@/types/home.types'
 
 interface Props {
-  lang: Locale
-  t: { title: string; subtitle: string; quote: string; contact: string }
+  lang: HomeLocale
+  config: HomeCTA
 }
 
-export default function CTASection({ lang, t }: Props) {
+export default function CTASection({ lang, config }: Props) {
   return (
     <section
       className="section"
@@ -15,7 +15,7 @@ export default function CTASection({ lang, t }: Props) {
       style={{ position: 'relative', overflow: 'hidden' }}
     >
       <Image
-        src="/images/hero_bg.png"
+        src={config.bgImage?.secure_url || "/images/hero_bg.png"}
         alt=""
         fill
         style={{ objectFit: 'cover' }}
@@ -38,17 +38,17 @@ export default function CTASection({ lang, t }: Props) {
             fontFamily: lang === 'ar' ? 'Cairo, sans-serif' : 'Poppins, sans-serif',
           }}
         >
-          {t.title}
+          {config.title[lang]}
         </h2>
         <p style={{ color: 'rgba(255,255,255,0.85)', maxWidth: '520px', margin: '0 auto 2.5rem', lineHeight: 1.7, fontSize: '1.05rem' }}>
-          {t.subtitle}
+          {config.subtitle[lang]}
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <Link href={`/${lang}/contact`} className="btn-primary" style={{ background: 'white', color: '#169DF7', fontSize: '1rem', padding: '0.9rem 2.5rem' }} id="cta-quote">
-            {t.quote}
+            {config.quote[lang]}
           </Link>
           <Link href={`/${lang}/contact`} className="btn-secondary" style={{ fontSize: '1rem', padding: '0.9rem 2.5rem' }} id="cta-contact">
-            {t.contact}
+            {config.contact[lang]}
           </Link>
         </div>
       </div>

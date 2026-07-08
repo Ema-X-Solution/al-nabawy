@@ -251,5 +251,76 @@
     "email": "info@alnabawy.com",
     "hours": "Çalışma Saatleri",
     "hoursValue": "Pazar – Perşembe: 09:00 – 17:00"
+  },
+  "admin": {
+    "login": {
+      "title": "Yönetici Girişi",
+      "subtitle": "Web sitenizi yönetmek için giriş yapın",
+      "email": "E-posta Adresi",
+      "password": "Şifre",
+      "submit": "Giriş Yap",
+      "submitting": "Giriş yapılıyor…",
+      "error": "Geçersiz e-posta veya şifre.",
+      "rememberMe": "Beni hatırla",
+      "backToSite": "Web sitesine dön"
+    },
+    "nav": {
+      "dashboard": "Gösterge Paneli",
+      "websiteManagement": "Web Sitesi Yönetimi",
+      "home": "Ana Sayfa",
+      "about": "Hakkımızda",
+      "products": "Ürünler",
+      "categories": "Kategoriler",
+      "gallery": "Galeri",
+      "certifications": "Sertifikalar",
+      "exportMarkets": "İhracat Pazarları",
+      "contactPage": "İletişim Sayfası",
+      "content": "İçerik",
+      "navigation": "Navigasyon",
+      "mediaLibrary": "Medya Kütüphanesi",
+      "communication": "İletişim",
+      "contactRequests": "İletişim Talepleri",
+      "system": "Sistem",
+      "settings": "Web Sitesi Ayarları",
+      "users": "Kullanıcılar"
+    },
+    "dashboard": {
+      "title": "Gösterge Paneli",
+      "welcome": "Tekrar hoş geldiniz",
+      "totalProducts": "Toplam Ürünler",
+      "categories": "Kategoriler",
+      "contactRequests": "İletişim Talepleri",
+      "newRequests": "Yeni Talepler",
+      "mediaAssets": "Medya Varlıkları",
+      "certifications": "Sertifikalar",
+      "viewAll": "Tümünü Gör",
+      "manage": "Yönet"
+    },
+    "common": {
+      "save": "Kaydet",
+      "cancel": "İptal",
+      "delete": "Sil",
+      "edit": "Düzenle",
+      "add": "Ekle",
+      "create": "Oluştur",
+      "update": "Güncelle",
+      "loading": "Yükleniyor…",
+      "error": "Bir hata oluştu.",
+      "empty": "Öğe bulunamadı.",
+      "search": "Ara…",
+      "filter": "Filtrele",
+      "actions": "İşlemler",
+      "confirm": "Onayla",
+      "confirmDelete": "Bu öğeyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
+      "status": "Durum",
+      "active": "Aktif",
+      "inactive": "Pasif"
+    },
+    "topbar": {
+      "viewSite": "Siteyi Görüntüle",
+      "logout": "Çıkış Yap"
+    },
+    "comingSoon": "Yakında",
+    "comingSoonDesc": "Bu modül aktif geliştirme aşamasındadır."
   }
 }

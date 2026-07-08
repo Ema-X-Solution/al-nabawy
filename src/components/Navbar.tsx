@@ -6,6 +6,7 @@ import Image from 'next/image'
 import type { Locale } from '@/dictionaries'
 import LanguageSwitcher from './LanguageSwitcher'
 
+
 interface NavbarProps {
   lang: Locale
   t: {
@@ -64,8 +65,7 @@ export default function Navbar({ lang, t }: NavbarProps) {
             href={`/${lang}`}
             style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}
           >
-            <Image src="/images/logo.png" alt="Logo" width={100} height={100} />
-            
+            <Image src="/images/logo.png" alt="Logo" width={100} height={100} style={{ objectFit: 'contain' }} />
           </Link>
 
           {/* Desktop Nav Links */}

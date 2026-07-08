@@ -209,5 +209,76 @@
     "email": "info@alnabawy.com",
     "hours": "Business Hours",
     "hoursValue": "Sunday – Thursday: 9:00 AM – 5:00 PM"
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Sign in to manage your website",
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in…",
+      "error": "Invalid email or password.",
+      "rememberMe": "Remember me",
+      "backToSite": "Back to website"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "websiteManagement": "Website Management",
+      "home": "Home",
+      "about": "About",
+      "products": "Products",
+      "categories": "Categories",
+      "gallery": "Gallery",
+      "certifications": "Certifications",
+      "exportMarkets": "Export Markets",
+      "contactPage": "Contact Page",
+      "content": "Content",
+      "navigation": "Navigation",
+      "mediaLibrary": "Media Library",
+      "communication": "Communication",
+      "contactRequests": "Contact Requests",
+      "system": "System",
+      "settings": "Website Settings",
+      "users": "Users"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome back",
+      "totalProducts": "Total Products",
+      "categories": "Categories",
+      "contactRequests": "Contact Requests",
+      "newRequests": "New Requests",
+      "mediaAssets": "Media Assets",
+      "certifications": "Certifications",
+      "viewAll": "View All",
+      "manage": "Manage"
+    },
+    "common": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "add": "Add",
+      "create": "Create",
+      "update": "Update",
+      "loading": "Loading…",
+      "error": "An error occurred.",
+      "empty": "No items found.",
+      "search": "Search…",
+      "filter": "Filter",
+      "actions": "Actions",
+      "confirm": "Confirm",
+      "confirmDelete": "Are you sure you want to delete this item? This action cannot be undone.",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "topbar": {
+      "viewSite": "View Site",
+      "logout": "Logout"
+    },
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "This module is under active development."
   }
 }

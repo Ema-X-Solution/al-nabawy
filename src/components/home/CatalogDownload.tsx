@@ -1,11 +1,12 @@
-import type { Locale } from '@/dictionaries'
+import type { HomeCatalog, HomeLocale } from '@/types/home.types'
+import { Icons } from '@/lib/icons'
 
 interface Props {
-  lang: Locale
-  t: { label: string; title: string; subtitle: string; download: string; requestCustom: string }
+  lang: HomeLocale
+  config: HomeCatalog
 }
 
-export default function CatalogDownload({ lang, t }: Props) {
+export default function CatalogDownload({ lang, config }: Props) {
   return (
     <section
       className="section"
@@ -36,20 +37,22 @@ export default function CatalogDownload({ lang, t }: Props) {
             letterSpacing: '0.1em',
           }}
         >
-          📄 {t.label}
+          <Icons.FileText size={16} /> {config.label[lang]}
         </div>
 
         <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', fontWeight: 800, color: 'white', marginBottom: '1rem' }}>
-          {t.title}
+          {config.title[lang]}
         </h2>
         <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '500px', margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-          {t.subtitle}
+          {config.subtitle[lang]}
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <a
-            href="/catalog.pdf"
+            href={config.file?.secure_url ? config.file.secure_url.replace('/upload/', '/upload/fl_attachment/') : '/catalog.pdf'}
             download
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary"
             style={{ fontSize: '1rem', padding: '0.9rem 2.5rem' }}
             id="catalog-download-btn"
@@ -57,7 +60,7 @@ export default function CatalogDownload({ lang, t }: Props) {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
             </svg>
-            {t.download}
+            {config.download[lang]}
           </a>
           <a
             href={`/${lang}/contact`}
@@ -65,7 +68,7 @@ export default function CatalogDownload({ lang, t }: Props) {
             style={{ fontSize: '1rem', padding: '0.9rem 2.5rem', borderColor: 'rgba(255,255,255,0.4)' }}
             id="catalog-custom-btn"
           >
-            {t.requestCustom}
+            {config.requestCustom[lang]}
           </a>
         </div>
       </div>

@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Locale } from '@/dictionaries'
+import { getFooterConfig } from '@/app/actions/footerActions'
+import { getCategories } from '@/app/actions/categoriesActions'
+import { Icons } from '@/lib/icons'
 
 interface FooterProps {
   lang: Locale
@@ -26,7 +29,26 @@ interface FooterProps {
   catT: { items: Record<string, { name: string }> }
 }
 
-export default function Footer({ lang, t, navT, catT }: FooterProps) {
+export default async function Footer({ lang, t, navT, catT }: FooterProps) {
+  const dbConfig = await getFooterConfig()
+  const categories = await getCategories()
+  const isAr = lang === 'ar'
+
+  const slogan = dbConfig ? (isAr ? dbConfig.sloganAr : dbConfig.sloganEn) : t.slogan
+  const address = dbConfig ? (isAr ? dbConfig.addressAr : dbConfig.addressEn) : t.address
+  const phone1 = dbConfig?.phone1 || '+20 123 456 7890'
+  const phone2 = dbConfig?.phone2 || '+20 123 456 789'
+  const whatsapp = dbConfig?.whatsapp || '+20 123 456 789'
+  const email = dbConfig?.email || 'info@alnabawy.com'
+  const copyright = dbConfig ? (isAr ? dbConfig.copyrightAr : dbConfig.copyrightEn) : t.copyright
+
+  const defaultSocialLinks = [
+    { platform: 'Facebook', url: '#', svgIcon: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' },
+    { platform: 'Instagram', url: '#', svgIcon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z' },
+    { platform: 'LinkedIn', url: '#', svgIcon: 'M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z M9.75 15.02V8.98L15.5 12l-5.75 3.02z' },
+  ]
+  const socialLinks = dbConfig?.socialLinks?.length ? dbConfig.socialLinks : defaultSocialLinks
+
   return (
     <footer style={{ background: '#0f1929', color: 'rgba(255,255,255,0.8)', marginTop: 'auto' }}>
       {/* Main */}
@@ -43,18 +65,14 @@ export default function Footer({ lang, t, navT, catT }: FooterProps) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
             <Image src="/images/logo.png" alt="Al-Nabawy" width={100} height={100} />      
             </div>
-            <p style={{ fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>{t.slogan}</p>
+            <p style={{ fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>{slogan}</p>
             {/* Social */}
             <div style={{ display: 'flex', gap: '0.6rem' }}>
-              {[
-                { label: 'Facebook', path: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' },
-                { label: 'Instagram', path: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z' },
-                { label: 'LinkedIn', path: 'M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z M9.75 15.02V8.98L15.5 12l-5.75 3.02z' },
-              ].map((s) => (
+              {socialLinks.map((s) => (
                 <a
-                  key={s.label}
-                  href="#"
-                  aria-label={s.label}
+                  key={s.platform}
+                  href={s.url}
+                  aria-label={s.platform}
                   style={{
                     width: 36,
                     height: 36,
@@ -69,7 +87,7 @@ export default function Footer({ lang, t, navT, catT }: FooterProps) {
                   }}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d={s.path} />
+                    <path d={s.svgIcon} />
                   </svg>
                 </a>
               ))}
@@ -117,10 +135,10 @@ export default function Footer({ lang, t, navT, catT }: FooterProps) {
               {t.products}
             </h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {Object.entries(catT.items).map(([key, val]) => (
-                <li key={key}>
+              {categories.map((cat) => (
+                <li key={cat.id}>
                   <Link
-                    href={`/${lang}/products?cat=${key}`}
+                    href={`/${lang}/products?cat=${cat.slug}`}
                     style={{
                       color: 'rgba(255,255,255,0.7)',
                       textDecoration: 'none',
@@ -131,7 +149,7 @@ export default function Footer({ lang, t, navT, catT }: FooterProps) {
                     }}
                   >
                     <span style={{ color: '#169DF7', fontSize: '0.7rem' }}>▶</span>
-                    {val.name}
+                    {cat.name[lang] || cat.name.en}
                   </Link>
                 </li>
               ))}
@@ -145,13 +163,14 @@ export default function Footer({ lang, t, navT, catT }: FooterProps) {
             </h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
-                { icon: '📍', text: t.address },
-                { icon: '📞', text: '+20 123 456 7890' },
-                { icon: '💬', text: '+20 123 456 789 (WhatsApp)' },
-                { icon: '✉️', text: 'info@alnabawy.com' },
+                { icon: <Icons.MapPin size={16} />, text: address },
+                { icon: <Icons.Phone size={16} />, text: phone1 },
+                { icon: <Icons.Phone size={16} />, text: phone2 },
+                { icon: <Icons.MessageCircle size={16} />, text: `${whatsapp} (WhatsApp)` },
+                { icon: <Icons.Mail size={16} />, text: email },
               ].map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: '0.6rem', fontSize: '0.875rem', alignItems: 'flex-start' }}>
-                  <span>{item.icon}</span>
+                  <span style={{ marginTop: '2px', color: '#169DF7' }}>{item.icon}</span>
                   <span style={{ color: 'rgba(255,255,255,0.7)' }}>{item.text}</span>
                 </li>
               ))}
@@ -175,13 +194,10 @@ export default function Footer({ lang, t, navT, catT }: FooterProps) {
             color: 'rgba(255,255,255,0.45)',
           }}
         >
-          <span>{t.copyright}</span>
+          <span>{copyright}</span>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <Link href="#" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
-              {t.privacy}
-            </Link>
-            <Link href="#" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
-              {t.terms}
+            <Link href={`/${lang}/export-policy`} style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
+              {isAr ? 'سياسة التصدير' : 'Export Policy'}
             </Link>
           </div>
         </div>

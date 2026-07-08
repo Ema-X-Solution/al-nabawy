@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import '@/app/globals.css'
 
 export const locales: Locale[] = ['en', 'ar', 'tr', 'pl', 'de', 'fr']
@@ -46,7 +43,6 @@ export default async function LangLayout({
   if (!hasLocale(lang)) notFound()
 
   const locale = lang as Locale
-  const dict = await getDictionary(locale)
   const isRtl = locale === 'ar'
 
   return (
@@ -67,10 +63,7 @@ export default async function LangLayout({
           flexDirection: 'column',
         }}
       >
-        <Navbar lang={locale} t={dict.nav} />
-        <main style={{ flex: 1 }}>{children}</main>
-        <Footer lang={locale} t={dict.footer} navT={dict.nav} catT={dict.categories} />
-        <WhatsAppButton number="+20123456789" />
+        {children}
       </body>
     </html>
   )

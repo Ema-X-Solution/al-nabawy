@@ -2,20 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedCounter from '@/components/AnimatedCounter'
 import ScrollAnimation from '@/components/ScrollAnimation'
-import type { Locale } from '@/dictionaries'
+import type { HomeOverview, HomeLocale } from '@/types/home.types'
+import { Icons } from '@/lib/icons'
 
 interface Props {
-  lang: Locale
-  t: {
-    label: string
-    title: string
-    body: string
-    readMore: string
-    stats: { years: string; products: string; countries: string }
-  }
+  lang: HomeLocale
+  config: HomeOverview
 }
 
-export default function CompanyOverview({ lang, t }: Props) {
+export default function CompanyOverview({ lang, config }: Props) {
   return (
     <section className="section bg-section-light" id="overview">
       <div className="container">
@@ -29,19 +24,19 @@ export default function CompanyOverview({ lang, t }: Props) {
         >
           {/* Text */}
           <ScrollAnimation direction={lang === 'ar' ? 'right' : 'left'}>
-            <span className="section-label">{t.label}</span>
+            <span className="section-label">{config.label[lang]}</span>
             <div className="divider" />
-            <h2 className="section-title">{t.title}</h2>
+            <h2 className="section-title">{config.title[lang]}</h2>
             <p style={{ color: '#6b7280', lineHeight: 1.8, marginBottom: '2rem', fontSize: '1.05rem' }}>
-              {t.body}
+              {config.body[lang]}
             </p>
 
             {/* Stats */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
               {[
-                { target: 15, suffix: '+', label: t.stats.years },
-                { target: 20, suffix: '+', label: t.stats.products },
-                { target: 17, suffix: '+', label: t.stats.countries },
+                { target: 15, suffix: '+', label: config.statsYears[lang] },
+                { target: 20, suffix: '+', label: config.statsProducts[lang] },
+                { target: 17, suffix: '+', label: config.statsCountries[lang] },
               ].map((s) => (
                 <div key={s.label} className="stat-card">
                   <AnimatedCounter target={s.target} suffix={s.suffix} />
@@ -51,7 +46,7 @@ export default function CompanyOverview({ lang, t }: Props) {
             </div>
 
             <Link href={`/${lang}/about`} className="btn-primary" id="overview-readmore">
-              {t.readMore}
+              {config.readMore[lang]}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d={lang === 'ar' ? 'M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z' : 'M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'} />
               </svg>
@@ -62,7 +57,7 @@ export default function CompanyOverview({ lang, t }: Props) {
           <ScrollAnimation direction={lang === 'ar' ? 'left' : 'right'}>
             <div style={{ position: 'relative', borderRadius: '1.5rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(22,157,247,0.2)' }}>
               <Image
-                src="/images/factory.png"
+                src={config.image?.secure_url || "/images/factory.png"}
                 alt="Al-Nabawy factory"
                 width={600}
                 height={420}
@@ -113,7 +108,7 @@ export default function CompanyOverview({ lang, t }: Props) {
                   gap: '0.5rem',
                 }}
               >
-                <span style={{ fontSize: '1.5rem' }}>🏆</span>
+                <span style={{ display: 'flex', alignItems: 'center' }}><Icons.Trophy size={24} color="#f59e0b" /></span>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#1F2937' }}>ISO 22000</div>
                   <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>Certified Factory</div>
