@@ -20,7 +20,7 @@ export default async function PublicLayout({
   return (
     <>
       <Navbar lang={locale} t={dict.nav} />
-      <main style={{ flex: 1 }}>{children}</main>
+      <main style={{ flex: 1, overflowX: 'hidden' }}>{children}</main>
       <Footer lang={locale} t={dict.footer} navT={dict.nav} catT={dict.categories} />
       <WhatsAppButton number={whatsappNumber} />
     </>
