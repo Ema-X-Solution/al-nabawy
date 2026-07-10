@@ -49,6 +49,7 @@ import {
   Download,
   Upload,
   FlaskConical,
+  Mailbox,
 } from 'lucide-react'
 
 export const Icons = {
@@ -102,4 +103,5 @@ export const Icons = {
   Download,
   Upload,
   FlaskConical,
+  Mailbox,
 }

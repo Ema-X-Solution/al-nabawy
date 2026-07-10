@@ -44,25 +44,7 @@ export default async function PreviewCategoryPage({ params }: { params: Promise<
                     style={{ objectFit: 'cover' }}
                   />
                 )}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '0.75rem',
-                    left: lang === 'ar' ? 'auto' : '0.75rem',
-                    right: lang === 'ar' ? '0.75rem' : 'auto',
-                    fontSize: '1.75rem',
-                    background: 'white',
-                    width: 44,
-                    height: 44,
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    boxShadow: '0 2px 12px rgba(0,0,0,0.12)',
-                  }}
-                >
-                  {category.icon}
-                </div>
+
               </div>
 
               <div style={{ padding: '1.25rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
