@@ -28,6 +28,15 @@ export async function generateMetadata({
       title: dict.meta.siteName,
       description: dict.meta.description,
       type: 'website',
+      url: `https://www.al-nabawy.com/${lang}`,
+      images: [
+        {
+          url: 'https://www.al-nabawy.com/opengraph-image.png',
+          width: 1200,
+          height: 630,
+          alt: dict.meta.siteName,
+        },
+      ],
     },
   }
 }
