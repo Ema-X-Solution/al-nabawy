@@ -46,7 +46,7 @@ export default function HeroSection({ lang, config }: HeroSectionProps) {
       <div className="container" style={{ position: 'relative', zIndex: 1, padding: '0 1.5rem' }}>
         <div style={{ maxWidth: '700px' }}>
           {/* Badge */}
-          <div
+          {/* <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -64,7 +64,7 @@ export default function HeroSection({ lang, config }: HeroSectionProps) {
             }}
           >
             {config.badge[lang]}
-          </div>
+          </div> */}
 
           {/* Headline */}
           <h1
