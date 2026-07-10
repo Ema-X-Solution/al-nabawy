@@ -12,11 +12,20 @@ export const metadata: Metadata = {
     siteName: 'Al-Nabawy Dairy Factory',
     locale: 'en',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Al-Nabawy Dairy Factory',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Al-Nabawy Dairy Factory',
     description: 'Premium dairy products manufactured and exported worldwide.',
+    images: ['/opengraph-image.png'],
   },
 }
 
