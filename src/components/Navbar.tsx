@@ -105,7 +105,7 @@ export default function Navbar({ lang, t }: NavbarProps) {
 
           {/* Right side */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <LanguageSwitcher currentLang={lang} />
+            <LanguageSwitcher currentLang={lang} scrolled={scrolled} />
           
             {/* Hamburger */}
             <button
@@ -170,7 +170,7 @@ export default function Navbar({ lang, t }: NavbarProps) {
             </Link>
           ))}
           <div style={{ marginTop: '0.5rem' }}>
-            <LanguageSwitcher currentLang={lang} />
+            <LanguageSwitcher currentLang={lang} scrolled={scrolled} />
           </div>
         </div>
       )}

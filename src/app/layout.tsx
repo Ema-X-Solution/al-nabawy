@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '../app/globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://al-nabawy.com'),
   title: 'Al-Nabawy Dairy Factory',
   description: 'Premium dairy products manufactured and exported worldwide.',
 }

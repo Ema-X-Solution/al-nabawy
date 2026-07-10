@@ -14,12 +14,33 @@ const locales: { code: Locale; label: string; name: string; flagUrl: string }[] 
   { code: 'fr', label: 'FR', name: 'Français', flagUrl: 'https://flagcdn.com/fr.svg' },
 ]
 
-export default function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
+export default function LanguageSwitcher({ currentLang, scrolled = false }: { currentLang: Locale; scrolled?: boolean }) {
   const pathname  = usePathname()
   const [isOpen, setIsOpen]   = useState(false)
   const [pinned, setPinned]   = useState(false)   // true = clicked open, stays open until click-outside
   const containerRef = useRef<HTMLDivElement>(null)
   const isRtl = currentLang === 'ar'
+
+  /* ── Color tokens based on scroll state ── */
+  const colors = scrolled
+    ? {
+        text: '#1F2937',
+        border: pinned ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,0,0.12)',
+        bg: pinned ? 'rgba(0,0,0,0.06)' : 'transparent',
+        hoverBg: 'rgba(0,0,0,0.05)',
+        hoverBorder: 'rgba(0,0,0,0.2)',
+        restBg: 'transparent',
+        restBorder: 'rgba(0,0,0,0.12)',
+      }
+    : {
+        text: '#fff',
+        border: pinned ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.3)',
+        bg: pinned ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.1)',
+        hoverBg: 'rgba(255,255,255,0.2)',
+        hoverBorder: 'rgba(255,255,255,0.6)',
+        restBg: 'rgba(255,255,255,0.1)',
+        restBorder: 'rgba(255,255,255,0.3)',
+      }
 
   /* Close on click outside */
   useEffect(() => {
@@ -66,7 +87,7 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Locale 
   return (
     <div
       ref={containerRef}
-      className="relative inline-block"
+      style={{ position: 'relative', display: 'inline-block' }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -75,23 +96,53 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Locale 
         type="button"
         dir="ltr"
         onClick={onTriggerClick}
-        className={`flex items-center gap-2 cursor-pointer px-3.5 py-2 rounded-full border text-white transition-all duration-300 backdrop-blur-sm select-none outline-none
-          ${pinned
-            ? 'bg-white/25 border-white/70 shadow-md'
-            : 'bg-white/10 border-white/30 hover:bg-white/20 hover:border-white/60'
-          }`}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          cursor: 'pointer',
+          padding: '8px 14px',
+          borderRadius: 9999,
+          border: `1px solid ${colors.border}`,
+          color: colors.text,
+          background: colors.bg,
+          backdropFilter: scrolled ? 'none' : 'blur(4px)',
+          WebkitBackdropFilter: scrolled ? 'none' : 'blur(4px)',
+          boxShadow: pinned ? '0 4px 6px -1px rgba(0,0,0,0.1)' : 'none',
+          userSelect: 'none',
+          outline: 'none',
+          transition: 'all 300ms',
+        }}
+        onMouseEnter={(e) => {
+          if (!pinned) {
+            e.currentTarget.style.background = colors.hoverBg
+            e.currentTarget.style.borderColor = colors.hoverBorder
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!pinned) {
+            e.currentTarget.style.background = colors.restBg
+            e.currentTarget.style.borderColor = colors.restBorder
+          }
+        }}
       >
         <Image
           src={currentLocale!.flagUrl}
           alt={currentLocale!.label}
           width={22}
           height={15}
-          className="rounded-sm object-cover flex-shrink-0"
+          style={{ borderRadius: 2, objectFit: 'cover', flexShrink: 0 }}
           unoptimized
         />
-        <span className="font-semibold text-sm tracking-wide">{currentLocale?.label}</span>
+        <span style={{ fontWeight: 600, fontSize: 14, letterSpacing: '0.025em' }}>{currentLocale?.label}</span>
         <svg
-          className={`w-3.5 h-3.5 opacity-70 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+          style={{
+            width: 14,
+            height: 14,
+            opacity: 0.7,
+            transition: 'transform 300ms',
+            transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+          }}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -106,56 +157,81 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Locale 
       {/* ── Dropdown ── */}
       <div
         dir="ltr"
-        className={`absolute top-[calc(100%+8px)] flex flex-col bg-white rounded-2xl z-[9999] transition-all duration-200 origin-top
-          ${isOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'}`}
         style={{
-          width: 200,
-          boxShadow: '0 16px 48px -8px rgba(0,0,0,0.20), 0 0 0 1px rgba(0,0,0,0.06)',
+          position: 'absolute',
+          top: 'calc(100% + 8px)',
           ...(isRtl ? { left: 0 } : { right: 0 }),
+          width: 210,
+          display: 'flex',
+          flexDirection: 'column',
+          background: '#fff',
+          borderRadius: 14,
+          boxShadow: '0 16px 48px -8px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.06)',
+          zIndex: 9999,
+          opacity: isOpen ? 1 : 0,
+          transform: isOpen ? 'scaleY(1)' : 'scaleY(0.95)',
+          transformOrigin: 'top',
+          pointerEvents: isOpen ? 'auto' : 'none',
+          transition: 'opacity 200ms, transform 200ms',
+          overflow: 'hidden',
         }}
       >
         {/* Header */}
-        <div className="px-4 pt-3 pb-2 border-b border-gray-100">
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.15em]">
+        <div style={{ padding: '12px 16px 8px', borderBottom: '1px solid #f0f0f0' }}>
+          <p style={{ margin: 0, fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
             Select Language
           </p>
         </div>
 
         {/* Items */}
-        <div className="py-2 px-2 flex flex-col gap-0.5">
+        <div style={{ padding: 6, display: 'flex', flexDirection: 'column', gap: 2 }}>
           {locales.map((locale) => {
             const isActive = currentLang === locale.code
             return (
               <Link
                 key={locale.code}
                 href={getLocalePath(locale.code)}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl no-underline text-sm transition-all duration-150 group
-                  ${isActive
-                    ? 'bg-sky-50 text-[#169DF7] font-semibold'
-                    : 'text-gray-700 font-medium hover:bg-gray-50 hover:text-gray-900'
-                  }`}
                 onClick={onSelect}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  padding: '10px 12px',
+                  borderRadius: 10,
+                  textDecoration: 'none',
+                  fontSize: 14,
+                  fontWeight: isActive ? 600 : 500,
+                  color: isActive ? '#169DF7' : '#374151',
+                  background: isActive ? '#f0f9ff' : 'transparent',
+                  transition: 'background 150ms, color 150ms',
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.background = '#f9fafb'
+                    e.currentTarget.style.color = '#111827'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.background = 'transparent'
+                    e.currentTarget.style.color = '#374151'
+                  }
+                }}
               >
                 <Image
                   src={locale.flagUrl}
                   alt={locale.label}
                   width={24}
                   height={16}
-                  className="rounded-[3px] object-cover flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-150"
+                  style={{ borderRadius: 3, objectFit: 'cover', flexShrink: 0 }}
                   unoptimized
                 />
-                <span className="flex-1 whitespace-nowrap">{locale.name}</span>
-                {isActive
-                  ? (
-                    <svg className="w-4 h-4 text-[#169DF7] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                  )
-                }
+                <span style={{ flex: 1, whiteSpace: 'nowrap' }}>{locale.name}</span>
+                {isActive && (
+                  <svg style={{ width: 16, height: 16, color: '#169DF7', flexShrink: 0 }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                )}
               </Link>
             )
           })}
