@@ -1,6 +1,8 @@
 import { getDictionary, type Locale } from '@/dictionaries'
 import DashboardShell from '@/components/admin/layout/DashboardShell'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * Protected dashboard layout.
  * DashboardShell (client component) redirects to /login if unauthenticated.
