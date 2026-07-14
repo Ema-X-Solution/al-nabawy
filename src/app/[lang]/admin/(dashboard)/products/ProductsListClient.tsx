@@ -48,6 +48,8 @@ export default function ProductsListClient({ initialProducts, lang }: Props) {
       setIsDeleting(null)
       if (res.success) {
         setProducts(prev => prev.filter(p => p.id !== targetId))
+        const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+        await revalidatePublicPath('/')
       }
     } else if (modalType === 'all') {
       if (confirmText !== 'DELETE ALL') return
@@ -57,6 +59,8 @@ export default function ProductsListClient({ initialProducts, lang }: Props) {
       setIsDeleting(null)
       if (res.success) {
         setProducts([])
+        const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+        await revalidatePublicPath('/')
       }
     }
   }

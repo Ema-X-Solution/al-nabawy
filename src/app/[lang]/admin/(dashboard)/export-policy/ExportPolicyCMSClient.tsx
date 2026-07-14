@@ -30,6 +30,8 @@ export default function ExportPolicyCMSClient({ initialConfig }: Props) {
       const res = await saveExportPolicyConfig(config)
       if (res.success) {
         setSaveMsg('Saved successfully!')
+        const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+        await revalidatePublicPath('/')
       } else {
         setSaveMsg(`Error: ${res.error}`)
       }

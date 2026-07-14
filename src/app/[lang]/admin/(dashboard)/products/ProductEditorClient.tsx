@@ -52,6 +52,8 @@ export default function ProductEditorClient({ initialProduct, categories, lang }
     const res = await saveProduct(product)
     setIsSaving(false)
     if (res.success) {
+      const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+      await revalidatePublicPath('/')
       router.push(`/${lang}/admin/products`)
       router.refresh()
     } else {

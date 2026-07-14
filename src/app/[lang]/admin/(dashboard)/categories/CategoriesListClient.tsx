@@ -72,6 +72,8 @@ export default function CategoriesListClient({ initialCategories, initialProduct
       if (res.success) {
         setCategories(prev => prev.filter(c => c.id !== targetId))
         setProducts(prev => prev.filter(p => p.category !== targetId))
+        const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+        await revalidatePublicPath('/')
       } else {
         alert(res.error || 'Failed to delete category')
       }
@@ -84,6 +86,8 @@ export default function CategoriesListClient({ initialCategories, initialProduct
       if (res.success) {
         setCategories([])
         setProducts([])
+        const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+        await revalidatePublicPath('/')
       } else {
         alert(res.error || 'Failed to delete all categories')
       }

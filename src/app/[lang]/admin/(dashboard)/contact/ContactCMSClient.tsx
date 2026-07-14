@@ -139,7 +139,11 @@ export default function ContactCMSClient({ initialConfig }: Props) {
     setIsSaving(true)
     const res = await saveContactConfig(config)
     setIsSaving(false)
-    if (res.success) window.location.reload()
+    if (res.success) {
+      const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+      await revalidatePublicPath('/')
+      window.location.reload()
+    }
     else alert(res.error || 'Failed to save.')
   }
 

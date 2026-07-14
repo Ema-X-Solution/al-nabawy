@@ -65,6 +65,8 @@ export default function CategoryEditorClient({ initialData, lang }: Props) {
 
     if (res.success) {
       setHasUnsavedChanges(false)
+      const { revalidatePublicPath } = await import('@/app/actions/revalidateActions')
+      await revalidatePublicPath('/')
       router.push(`/${lang}/admin/categories`)
       router.refresh()
     } else {
