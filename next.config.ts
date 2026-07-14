@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ['firebase-admin'],
+  serverExternalPackages: ['@google-cloud/firestore'],
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'flagcdn.com' },
