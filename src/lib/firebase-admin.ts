@@ -6,44 +6,63 @@ function initApp() {
   if (getApps().length > 0) {
     return getApp()
   }
-  
+
+  const projectId = process.env.FIREBASE_ADMIN_PROJECT_ID
+  const clientEmail = process.env.FIREBASE_ADMIN_CLIENT_EMAIL
+  let privateKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY || ''
+
+  // Log diagnostics (safe – only lengths, not secrets)
+  console.log('[firebase-admin] init – projectId:', projectId ?? '(missing)')
+  console.log('[firebase-admin] init – clientEmail:', clientEmail ?? '(missing)')
+  console.log('[firebase-admin] init – privateKey length:', privateKey.length)
+
+  if (!projectId || !clientEmail || !privateKey) {
+    console.error('[firebase-admin] MISSING env vars – cannot initialise')
+    return undefined
+  }
+
   try {
-    let privateKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY || ''
-    
     // Remove wrapping quotes if they exist (common when pasting into Vercel)
     if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
       privateKey = privateKey.slice(1, -1)
+      console.log('[firebase-admin] stripped surrounding quotes, new length:', privateKey.length)
     }
-    
+
     // Replace literal '\n' with actual newlines
     privateKey = privateKey.replace(/\\n/g, '\n')
 
     return initializeApp({
       credential: cert({
-        projectId: process.env.FIREBASE_ADMIN_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
+        projectId,
+        clientEmail,
         privateKey,
       }),
     })
   } catch (error) {
-    console.error('Firebase Admin initialization error', error)
-    // Return undefined to prevent crashing at the module level
+    console.error('[firebase-admin] initialization error:', error)
     return undefined
   }
 }
 
-const throwProxy = new Proxy({} as any, {
-  get: (target, prop) => {
-    if (typeof prop === 'symbol' || prop === 'then' || prop === '__esModule' || prop === '$$typeof') {
-      return undefined;
-    }
-    return () => { throw new Error('Firebase not initialized') };
-  }
-});
+const app = initApp()
 
-const app = initApp();
+const throwNotInitialized = (method: string) => {
+  throw new Error(`Firebase Admin not initialized – cannot call ${method}`)
+}
 
-// Export proxies or initialize directly if successful
-// If app failed to initialize, these will throw when USED, not when imported.
-export const adminAuth = app ? getAuth(app) : throwProxy;
-export const adminDb = app ? getFirestore(app) : throwProxy;
+// Safe fallback that won't interfere with Next.js module resolution
+const adminDbFallback = {
+  doc: (path: string) => throwNotInitialized(`doc("${path}")`),
+  collection: (path: string) => throwNotInitialized(`collection("${path}")`),
+} as any
+
+const adminAuthFallback = {
+  createUser: () => throwNotInitialized('createUser'),
+  updateUser: () => throwNotInitialized('updateUser'),
+  deleteUser: () => throwNotInitialized('deleteUser'),
+  getUser: () => throwNotInitialized('getUser'),
+  verifyIdToken: () => throwNotInitialized('verifyIdToken'),
+} as any
+
+export const adminAuth = app ? getAuth(app) : adminAuthFallback
+export const adminDb = app ? getFirestore(app) : adminDbFallback
