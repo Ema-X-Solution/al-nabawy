@@ -14,7 +14,7 @@ interface Props {
     error: string
     submitting: string
   }
-  productOptions: Record<string, { name: string }>
+  productOptions: { id: string; name: string }[]
 }
 
 export default function ContactForm({ lang, config, tSystem, productOptions }: Props) {
@@ -84,8 +84,8 @@ export default function ContactForm({ lang, config, tSystem, productOptions }: P
               <label className="form-label">{config.labelInterest[lang]}</label>
               <select name="interest" value={form.interest} onChange={handleChange} className="form-input">
                 <option value="">— Select —</option>
-                {Object.entries(productOptions).map(([key, val]) => (
-                  <option key={key} value={key}>{val.name}</option>
+                {productOptions.map((opt) => (
+                  <option key={opt.id} value={opt.id}>{opt.name}</option>
                 ))}
               </select>
             </div>

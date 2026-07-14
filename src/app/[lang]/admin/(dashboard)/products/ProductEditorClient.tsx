@@ -2,12 +2,14 @@
 
 import React, { useState } from 'react'
 import type { ProductDocument, LocalizedString } from '@/types/products.types'
+import type { CategoryDocument } from '@/types/categories.types'
 import { saveProduct } from '@/app/actions/productsActions'
 import MediaPicker from '@/components/admin/MediaPicker'
 import { useRouter } from 'next/navigation'
 
 interface Props {
   initialProduct?: ProductDocument
+  categories: CategoryDocument[]
   lang: string
 }
 
@@ -20,14 +22,15 @@ const LANGUAGES = [
   { code: 'fr', label: 'French' }
 ] as const
 
-const CATEGORIES = ['milk', 'cheese', 'butter', 'cream', 'milkPowder', 'ingredients']
-
 const emptyLocString = (): LocalizedString => ({ en: '', ar: '', tr: '', pl: '', de: '', fr: '' })
 
-export default function ProductEditorClient({ initialProduct, lang }: Props) {
+export default function ProductEditorClient({ initialProduct, categories, lang }: Props) {
   const router = useRouter()
+  // Try to default to the first available category if it exists
+  const defaultCat = categories.length > 0 ? categories[0].id : 'milk'
+  
   const [product, setProduct] = useState<ProductDocument>(initialProduct || {
-    id: '', slug: '', category: 'milk', image: '', status: 'draft', featured: false,
+    id: '', slug: '', category: defaultCat, image: '', status: 'draft', featured: false,
     name: emptyLocString(), description: emptyLocString(),
     packaging: emptyLocString(), weight: emptyLocString(), shelfLife: emptyLocString(),
     storage: emptyLocString(), origin: emptyLocString(),
@@ -85,7 +88,7 @@ export default function ProductEditorClient({ initialProduct, lang }: Props) {
           <div>
             <label style={labelStyle}>Category</label>
             <select style={fieldStyle} value={product.category} onChange={e => patch('category', e.target.value)}>
-              {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
+              {categories.map(c => <option key={c.id} value={c.id}>{c.name.en || c.name.ar}</option>)}
             </select>
           </div>
           <div>

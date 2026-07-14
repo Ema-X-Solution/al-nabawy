@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import ProductsClient from './ProductsClient'
 import { getProducts } from '@/app/actions/productsActions'
 import { getCategories } from '@/app/actions/categoriesActions'
+import React from 'react'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -34,7 +35,9 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
 
       <section className="section">
         <div className="container">
-          <ProductsClient lang={locale} t={dict.products} initialProducts={publishedProducts} categories={publishedCategories} />
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <ProductsClient lang={locale} t={dict.products} initialProducts={publishedProducts} categories={publishedCategories} />
+          </React.Suspense>
         </div>
       </section>
     </>

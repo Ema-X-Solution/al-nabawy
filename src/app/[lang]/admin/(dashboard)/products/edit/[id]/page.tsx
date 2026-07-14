@@ -3,6 +3,7 @@ import PageContainer from '@/components/admin/ui/PageContainer'
 import PageHeader from '@/components/admin/ui/PageHeader'
 import ProductEditorClient from '../../ProductEditorClient'
 import { getProductById } from '@/app/actions/productsActions'
+import { getCategories } from '@/app/actions/categoriesActions'
 import { notFound } from 'next/navigation'
 
 export default async function EditProductPage({ params }: { params: Promise<{ lang: string; id: string }> }) {
@@ -13,6 +14,8 @@ export default async function EditProductPage({ params }: { params: Promise<{ la
 
   const product = await getProductById(id)
   if (!product) notFound()
+  
+  const categories = await getCategories()
 
   return (
     <PageContainer>
@@ -25,7 +28,7 @@ export default async function EditProductPage({ params }: { params: Promise<{ la
         ]}
       />
       <div className="mt-6">
-        <ProductEditorClient initialProduct={product} lang={lang} />
+        <ProductEditorClient initialProduct={product} lang={lang} categories={categories} />
       </div>
     </PageContainer>
   )

@@ -93,7 +93,7 @@ export default function SectionCard({ meta, children, onToggleEnabled }: Section
           </svg>
         </button>
 
-        {/* Status dot button */}
+        {/* Toggle button */}
         <button
           data-toggle
           type="button"
@@ -103,12 +103,27 @@ export default function SectionCard({ meta, children, onToggleEnabled }: Section
           }}
           title={meta.enabled ? "Disable section" : "Enable section"}
           style={{
-            width: 14, height: 14, borderRadius: '50%', flexShrink: 0,
-            background: meta.enabled ? '#22c55e' : '#d1d5db',
-            boxShadow: meta.enabled ? '0 0 0 3px rgba(34,197,94,0.2)' : 'none',
-            border: 'none', cursor: 'pointer', padding: 0
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            background: meta.enabled ? '#eff6ff' : '#f3f4f6',
+            color: meta.enabled ? '#2563eb' : '#6b7280',
+            border: `1px solid ${meta.enabled ? '#bfdbfe' : '#e5e7eb'}`,
+            padding: '4px 10px',
+            borderRadius: '16px',
+            cursor: 'pointer',
+            fontSize: '12px',
+            fontWeight: 600,
+            flexShrink: 0,
+            transition: 'all 0.2s ease',
           }}
-        />
+        >
+          <div style={{
+            width: 8, height: 8, borderRadius: '50%',
+            background: meta.enabled ? '#2563eb' : '#9ca3af',
+          }} />
+          {meta.enabled ? 'Visible' : 'Hidden'}
+        </button>
 
         {/* Icon badge */}
         <div style={{

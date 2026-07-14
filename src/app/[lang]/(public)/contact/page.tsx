@@ -21,6 +21,9 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const t = dict.contact
 
   const config = await getContactConfig()
+  const { getCategories } = await import('@/app/actions/categoriesActions')
+  const categories = await getCategories()
+  const publishedCategories = categories.filter(c => c.status === 'published')
 
   const contactItems = [
     { icon: <Icons.MapPin size={22} color="#169DF7" />, label: config.labelCountry[locale] || 'Address', value: config.address },
@@ -44,7 +47,12 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '3rem', alignItems: 'flex-start' }}>
             {/* Form */}
-            <ContactForm lang={locale} config={config} tSystem={{ success: t.success, error: t.error, submitting: t.submitting }} productOptions={dict.categories.items} />
+            <ContactForm 
+              lang={locale} 
+              config={config} 
+              tSystem={{ success: t.success, error: t.error, submitting: t.submitting }} 
+              productOptions={publishedCategories.map(c => ({ id: c.id, name: c.name[locale] || Object.values(c.name)[0] }))} 
+            />
 
             {/* Contact Info */}
             <div>

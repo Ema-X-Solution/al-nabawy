@@ -2,12 +2,14 @@ import { getDictionary, type Locale } from '@/dictionaries'
 import PageContainer from '@/components/admin/ui/PageContainer'
 import PageHeader from '@/components/admin/ui/PageHeader'
 import ProductEditorClient from '../ProductEditorClient'
+import { getCategories } from '@/app/actions/categoriesActions'
 
 export default async function CreateProductPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
   const locale = lang as Locale
   const dict = await getDictionary(locale)
   const t = dict.admin
+  const categories = await getCategories()
 
   return (
     <PageContainer>
@@ -20,7 +22,7 @@ export default async function CreateProductPage({ params }: { params: Promise<{ 
         ]}
       />
       <div className="mt-6">
-        <ProductEditorClient lang={lang} />
+        <ProductEditorClient lang={lang} categories={categories} />
       </div>
     </PageContainer>
   )

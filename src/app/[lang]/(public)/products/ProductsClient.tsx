@@ -1,7 +1,8 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import type { Locale } from '@/dictionaries'
 import type { ProductDocument } from '@/types/products.types'
 import type { CategoryDocument } from '@/types/categories.types'
@@ -19,8 +20,14 @@ interface Props {
 }
 
 export default function ProductsClient({ lang, t, initialProducts, categories }: Props) {
+  const searchParams = useSearchParams()
   const [activeCat, setActiveCat] = useState<string>('all')
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    const cat = searchParams.get('cat')
+    if (cat) setActiveCat(cat)
+  }, [searchParams])
 
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
 
