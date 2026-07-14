@@ -41,6 +41,8 @@ const throwProxy = new Proxy({} as any, {
   }
 });
 
+const app = initApp();
+
 // Export proxies or initialize directly if successful
 // If app failed to initialize, these will throw when USED, not when imported.
 export const adminAuth = app ? getAuth(app) : throwProxy;
