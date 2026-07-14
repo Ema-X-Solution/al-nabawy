@@ -32,9 +32,16 @@ function initApp() {
   }
 }
 
-const app = initApp()
+const throwProxy = new Proxy({} as any, {
+  get: (target, prop) => {
+    if (typeof prop === 'symbol' || prop === 'then' || prop === '__esModule' || prop === '$$typeof') {
+      return undefined;
+    }
+    return () => { throw new Error('Firebase not initialized') };
+  }
+});
 
 // Export proxies or initialize directly if successful
 // If app failed to initialize, these will throw when USED, not when imported.
-export const adminAuth = app ? getAuth(app) : new Proxy({} as any, { get: () => () => { throw new Error('Firebase not initialized') } })
-export const adminDb = app ? getFirestore(app) : new Proxy({} as any, { get: () => () => { throw new Error('Firebase not initialized') } })
+export const adminAuth = app ? getAuth(app) : throwProxy;
+export const adminDb = app ? getFirestore(app) : throwProxy;
