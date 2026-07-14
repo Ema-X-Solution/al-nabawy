@@ -29,7 +29,7 @@ export async function saveContactConfig(
   try {
     const dRef = doc(db, CONTACT_DOC_REF)
     await setDoc(dRef, { ...config, updatedAt: new Date().toISOString() })
-    revalidatePath('/[lang]/contact', 'page')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error('Error saving contact config:', error)
