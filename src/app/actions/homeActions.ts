@@ -1,7 +1,6 @@
 'use server'
 
-import { doc, getDoc, setDoc } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
+import { adminDb } from '@/lib/firebase-admin'
 import { HomeDocument, createDefaultHomeDocument } from '@/types/home.types'
 import { revalidatePath } from 'next/cache'
 
@@ -13,10 +12,10 @@ const HOME_SETTINGS_DOC = 'settings/home'
  */
 export async function getHomeConfig(): Promise<HomeDocument> {
   try {
-    const dRef = doc(db, HOME_SETTINGS_DOC)
-    const snap = await getDoc(dRef)
+    const dRef = adminDb.doc(HOME_SETTINGS_DOC)
+    const snap = await dRef.get()
 
-    if (!snap.exists()) {
+    if (!snap.exists) {
       console.log('No home config found in Firestore, creating default...')
       const defaultDoc = createDefaultHomeDocument()
       return defaultDoc
@@ -62,7 +61,7 @@ export async function getHomeConfig(): Promise<HomeDocument> {
  */
 export async function saveHomeConfig(data: HomeDocument): Promise<{ success: boolean; error?: string }> {
   try {
-    const dRef = doc(db, HOME_SETTINGS_DOC)
+    const dRef = adminDb.doc(HOME_SETTINGS_DOC)
     
     // Add updatedAt timestamp
     const dataToSave = {
@@ -70,7 +69,7 @@ export async function saveHomeConfig(data: HomeDocument): Promise<{ success: boo
       updatedAt: new Date().toISOString()
     }
 
-    await setDoc(dRef, dataToSave)
+    await dRef.set(dataToSave)
     revalidatePath('/', 'page')
     return { success: true }
   } catch (error) {

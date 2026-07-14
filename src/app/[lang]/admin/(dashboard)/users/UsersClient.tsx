@@ -116,9 +116,9 @@ export default function UsersClient({ initialUsers }: Props) {
                     <td style={{ padding: '14px 16px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#169DF7', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, fontSize: '14px', flexShrink: 0 }}>
-                          {user.displayName[0]?.toUpperCase() || 'U'}
+                          {user.displayName?.[0]?.toUpperCase() || 'U'}
                         </div>
-                        <span style={{ fontWeight: 600, fontSize: '14px', color: '#111827' }}>{user.displayName}</span>
+                        <span style={{ fontWeight: 600, fontSize: '14px', color: '#111827' }}>{user.displayName || 'Unknown User'}</span>
                       </div>
                     </td>
                     <td style={{ padding: '14px 16px', fontSize: '13px', color: '#4b5563' }}>{user.email}</td>

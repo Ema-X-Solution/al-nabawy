@@ -1,7 +1,6 @@
 'use server'
 
-import { doc, getDoc, setDoc } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
+import { adminDb } from '@/lib/firebase-admin'
 import { createDefaultAboutDocument, type AboutDocument } from '@/types/about.types'
 import { revalidatePath } from 'next/cache'
 
@@ -13,9 +12,9 @@ const ABOUT_DOC_REF = 'settings/about'
  */
 export async function getAboutConfig(): Promise<AboutDocument> {
   try {
-    const dRef = doc(db, ABOUT_DOC_REF)
-    const snap = await getDoc(dRef)
-    if (snap.exists()) {
+    const dRef = adminDb.doc(ABOUT_DOC_REF)
+    const snap = await dRef.get()
+    if (snap.exists) {
       const data = snap.data() as AboutDocument
       // Backfill timelineItems if document is old and missing them
       if (!data.timelineItems) {
@@ -38,8 +37,8 @@ export async function saveAboutConfig(
   config: AboutDocument,
 ): Promise<{ success: boolean; error?: string }> {
   try {
-    const dRef = doc(db, ABOUT_DOC_REF)
-    await setDoc(dRef, { ...config, updatedAt: new Date().toISOString() })
+    const dRef = adminDb.doc(ABOUT_DOC_REF)
+    await dRef.set({ ...config, updatedAt: new Date().toISOString() })
     revalidatePath('/[lang]/about', 'page')
     return { success: true }
   } catch (error) {
