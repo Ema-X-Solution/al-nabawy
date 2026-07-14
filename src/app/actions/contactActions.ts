@@ -1,17 +1,15 @@
 'use server'
 
-import { doc, getDoc, setDoc } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
+import { adminDb } from '@/lib/firebase-admin'
 import { createDefaultContactDocument, type ContactDocument } from '@/types/contact.types'
 import { revalidatePath } from 'next/cache'
 
-const CONTACT_DOC_REF = 'settings/contact'
+const CONTACT_DOC = 'settings/contact'
 
 export async function getContactConfig(): Promise<ContactDocument> {
   try {
-    const dRef = doc(db, CONTACT_DOC_REF)
-    const snap = await getDoc(dRef)
-    if (snap.exists()) {
+    const snap = await adminDb.doc(CONTACT_DOC).get()
+    if (snap.exists) {
       const data = snap.data() as ContactDocument
       const defaults = createDefaultContactDocument()
       return { ...defaults, ...data }
@@ -23,16 +21,13 @@ export async function getContactConfig(): Promise<ContactDocument> {
   }
 }
 
-export async function saveContactConfig(
-  config: ContactDocument,
-): Promise<{ success: boolean; error?: string }> {
+export async function saveContactConfig(config: ContactDocument): Promise<{ success: boolean; error?: string }> {
   try {
-    const dRef = doc(db, CONTACT_DOC_REF)
-    await setDoc(dRef, { ...config, updatedAt: new Date().toISOString() })
+    await adminDb.doc(CONTACT_DOC).set({ ...config, updatedAt: new Date().toISOString() })
     revalidatePath('/', 'layout')
     return { success: true }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving contact config:', error)
-    return { success: false, error: String(error) }
+    return { success: false, error: error.message }
   }
 }

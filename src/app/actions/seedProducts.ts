@@ -1,5 +1,6 @@
-import { db } from '@/lib/firebase'
-import { collection, doc, getDocs, writeBatch } from 'firebase/firestore'
+'use server'
+
+import { adminDb } from '@/lib/firebase-admin'
 import { products } from '@/data/products'
 import type { ProductDocument } from '@/types/products.types'
 
@@ -8,15 +9,15 @@ function makeLocString(str: string) {
 }
 
 export async function seedProductsIfEmpty() {
-  const snap = await getDocs(collection(db, 'products'))
+  const snap = await adminDb.collection('products').get()
   if (!snap.empty) return
 
-  const batch = writeBatch(db)
-  
+  const batch = adminDb.batch()
+
   for (const p of products) {
     const id = `prod_${Date.now()}_${Math.random().toString(36).substring(7)}`
-    const docRef = doc(db, 'products', id)
-    
+    const docRef = adminDb.collection('products').doc(id)
+
     const productDoc: ProductDocument = {
       id,
       slug: p.slug,
@@ -32,9 +33,9 @@ export async function seedProductsIfEmpty() {
       storage: makeLocString(p.storage),
       origin: makeLocString(p.origin),
       createdAt: Date.now(),
-      updatedAt: Date.now()
+      updatedAt: Date.now(),
     }
-    
+
     batch.set(docRef, productDoc)
   }
 

@@ -1,13 +1,15 @@
-import { db } from '@/lib/firebase'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
-import type { CertificationsDocument } from '@/types/certifications.types'
+'use server'
 
-const CERTIFICATIONS_CONFIG_ID = 'certifications_config'
+import { adminDb } from '@/lib/firebase-admin'
+import type { CertificationsDocument } from '@/types/certifications.types'
+import { revalidatePath } from 'next/cache'
+
+const CERTIFICATIONS_DOC = 'settings/certifications_config'
 
 export async function getCertificationsConfig(): Promise<CertificationsDocument | null> {
   try {
-    const snap = await getDoc(doc(db, 'settings', CERTIFICATIONS_CONFIG_ID))
-    return snap.exists() ? (snap.data() as CertificationsDocument) : null
+    const snap = await adminDb.doc(CERTIFICATIONS_DOC).get()
+    return snap.exists ? (snap.data() as CertificationsDocument) : null
   } catch (error) {
     console.error('Error fetching certifications config:', error)
     return null
@@ -16,7 +18,8 @@ export async function getCertificationsConfig(): Promise<CertificationsDocument 
 
 export async function saveCertificationsConfig(config: CertificationsDocument): Promise<{ success: boolean; error?: string }> {
   try {
-    await setDoc(doc(db, 'settings', CERTIFICATIONS_CONFIG_ID), config)
+    await adminDb.doc(CERTIFICATIONS_DOC).set(config)
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error: any) {
     console.error('Error saving certifications config:', error)

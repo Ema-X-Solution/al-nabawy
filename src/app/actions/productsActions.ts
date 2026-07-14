@@ -1,11 +1,15 @@
-import { db } from '@/lib/firebase'
-import { collection, doc, getDocs, getDoc, setDoc, deleteDoc, writeBatch } from 'firebase/firestore'
+'use server'
+
+import { adminDb } from '@/lib/firebase-admin'
 import type { ProductDocument } from '@/types/products.types'
+import { revalidatePath } from 'next/cache'
 
 export async function getProducts(): Promise<ProductDocument[]> {
   try {
-    const snap = await getDocs(collection(db, 'products'))
-    return snap.docs.map(d => d.data() as ProductDocument).sort((a, b) => b.createdAt - a.createdAt)
+    const snap = await adminDb.collection('products').get()
+    return snap.docs
+      .map(d => d.data() as ProductDocument)
+      .sort((a, b) => b.createdAt - a.createdAt)
   } catch (error) {
     console.error('Error fetching products:', error)
     return []
@@ -14,8 +18,8 @@ export async function getProducts(): Promise<ProductDocument[]> {
 
 export async function getProductById(id: string): Promise<ProductDocument | null> {
   try {
-    const snap = await getDoc(doc(db, 'products', id))
-    return snap.exists() ? (snap.data() as ProductDocument) : null
+    const snap = await adminDb.collection('products').doc(id).get()
+    return snap.exists ? (snap.data() as ProductDocument) : null
   } catch (error) {
     console.error(`Error fetching product ${id}:`, error)
     return null
@@ -27,8 +31,9 @@ export async function saveProduct(product: ProductDocument): Promise<{ success: 
     const p = { ...product, updatedAt: Date.now() }
     if (!p.createdAt) p.createdAt = Date.now()
     if (!p.id) p.id = `prod_${Date.now()}`
-    
-    await setDoc(doc(db, 'products', p.id), p)
+
+    await adminDb.collection('products').doc(p.id).set(p)
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error: any) {
     console.error('Error saving product:', error)
@@ -38,7 +43,8 @@ export async function saveProduct(product: ProductDocument): Promise<{ success: 
 
 export async function deleteProduct(id: string): Promise<{ success: boolean; error?: string }> {
   try {
-    await deleteDoc(doc(db, 'products', id))
+    await adminDb.collection('products').doc(id).delete()
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error: any) {
     console.error(`Error deleting product ${id}:`, error)
@@ -48,12 +54,11 @@ export async function deleteProduct(id: string): Promise<{ success: boolean; err
 
 export async function deleteAllProducts(): Promise<{ success: boolean; error?: string }> {
   try {
-    const snap = await getDocs(collection(db, 'products'))
-    const batch = writeBatch(db)
-    snap.docs.forEach(d => {
-      batch.delete(d.ref)
-    })
+    const snap = await adminDb.collection('products').get()
+    const batch = adminDb.batch()
+    snap.docs.forEach(d => batch.delete(d.ref))
     await batch.commit()
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error: any) {
     console.error('Error deleting all products:', error)
