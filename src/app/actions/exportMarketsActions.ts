@@ -26,7 +26,7 @@ export async function getExportMarketsConfig(): Promise<ExportMarketsDocument> {
 export async function saveExportMarketsConfig(config: ExportMarketsDocument): Promise<{ success: boolean; error?: string }> {
   try {
     await setDoc(doc(db, 'settings', EXPORT_MARKETS_CONFIG_ID), config)
-    revalidatePath('/[lang]/export-markets', 'page')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error: any) {
     console.error('Error saving export markets config:', error)

@@ -70,7 +70,7 @@ export async function saveHomeConfig(data: HomeDocument): Promise<{ success: boo
     }
 
     await dRef.set(dataToSave)
-    revalidatePath('/', 'page')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error('Error saving home config:', error)

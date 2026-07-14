@@ -39,7 +39,7 @@ export async function saveAboutConfig(
   try {
     const dRef = adminDb.doc(ABOUT_DOC_REF)
     await dRef.set({ ...config, updatedAt: new Date().toISOString() })
-    revalidatePath('/[lang]/about', 'page')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error('Error saving about config:', error)

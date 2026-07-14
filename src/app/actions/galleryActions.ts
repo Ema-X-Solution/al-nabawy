@@ -33,7 +33,7 @@ export async function saveGalleryConfig(
   try {
     const dRef = doc(db, GALLERY_DOC_REF)
     await setDoc(dRef, { ...config, updatedAt: new Date().toISOString() })
-    revalidatePath('/[lang]/gallery', 'page')
+    revalidatePath('/', 'layout')
     return { success: true }
   } catch (error) {
     console.error('Error saving gallery config:', error)
