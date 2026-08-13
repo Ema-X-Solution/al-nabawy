@@ -17,7 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang, slug } = await params
   if (!hasLocale(lang)) return {}
   const products = await getProducts()
-  const product = products.find(p => p.slug === slug && p.status === 'published')
+  const decodedSlug = decodeURIComponent(slug)
+  const product = products.find(p => (p.slug === decodedSlug || p.id === decodedSlug) && p.status === 'published')
   if (!product) return {}
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
   return { title: product.name[localeStr], description: product.description[localeStr] }
@@ -30,10 +31,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const dict = await getDictionary(locale)
   
   const products = await getProducts()
-  const product = products.find(p => p.slug === slug && p.status === 'published')
+  const decodedSlug = decodeURIComponent(slug)
+  const product = products.find(p => (p.slug === decodedSlug || p.id === decodedSlug) && p.status === 'published')
   if (!product) notFound()
   
-  const related = products.filter((p) => p.slug !== slug && p.category === product.category && p.status === 'published').slice(0, 3)
+  const related = products.filter((p) => p.slug !== decodedSlug && p.id !== decodedSlug && p.category === product.category && p.status === 'published').slice(0, 3)
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
   const footerConfig = await getFooterConfig()
   const whatsapp = footerConfig?.whatsapp || '+20123456789'

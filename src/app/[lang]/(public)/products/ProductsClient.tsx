@@ -1,8 +1,7 @@
 'use client'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import type { Locale } from '@/dictionaries'
 import type { ProductDocument } from '@/types/products.types'
 import type { CategoryDocument } from '@/types/categories.types'
@@ -19,28 +18,41 @@ interface Props {
   categories: CategoryDocument[]
 }
 
+/** Normalize a string for robust comparison: lowercase + trim */
+const norm = (s: string) => (s || '').toLowerCase().trim()
+
 export default function ProductsClient({ lang, t, initialProducts, categories }: Props) {
-  const searchParams = useSearchParams()
   const [activeCat, setActiveCat] = useState<string>('all')
   const [search, setSearch] = useState('')
-
-  useEffect(() => {
-    const cat = searchParams.get('cat')
-    if (cat) setActiveCat(cat)
-  }, [searchParams])
 
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
 
   const filtered = useMemo(() => {
+    if (activeCat === 'all' && !search) return initialProducts
+
+    const activeCatDoc = activeCat !== 'all'
+      ? categories.find(c => norm(c.id) === norm(activeCat))
+      : null
+
     return initialProducts.filter((p) => {
-      const matchCat = activeCat === 'all' || p.category === activeCat
+      let matchCat = true
+      if (activeCat !== 'all') {
+        const pc = norm(p.category)
+        // Match by: exact id, normalized id, slug, or normalized slug
+        matchCat =
+          pc === norm(activeCat) ||
+          (activeCatDoc !== undefined && activeCatDoc !== null && (
+            pc === norm(activeCatDoc.slug) ||
+            pc === norm(activeCatDoc.id)
+          ))
+      }
       const matchSearch =
         !search ||
         p.name[localeStr]?.toLowerCase().includes(search.toLowerCase()) ||
         p.description[localeStr]?.toLowerCase().includes(search.toLowerCase())
       return matchCat && matchSearch
     })
-  }, [activeCat, search, initialProducts, localeStr])
+  }, [activeCat, search, initialProducts, localeStr, categories])
 
   return (
     <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
@@ -176,7 +188,7 @@ export default function ProductsClient({ lang, t, initialProducts, categories }:
                     {p.description[localeStr]?.slice(0, 80)}...
                   </p>
                   <Link
-                    href={`/${lang}/products/${p.slug}`}
+                    href={`/${lang}/products/${encodeURIComponent(p.slug || p.id)}`}
                     className="btn-outline"
                     style={{ alignSelf: 'flex-start', fontSize: '0.8rem', padding: '0.4rem 1rem' }}
                   >

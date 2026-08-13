@@ -28,7 +28,14 @@ export async function getProductById(id: string): Promise<ProductDocument | null
 
 export async function saveProduct(product: ProductDocument): Promise<{ success: boolean; error?: string }> {
   try {
-    const p = { ...product, updatedAt: Date.now() }
+    // Auto-sanitize slug: lowercase, spaces → dashes, strip non-URL chars
+    const sanitizedSlug = (product.slug || product.id)
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-_]/g, '')
+
+    const p = { ...product, slug: sanitizedSlug, updatedAt: Date.now() }
     if (!p.createdAt) p.createdAt = Date.now()
     if (!p.id) p.id = `prod_${Date.now()}`
 
