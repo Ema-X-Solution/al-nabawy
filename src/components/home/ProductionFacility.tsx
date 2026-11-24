@@ -23,7 +23,7 @@ export default function ProductionFacility({ lang, config }: Props) {
         {/* Wide video spot (plays on click) with image fallback */}
         <div style={{ marginBottom: '1.5rem' }}>
           <VideoSpot
-            poster={config.image?.secure_url || "/images/factory.png"}
+            poster={config.image?.secure_url || "/images/facility-v3.jpg"}
             videoUrl={config.video?.secure_url || '/videos/al-nabawy-facility.mp4'}
             alt="Al-Nabawy production facility"
             height={460}
