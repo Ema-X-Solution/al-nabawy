@@ -4,6 +4,7 @@ import type { Locale } from '@/dictionaries'
 import { getFooterConfig } from '@/app/actions/footerActions'
 import { getCategories } from '@/app/actions/categoriesActions'
 import { Icons } from '@/lib/icons'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 interface FooterProps {
   lang: Locale
@@ -171,7 +172,7 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
                 // Placeholder numbers stay hidden until real ones are set in the CMS
                 ...(phone1.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone1, ltr: true }]),
                 ...(phone2.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone2, ltr: true }]),
-                ...(whatsapp.includes('123 456') ? [] : [{ icon: <Icons.MessageCircle size={16} />, text: `${whatsapp} (WhatsApp)`, ltr: true }]),
+                ...(whatsapp.includes('123 456') ? [] : [{ icon: <WhatsAppIcon size={16} />, text: whatsapp, ltr: true }]),
                 { icon: <Icons.Mail size={16} />, text: email },
               ].map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: '0.6rem', fontSize: '0.875rem', alignItems: 'flex-start' }}>

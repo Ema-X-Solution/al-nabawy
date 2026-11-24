@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import ContactForm from './ContactForm'
 import { getContactConfigCached } from '@/lib/cached-data'
 import { Icons } from '@/lib/icons'
+import WhatsAppIcon from '@/components/WhatsAppIcon'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -28,7 +29,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const contactItems = [
     { icon: <Icons.MapPin size={22} color="#169DF7" />, label: config.labelCountry[locale] || 'Address', value: typeof config.address === 'string' ? config.address : config.address[locale] },
     { icon: <Icons.Phone size={22} color="#169DF7" />, label: config.labelPhone[locale] || 'Phone', value: config.phone, ltr: true },
-    { icon: <Icons.MessageCircle size={22} color="#169DF7" />, label: 'WhatsApp', value: config.whatsapp, ltr: true },
+    { icon: <WhatsAppIcon size={22} color="#169DF7" />, label: '', value: config.whatsapp, ltr: true },
     { icon: <Icons.Mail size={22} color="#169DF7" />, label: config.labelEmail[locale] || 'Email', value: config.email },
     { icon: <Icons.Info size={22} color="#169DF7" />, label: config.hours[locale], value: config.hoursValue[locale] },
   ]
@@ -77,9 +78,11 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                   >
                     <div style={{ display: 'flex', alignItems: 'center', minWidth: 36 }}>{item.icon}</div>
                     <div>
-                      <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#169DF7', marginBottom: '0.2rem' }}>
-                        {item.label}
-                      </div>
+                      {item.label && (
+                        <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#169DF7', marginBottom: '0.2rem' }}>
+                          {item.label}
+                        </div>
+                      )}
                       <div style={{ color: '#374151', fontSize: '0.9rem', ...('ltr' in item && item.ltr ? { direction: 'ltr' as const, unicodeBidi: 'isolate' as const } : {}) }}>{item.value}</div>
                     </div>
                   </div>
