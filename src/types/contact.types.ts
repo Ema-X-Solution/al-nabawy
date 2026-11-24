@@ -82,12 +82,12 @@ export function createDefaultContactDocument(): ContactDocument {
       fr: "Heures d'ouverture",
     },
     hoursValue: {
-      en: 'Sunday – Thursday: 9:00 AM – 5:00 PM',
-      ar: 'الأحد – الخميس: 9:00 صباحاً – 5:00 مساءً',
-      tr: 'Pazar – Perşembe: 09:00 – 17:00',
-      pl: 'Niedziela – Czwartek: 9:00 – 17:00',
-      de: 'Sonntag – Donnerstag: 9:00 – 17:00 Uhr',
-      fr: 'Dimanche – Jeudi : 9h00 – 17h00',
+      en: 'Open 24 hours, every day of the week',
+      ar: 'مفتوح 24 ساعة، كل أيام الأسبوع',
+      tr: 'Haftanın her günü 24 saat açık',
+      pl: 'Otwarte 24 godziny na dobę, 7 dni w tygodniu',
+      de: '24 Stunden geöffnet, jeden Tag der Woche',
+      fr: 'Ouvert 24h/24, tous les jours de la semaine',
     },
     mapEmbedUrl:
       'https://www.google.com/maps?q=Tala,+Menoufia,+Egypt&output=embed',
