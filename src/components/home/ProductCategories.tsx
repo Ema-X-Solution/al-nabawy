@@ -35,8 +35,8 @@ export default function ProductCategories({ lang, config, categories }: Props) {
           }}
         >
           {categories.map((cat, i) => (
-            <ScrollAnimation key={cat.id} delay={i * 80}>
-              <div className="product-card" style={{ display: 'flex', flexDirection: 'column' }}>
+            <ScrollAnimation key={cat.id} delay={i * 80} className="h-full">
+              <div className="product-card" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                 {/* Image */}
                 <div style={{ position: 'relative', height: '200px', overflow: 'hidden', background: '#f3f4f6' }}>
                   {cat.image && (
@@ -55,7 +55,7 @@ export default function ProductCategories({ lang, config, categories }: Props) {
                   <h3 style={{ fontWeight: 700, fontSize: '1.05rem', color: '#1F2937', marginBottom: '0.5rem' }}>
                     {cat.name[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']}
                   </h3>
-                  <p style={{ color: '#6b7280', fontSize: '0.875rem', lineHeight: 1.6, flex: 1, marginBottom: '1rem' }}>
+                  <p style={{ color: '#6b7280', fontSize: '0.875rem', lineHeight: 1.6, flex: 1, marginBottom: '1rem', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden' }}>
                     {cat.description[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']}
                   </p>
                   <Link
