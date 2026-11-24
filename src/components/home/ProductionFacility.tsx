@@ -40,7 +40,7 @@ export default function ProductionFacility({ lang, config }: Props) {
                   pointerEvents: 'none',
                 }}
               >
-                <div style={{ pointerEvents: 'auto' }}>
+                <div className="facility-overlay-inner" style={{ pointerEvents: 'auto' }}>
                   <h3 style={{ color: 'white', fontWeight: 700, fontSize: '1.5rem', marginBottom: '0.5rem' }}>
                     {config.title[lang]}
                   </h3>

@@ -517,6 +517,9 @@ body {
 .videospot-media { height: var(--vs-h, 380px); }
 @media (max-width: 639px) {
   .videospot-media { height: auto; aspect-ratio: var(--vs-aspect, 3 / 2); }
+  /* On narrow screens the facility spot is a thin strip; the overlaid title and
+     gallery link cover the play button and swallow taps. Hide them there. */
+  .facility-overlay-inner { display: none; }
 }
 
 /* Export map: pulsing region markers */
