@@ -24,7 +24,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   const config = await getAboutConfigCached()
 
   const values = [
-    { icon: <Icons.Target size={40} color="#169DF7" />, label: config.values.quality[locale] },
+    { icon: <Icons.Award size={40} color="#169DF7" />, label: config.values.quality[locale] },
     { icon: <Icons.Users size={40} color="#169DF7" />, label: config.values.integrity[locale] },
     { icon: <Icons.Star size={40} color="#169DF7" />, label: config.values.innovation[locale] },
     { icon: <Icons.Globe size={40} color="#169DF7" />, label: config.values.sustainability[locale] },
@@ -79,7 +79,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: '2rem' }}>
             {[
-              { title: config.visionMission.visionTitle[locale], body: config.visionMission.visionBody[locale], icon: <Icons.Target size={40} />, color: '#169DF7' },
+              { title: config.visionMission.visionTitle[locale], body: config.visionMission.visionBody[locale], icon: <Icons.Eye size={40} />, color: '#169DF7' },
               { title: config.visionMission.missionTitle[locale], body: config.visionMission.missionBody[locale], icon: <Icons.Target size={40} />, color: '#8BC34A' },
             ].map((item) => (
               <div key={item.title} style={{ background: 'white', borderRadius: '1rem', padding: '2rem', boxShadow: '0 4px 24px rgba(22,157,247,0.08)', borderTop: `4px solid ${item.color}` }}>
@@ -95,7 +95,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       {/* Core Values */}
       <section className="section">
         <div className="container" style={{ textAlign: 'center' }}>
-          <span className="section-label">{config.values.sectionTitle[locale]}</span>
           <div className="divider" style={{ margin: '0.75rem auto 1rem' }} />
           <h2 className="section-title">{config.values.sectionTitle[locale]}</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(160px,1fr))', gap: '1.5rem', marginTop: '2rem' }}>
@@ -117,13 +116,12 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             <div className="divider" style={{ margin: '0.75rem auto 1rem' }} />
             <h2 className="section-title">{config.timelineSection.title[locale]}</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(150px,1fr))', gap: '1.5rem' }}>
             {timeline.map((item) => (
               <div key={item.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', position: 'relative' }}>
                 <div style={{ width: 56, height: 56, borderRadius: '50%', background: `linear-gradient(135deg,#169DF7,#0d6fb8)`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 800, fontSize: '0.875rem', marginBottom: '0.75rem', boxShadow: '0 4px 16px rgba(22,157,247,0.35)' }}>
-                  {item.year.slice(-2)}
+                  {item.year}
                 </div>
-                <div style={{ fontWeight: 700, color: '#169DF7', fontSize: '0.9rem' }}>{item.year}</div>
                 <div style={{ color: '#6b7280', fontSize: '0.85rem', marginTop: '0.25rem' }}>{item.event[locale]}</div>
               </div>
             ))}

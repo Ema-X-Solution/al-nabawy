@@ -41,6 +41,8 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
   const whatsapp = dbConfig?.whatsapp || '+20 123 456 789'
   const email = dbConfig?.email || 'info@alnabawy.com'
   const copyright = dbConfig ? (isAr ? dbConfig.copyrightAr : dbConfig.copyrightEn) : t.copyright
+  // Always show the current year, even if the CMS text still carries an old one
+  const copyrightLive = copyright.replace(/\b(19|20)\d{2}\b/, String(new Date().getFullYear()))
 
   const defaultSocialLinks = [
     { platform: 'Facebook', url: '#', svgIcon: 'M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z' },
@@ -129,7 +131,8 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
             </ul>
           </div>
 
-          {/* Products */}
+          {/* Products (hidden while the category list is empty) */}
+          {categories.length > 0 && (
           <div>
             <h3 style={{ color: 'white', fontWeight: 700, fontSize: '1rem', marginBottom: '1rem' }}>
               {t.products}
@@ -155,6 +158,7 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
               ))}
             </ul>
           </div>
+          )}
 
           {/* Contact */}
           <div>
@@ -164,9 +168,10 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {[
                 { icon: <Icons.MapPin size={16} />, text: address },
-                { icon: <Icons.Phone size={16} />, text: phone1 },
-                { icon: <Icons.Phone size={16} />, text: phone2 },
-                { icon: <Icons.MessageCircle size={16} />, text: `${whatsapp} (WhatsApp)` },
+                // Placeholder numbers stay hidden until real ones are set in the CMS
+                ...(phone1.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone1 }]),
+                ...(phone2.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone2 }]),
+                ...(whatsapp.includes('123 456') ? [] : [{ icon: <Icons.MessageCircle size={16} />, text: `${whatsapp} (WhatsApp)` }]),
                 { icon: <Icons.Mail size={16} />, text: email },
               ].map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: '0.6rem', fontSize: '0.875rem', alignItems: 'flex-start' }}>
@@ -194,7 +199,7 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
             color: 'rgba(255,255,255,0.45)',
           }}
         >
-          <span>{copyright}</span>
+          <span>{copyrightLive}</span>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <Link href={`/${lang}/export-policy`} style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
               {isAr ? 'سياسة التصدير' : 'Export Policy'}
