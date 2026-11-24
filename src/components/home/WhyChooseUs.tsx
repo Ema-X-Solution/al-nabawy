@@ -63,6 +63,7 @@ export default function WhyChooseUs({ lang, config }: Props) {
         </ScrollAnimation>
 
         <div
+          className="why-us-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
@@ -70,9 +71,9 @@ export default function WhyChooseUs({ lang, config }: Props) {
           }}
         >
           {items.map((item, i) => (
-            <ScrollAnimation key={item.key} delay={i * 100}>
+            <ScrollAnimation key={item.key} delay={i * 100} className="why-us-item">
               <div
-                className="glass"
+                className="glass why-us-card"
                 style={{
                   padding: '2rem 1.5rem',
                   borderRadius: '1rem',
