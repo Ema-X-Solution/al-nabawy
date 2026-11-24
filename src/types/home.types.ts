@@ -38,6 +38,7 @@ export interface HomeOverview {
   statsProducts: HomeLocalizedString
   statsCountries: HomeLocalizedString
   image?: HomeImageAsset
+  video?: HomeImageAsset
 }
 
 // ── 3. Categories (Module config only)
@@ -70,6 +71,7 @@ export interface HomeFacility {
   subtitle: HomeLocalizedString
   viewGallery: HomeLocalizedString
   image?: HomeImageAsset
+  video?: HomeImageAsset
   // Chips are fixed in UI to 4 specific items, just editable labels
   chip1: HomeLocalizedString
   chip2: HomeLocalizedString

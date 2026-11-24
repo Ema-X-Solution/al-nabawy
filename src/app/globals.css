@@ -422,7 +422,7 @@ body {
   border-radius: 2px;
   margin: 0.75rem 0 1.25rem;
 }
-[dir="rtl"] .divider { margin: 0.75rem auto 1.25rem 0; }
+[dir="rtl"] .divider { margin: 0.75rem 0 1.25rem auto; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -511,4 +511,10 @@ body {
 }
 .why-us-card {
   height: 100%;
+}
+
+/* VideoSpot: fixed height on desktop, video-native aspect on mobile (no crop) */
+.videospot-media { height: var(--vs-h, 380px); }
+@media (max-width: 639px) {
+  .videospot-media { height: auto; aspect-ratio: var(--vs-aspect, 3 / 2); }
 }
