@@ -5,9 +5,15 @@ import type { HomeHero, HomeLocale } from '@/types/home.types'
 interface HeroSectionProps {
   lang: HomeLocale
   config: HomeHero
+  statsT?: { years: string; products: string; countries: string }
 }
 
-export default function HeroSection({ lang, config }: HeroSectionProps) {
+export default function HeroSection({ lang, config, statsT }: HeroSectionProps) {
+  const statsLabels = statsT ?? {
+    years: lang === 'ar' ? 'سنوات خبرة' : 'Years Experience',
+    products: lang === 'ar' ? 'منتج ألبان' : 'Dairy Products',
+    countries: lang === 'ar' ? 'دولة تصدير' : 'Export Countries',
+  }
   return (
     <section className="hero-section" id="hero">
       {/* Background Image */}
@@ -131,9 +137,9 @@ export default function HeroSection({ lang, config }: HeroSectionProps) {
           }}
         >
           {[
-            { num: '15+', label: lang === 'ar' ? 'سنوات خبرة' : 'Years Experience' },
-            { num: '20+', label: lang === 'ar' ? 'منتج ألبان' : 'Dairy Products' },
-            { num: '17+', label: lang === 'ar' ? 'دولة تصدير' : 'Export Countries' },
+            { num: '15+', label: statsLabels.years },
+            { num: '20+', label: statsLabels.products },
+            { num: '17+', label: statsLabels.countries },
           ].map((stat) => (
             <div key={stat.label} className="glass" style={{ padding: '0.75rem 1.25rem', borderRadius: '0.75rem' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white' }}>{stat.num}</div>

@@ -199,6 +199,7 @@
     "email": "Email Address",
     "phone": "Phone Number",
     "interest": "Product Interest",
+    "select": "— Select —",
     "message": "Message",
     "submit": "Submit Request",
     "submitting": "Sending...",

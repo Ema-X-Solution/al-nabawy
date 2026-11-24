@@ -32,7 +32,7 @@ export default function CompanyOverview({ lang, config }: Props) {
             </p>
 
             {/* Stats */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
               {[
                 { target: 15, suffix: '+', label: config.statsYears[lang] },
                 { target: 20, suffix: '+', label: config.statsProducts[lang] },

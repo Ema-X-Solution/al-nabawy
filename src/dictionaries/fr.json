@@ -197,6 +197,7 @@
     "email": "Adresse E-mail",
     "phone": "Numéro de Téléphone",
     "interest": "Produit d'Intérêt",
+    "select": "— Sélectionner —",
     "message": "Message",
     "submit": "Soumettre la Demande",
     "submitting": "Envoi...",

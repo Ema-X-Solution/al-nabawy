@@ -13,6 +13,7 @@ interface Props {
     success: string
     error: string
     submitting: string
+    selectPlaceholder: string
   }
   productOptions: { id: string; name: string }[]
 }
@@ -83,7 +84,7 @@ export default function ContactForm({ lang, config, tSystem, productOptions }: P
             <div>
               <label className="form-label">{config.labelInterest[lang]}</label>
               <select name="interest" value={form.interest} onChange={handleChange} className="form-input">
-                <option value="">— Select —</option>
+                <option value="">{tSystem.selectPlaceholder}</option>
                 {productOptions.map((opt) => (
                   <option key={opt.id} value={opt.id}>{opt.name}</option>
                 ))}

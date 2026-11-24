@@ -57,7 +57,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {sortedSections.map(meta => {
         switch (meta.id) {
           case 'hero':
-            return <HeroSection key={meta.id} lang={locale} config={config.hero} />
+            return <HeroSection key={meta.id} lang={locale} config={config.hero} statsT={dict.overview.stats} />
           case 'overview':
             return <CompanyOverview key={meta.id} lang={locale} config={config.overview} />
           case 'categories':
