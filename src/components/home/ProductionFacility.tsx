@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { HomeFacility, HomeLocale } from '@/types/home.types'
+import VideoSpot from '@/components/home/VideoSpot'
 import { Icons } from '@/lib/icons'
 
 interface Props {
@@ -19,42 +20,37 @@ export default function ProductionFacility({ lang, config }: Props) {
           <p className="section-subtitle" style={{ margin: '0 auto' }}>{config.subtitle[lang]}</p>
         </div>
 
-        {/* Main image */}
-        <div
-          style={{
-            position: 'relative',
-            borderRadius: '1.5rem',
-            overflow: 'hidden',
-            boxShadow: '0 20px 60px rgba(22,157,247,0.15)',
-            marginBottom: '1.5rem',
-          }}
-        >
-          <Image
-            src={config.image?.secure_url || "/images/factory.png"}
+        {/* Wide video spot (plays on click) with image fallback */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <VideoSpot
+            poster={config.image?.secure_url || "/images/factory.png"}
+            videoUrl={config.video?.secure_url || '/videos/al-nabawy-facility.mp4'}
             alt="Al-Nabawy production facility"
-            width={1200}
-            height={500}
-            style={{ width: '100%', height: '460px', objectFit: 'cover' }}
+            height={460}
+            mobileAspect="21 / 8"
+            overlay={
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(22,157,247,0.6) 0%, transparent 50%)',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  padding: '2.5rem',
+                  pointerEvents: 'none',
+                }}
+              >
+                <div style={{ pointerEvents: 'auto' }}>
+                  <h3 style={{ color: 'white', fontWeight: 700, fontSize: '1.5rem', marginBottom: '0.5rem' }}>
+                    {config.title[lang]}
+                  </h3>
+                  <Link href={`/${lang}/gallery`} className="btn-secondary" id="facility-gallery-link">
+                    {config.viewGallery[lang]}
+                  </Link>
+                </div>
+              </div>
+            }
           />
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to top, rgba(22,157,247,0.6) 0%, transparent 50%)',
-              display: 'flex',
-              alignItems: 'flex-end',
-              padding: '2.5rem',
-            }}
-          >
-            <div>
-              <h3 style={{ color: 'white', fontWeight: 700, fontSize: '1.5rem', marginBottom: '0.5rem' }}>
-                {config.title[lang]}
-              </h3>
-              <Link href={`/${lang}/gallery`} className="btn-secondary" id="facility-gallery-link">
-                {config.viewGallery[lang]}
-              </Link>
-            </div>
-          </div>
         </div>
 
         {/* Feature chips */}
