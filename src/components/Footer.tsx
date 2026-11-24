@@ -36,9 +36,9 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
 
   const slogan = dbConfig ? (isAr ? dbConfig.sloganAr : dbConfig.sloganEn) : t.slogan
   const address = dbConfig ? (isAr ? dbConfig.addressAr : dbConfig.addressEn) : t.address
-  const phone1 = dbConfig?.phone1 || '+20 123 456 7890'
+  const phone1 = dbConfig?.phone1 || '+20 10 08661480'
   const phone2 = dbConfig?.phone2 || '+20 123 456 789'
-  const whatsapp = dbConfig?.whatsapp || '+20 123 456 789'
+  const whatsapp = dbConfig?.whatsapp || '+20 10 08661480'
   const email = dbConfig?.email || 'info@alnabawy.com'
   const copyright = dbConfig ? (isAr ? dbConfig.copyrightAr : dbConfig.copyrightEn) : t.copyright
   // Always show the current year, even if the CMS text still carries an old one

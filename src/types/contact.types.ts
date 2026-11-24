@@ -61,9 +61,9 @@ export function createDefaultContactDocument(): ContactDocument {
       de: 'Kontaktinformationen',
       fr: 'Informations de contact',
     },
-    address: 'Industrial Area, Egypt',
-    phone: '+20 123 456 7890',
-    whatsapp: '+20 123 456 789',
+    address: 'Tala, Menoufia, Egypt',
+    phone: '+20 10 08661480',
+    whatsapp: '+20 10 08661480',
     email: 'info@alnabawy.com',
     hours: {
       en: 'Business Hours',
@@ -82,7 +82,7 @@ export function createDefaultContactDocument(): ContactDocument {
       fr: 'Dimanche – Jeudi : 9h00 – 17h00',
     },
     mapEmbedUrl:
-      'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.54859073327!2d31.2357!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840b7b0e3cf4f%3A0x5a5ceeed63d6ff4!2sCairo%2C%20Egypt!5e0!3m2!1sen!2sus!4v1234567890',
+      'https://www.google.com/maps?q=Tala,+Menoufia,+Egypt&output=embed',
     formTitle: {
       en: 'Send Us a Message',
       ar: 'أرسل لنا رسالة',

@@ -15,15 +15,15 @@ export default async function PublicLayout({
   const locale = lang as Locale
   const dict = await getDictionary(locale)
   const footerConfig = await getFooterConfigCached()
-  const whatsappNumber = footerConfig?.whatsapp || '+20123456789'
+  const whatsappNumber = footerConfig?.whatsapp || '+201008661480'
 
   return (
     <>
       <Navbar lang={locale} t={dict.nav} />
       <main style={{ flex: 1, overflowX: 'hidden' }}>{children}</main>
       <Footer lang={locale} t={dict.footer} navT={dict.nav} catT={dict.categories} />
-      {/* Hidden until a real WhatsApp number is set in the CMS (placeholder: +20123456789) */}
-      {footerConfig?.whatsapp && <WhatsAppButton number={whatsappNumber} />}
+      {/* Hidden only while the number is the old placeholder */}
+      {!whatsappNumber.includes('123456789') && <WhatsAppButton number={whatsappNumber} />}
     </>
   )
 }

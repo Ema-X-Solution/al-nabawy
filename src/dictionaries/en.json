@@ -38,12 +38,30 @@
     "title": "Product Categories",
     "subtitle": "Explore our full range of premium dairy products crafted to international standards",
     "items": {
-      "milk": { "name": "Milk Products", "desc": "Fresh UHT, pasteurized, and skimmed milk products." },
-      "cheese": { "name": "Cheese", "desc": "Mozzarella, cheddar, white cheese and specialty varieties." },
-      "butter": { "name": "Butter", "desc": "Premium unsalted and salted dairy butter." },
-      "cream": { "name": "Cream", "desc": "Heavy cream, whipped cream and cooking cream." },
-      "milkPowder": { "name": "Milk Powder", "desc": "Full cream and skimmed milk powder in bulk." },
-      "ingredients": { "name": "Dairy Ingredients", "desc": "Whey powder, lactose, casein and more." }
+      "milk": {
+        "name": "Milk Products",
+        "desc": "Fresh UHT, pasteurized, and skimmed milk products."
+      },
+      "cheese": {
+        "name": "Cheese",
+        "desc": "Mozzarella, cheddar, white cheese and specialty varieties."
+      },
+      "butter": {
+        "name": "Butter",
+        "desc": "Premium unsalted and salted dairy butter."
+      },
+      "cream": {
+        "name": "Cream",
+        "desc": "Heavy cream, whipped cream and cooking cream."
+      },
+      "milkPowder": {
+        "name": "Milk Powder",
+        "desc": "Full cream and skimmed milk powder in bulk."
+      },
+      "ingredients": {
+        "name": "Dairy Ingredients",
+        "desc": "Whey powder, lactose, casein and more."
+      }
     },
     "viewDetails": "View Details"
   },
@@ -52,10 +70,22 @@
     "title": "Our Competitive Advantages",
     "subtitle": "We set the benchmark for quality, safety, and reliability in the global dairy industry",
     "items": {
-      "natural": { "title": "100% Natural", "desc": "Made from real milk and natural ingredients with no artificial additives." },
-      "quality": { "title": "International Quality", "desc": "ISO, HACCP, HALAL and FDA certified manufacturing processes." },
-      "expert": { "title": "Expert Team", "desc": "Experienced team with deep knowledge of the dairy industry." },
-      "global": { "title": "Global Export", "desc": "Exporting to over 17 countries worldwide across 3 continents." }
+      "natural": {
+        "title": "100% Natural",
+        "desc": "Made from real milk and natural ingredients with no artificial additives."
+      },
+      "quality": {
+        "title": "International Quality",
+        "desc": "ISO, HACCP, HALAL and FDA certified manufacturing processes."
+      },
+      "expert": {
+        "title": "Expert Team",
+        "desc": "Experienced team with deep knowledge of the dairy industry."
+      },
+      "global": {
+        "title": "Global Export",
+        "desc": "Exporting to over 17 countries worldwide across 3 continents."
+      }
     }
   },
   "facility": {
@@ -69,10 +99,22 @@
     "title": "Internationally Certified",
     "subtitle": "Our products meet the highest global food safety and quality standards",
     "items": {
-      "iso": { "title": "ISO 22000", "desc": "International food safety management standard." },
-      "haccp": { "title": "HACCP", "desc": "Hazard Analysis and Critical Control Points." },
-      "halal": { "title": "HALAL", "desc": "Certified halal for global Muslim markets." },
-      "fda": { "title": "FDA", "desc": "United States Food & Drug Administration approved." }
+      "iso": {
+        "title": "ISO 22000",
+        "desc": "International food safety management standard."
+      },
+      "haccp": {
+        "title": "HACCP",
+        "desc": "Hazard Analysis and Critical Control Points."
+      },
+      "halal": {
+        "title": "HALAL",
+        "desc": "Certified halal for global Muslim markets."
+      },
+      "fda": {
+        "title": "FDA",
+        "desc": "United States Food & Drug Administration approved."
+      }
     }
   },
   "exportMap": {
@@ -104,7 +146,7 @@
     "quickLinks": "Quick Links",
     "products": "Products",
     "contactInfo": "Contact Information",
-    "address": "Industrial Area, Egypt",
+    "address": "Tala, Menoufia, Egypt",
     "copyright": "© 2024 Al-Nabawy Dairy Factory. All Rights Reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions"
@@ -196,8 +238,8 @@
     "name": "Full Name",
     "company": "Company Name",
     "country": "Country",
-    "email": "Email Address",
-    "phone": "Phone Number",
+    "email": "info@alnabawy.com",
+    "phone": "+20 123 456 7890",
     "interest": "Product Interest",
     "select": "— Select —",
     "message": "Message",
@@ -206,10 +248,8 @@
     "success": "Thank you! We'll contact you soon.",
     "error": "Something went wrong. Please try again.",
     "infoTitle": "Contact Information",
-    "address": "Industrial Area, Egypt",
-    "phone": "+20 123 456 7890",
+    "address": "Tala, Menoufia, Egypt",
     "whatsapp": "+20 123 456 789",
-    "email": "info@alnabawy.com",
     "hours": "Business Hours",
     "hoursValue": "Sunday – Thursday: 9:00 AM – 5:00 PM"
   },
