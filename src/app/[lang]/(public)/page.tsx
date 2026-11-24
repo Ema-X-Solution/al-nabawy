@@ -11,10 +11,7 @@ import CertificationsSection from '@/components/home/CertificationsSection'
 import ExportMarkets from '@/components/home/ExportMarkets'
 import CatalogDownload from '@/components/home/CatalogDownload'
 import CTASection from '@/components/home/CTASection'
-import { getHomeConfig } from '@/app/actions/homeActions'
-import { getCategories } from '@/app/actions/categoriesActions'
-import { getCertificationsConfig } from '@/app/actions/certificationsActions'
-import { getExportMarketsConfig } from '@/app/actions/exportMarketsActions'
+import { getHomeConfigCached, getCategoriesCached, getCertificationsConfigCached, getExportMarketsConfigCached } from '@/lib/cached-data'
 
 export async function generateMetadata({
   params,
@@ -40,12 +37,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   // since those are not entirely managed by the home CMS (they belong to their own models or are hardcoded references)
   const dict = await getDictionary(locale)
   
-  const config = await getHomeConfig()
-  const categories = await getCategories()
+  const config = await getHomeConfigCached()
+  const categories = await getCategoriesCached()
   const publishedCategories = categories.filter(c => c.status === 'published')
   
-  const certsConfig = await getCertificationsConfig()
-  const exportConfig = await getExportMarketsConfig()
+  const certsConfig = await getCertificationsConfigCached()
+  const exportConfig = await getExportMarketsConfigCached()
   
   // Sort sections by their order in sectionMeta
   const sortedSections = Object.values(config.sectionMeta)

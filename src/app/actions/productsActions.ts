@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import type { ProductDocument } from '@/types/products.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateProducts } from '@/lib/revalidate'
 
 export async function getProducts(): Promise<ProductDocument[]> {
   try {
@@ -40,7 +40,7 @@ export async function saveProduct(product: ProductDocument): Promise<{ success: 
     if (!p.id) p.id = `prod_${Date.now()}`
 
     await adminDb.collection('products').doc(p.id).set(p)
-    revalidatePath('/', 'layout')
+    revalidateProducts()
     return { success: true }
   } catch (error: any) {
     console.error('Error saving product:', error)
@@ -51,7 +51,7 @@ export async function saveProduct(product: ProductDocument): Promise<{ success: 
 export async function deleteProduct(id: string): Promise<{ success: boolean; error?: string }> {
   try {
     await adminDb.collection('products').doc(id).delete()
-    revalidatePath('/', 'layout')
+    revalidateProducts()
     return { success: true }
   } catch (error: any) {
     console.error(`Error deleting product ${id}:`, error)
@@ -65,7 +65,7 @@ export async function deleteAllProducts(): Promise<{ success: boolean; error?: s
     const batch = adminDb.batch()
     snap.docs.forEach(d => batch.delete(d.ref))
     await batch.commit()
-    revalidatePath('/', 'layout')
+    revalidateProducts()
     return { success: true }
   } catch (error: any) {
     console.error('Error deleting all products:', error)

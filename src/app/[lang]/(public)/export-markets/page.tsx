@@ -1,13 +1,13 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import type { Metadata } from 'next'
-import { getExportMarketsConfig } from '@/app/actions/exportMarketsActions'
+import { getExportMarketsConfigCached } from '@/lib/cached-data'
 import { Icons } from '@/lib/icons'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   if (!hasLocale(lang)) return {}
-  const dbConfig = await getExportMarketsConfig()
+  const dbConfig = await getExportMarketsConfigCached()
   const title = dbConfig?.heroTitle?.[lang as Locale] || 'Export Markets'
   return { title }
 }
@@ -20,7 +20,7 @@ export default async function ExportMarketsPage({ params }: { params: Promise<{ 
   const t = dict.exportMarkets
   const isAr = locale === 'ar'
   
-  const dbConfig = await getExportMarketsConfig()
+  const dbConfig = await getExportMarketsConfigCached()
   
   const heroTitle = dbConfig?.heroTitle?.[locale] || t.heroTitle
   const heroSub = dbConfig?.heroSub?.[locale] || t.heroSub

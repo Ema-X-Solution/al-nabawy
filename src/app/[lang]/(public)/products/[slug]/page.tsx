@@ -1,14 +1,13 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
-import { getProducts } from '@/app/actions/productsActions'
-import { getFooterConfig } from '@/app/actions/footerActions'
+import { getProductsCached, getProductBySlugCached, getRelatedProductsCached, getFooterConfigCached } from '@/lib/cached-data'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import ProductDetailView from '@/components/products/ProductDetailView'
 
 export async function generateStaticParams() {
-  const products = await getProducts()
+  const products = await getProductsCached()
   const locales: Locale[] = ['en', 'ar', 'tr', 'pl', 'de', 'fr']
   return locales.flatMap((lang) => products.filter(p => p.status === 'published').map((p) => ({ lang, slug: p.slug })))
 }
@@ -16,10 +15,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
   const { lang, slug } = await params
   if (!hasLocale(lang)) return {}
-  const products = await getProducts()
   const decodedSlug = decodeURIComponent(slug)
-  const product = products.find(p => (p.slug === decodedSlug || p.id === decodedSlug) && p.status === 'published')
-  if (!product) return {}
+  const product = await getProductBySlugCached(decodedSlug)
+  if (!product || product.status !== 'published') return {}
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
   return { title: product.name[localeStr], description: product.description[localeStr] }
 }
@@ -30,14 +28,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const locale = lang as Locale
   const dict = await getDictionary(locale)
   
-  const products = await getProducts()
   const decodedSlug = decodeURIComponent(slug)
-  const product = products.find(p => (p.slug === decodedSlug || p.id === decodedSlug) && p.status === 'published')
-  if (!product) notFound()
+  const product = await getProductBySlugCached(decodedSlug)
+  if (!product || product.status !== 'published') notFound()
   
-  const related = products.filter((p) => p.slug !== decodedSlug && p.id !== decodedSlug && p.category === product.category && p.status === 'published').slice(0, 3)
+  const related = await getRelatedProductsCached(product.category, decodedSlug)
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
-  const footerConfig = await getFooterConfig()
+  const footerConfig = await getFooterConfigCached()
   const whatsapp = footerConfig?.whatsapp || '+20123456789'
 
   return (

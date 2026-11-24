@@ -2,8 +2,7 @@ import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import type { Metadata } from 'next'
 import ProductsClient from './ProductsClient'
-import { getProducts } from '@/app/actions/productsActions'
-import { getCategories } from '@/app/actions/categoriesActions'
+import { getProductsCached, getCategoriesCached } from '@/lib/cached-data'
 import React from 'react'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -18,10 +17,10 @@ export default async function ProductsPage({ params }: { params: Promise<{ lang:
   if (!hasLocale(lang)) notFound()
   const locale = lang as Locale
   const dict = await getDictionary(locale)
-  const products = await getProducts()
+  const products = await getProductsCached()
   const publishedProducts = products.filter(p => p.status === 'published')
   
-  const categories = await getCategories()
+  const categories = await getCategoriesCached()
   const publishedCategories = categories.filter(c => c.status === 'published')
 
   return (

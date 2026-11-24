@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import { createDefaultExportMarketsDocument, type ExportMarketsDocument } from '@/types/exportMarkets.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateExportMarkets } from '@/lib/revalidate'
 
 const EXPORT_MARKETS_DOC = 'settings/export_markets_config'
 
@@ -24,7 +24,7 @@ export async function getExportMarketsConfig(): Promise<ExportMarketsDocument> {
 export async function saveExportMarketsConfig(config: ExportMarketsDocument): Promise<{ success: boolean; error?: string }> {
   try {
     await adminDb.doc(EXPORT_MARKETS_DOC).set(config)
-    revalidatePath('/', 'layout')
+    revalidateExportMarkets()
     return { success: true }
   } catch (error: any) {
     console.error('Error saving export markets config:', error)

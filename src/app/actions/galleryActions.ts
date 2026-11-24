@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import { createDefaultGalleryDocument, type GalleryDocument } from '@/types/gallery.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateSection } from '@/lib/revalidate'
 
 const GALLERY_DOC = 'settings/gallery'
 
@@ -28,7 +28,7 @@ export async function getGalleryConfig(): Promise<GalleryDocument> {
 export async function saveGalleryConfig(config: GalleryDocument): Promise<{ success: boolean; error?: string }> {
   try {
     await adminDb.doc(GALLERY_DOC).set({ ...config, updatedAt: new Date().toISOString() })
-    revalidatePath('/', 'layout')
+    revalidateSection('gallery', 'gallery')
     return { success: true }
   } catch (error: any) {
     console.error('Error saving gallery config:', error)
