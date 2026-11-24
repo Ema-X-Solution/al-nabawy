@@ -49,8 +49,8 @@ export default function HeroSection({ lang, config, statsT }: HeroSectionProps) 
       </div>
 
       {/* Content */}
-      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '0 1.5rem' }}>
-        <div style={{ maxWidth: '700px' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '0 1.5rem', paddingTop: '6rem', paddingBottom: '3rem' }}>
+        <div style={{ maxWidth: '760px' }}>
           {/* Badge */}
           {/* <div
             style={{
@@ -75,12 +75,12 @@ export default function HeroSection({ lang, config, statsT }: HeroSectionProps) 
           {/* Headline */}
           <h1
             style={{
-              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+              fontSize: 'clamp(1.9rem, 4.2vw, 3.4rem)',
               fontWeight: 800,
               color: 'white',
-              lineHeight: 1.1,
-              marginTop: '1.5rem',
-              marginBottom: '1rem',
+              lineHeight: 1.35,
+              marginTop: '0.5rem',
+              marginBottom: '1.25rem',
               animation: 'fadeUp 0.8s ease 0.3s both',
               textShadow: '0 2px 20px rgba(0,0,0,0.2)',
               fontFamily: lang === 'ar' ? 'Cairo, sans-serif' : 'Poppins, sans-serif',
@@ -131,7 +131,7 @@ export default function HeroSection({ lang, config, statsT }: HeroSectionProps) 
           style={{
             display: 'flex',
             gap: '1rem',
-            marginTop: '4rem',
+            marginTop: '2.5rem',
             flexWrap: 'wrap',
             animation: 'fadeUp 0.8s ease 0.75s both',
           }}
