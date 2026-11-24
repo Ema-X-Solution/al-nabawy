@@ -518,3 +518,14 @@ body {
 @media (max-width: 639px) {
   .videospot-media { height: auto; aspect-ratio: var(--vs-aspect, 3 / 2); }
 }
+
+/* Export map: pulsing region markers */
+@keyframes exportMapPing {
+  0% { r: 7px; opacity: 0.8; }
+  100% { r: 22px; opacity: 0; }
+}
+.export-map-ping {
+  animation: exportMapPing 2s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}

@@ -150,3 +150,34 @@ export const mockCategories: CategoryDocument[] = [
     updatedAt: 3,
   },
 ]
+
+const loc = (en: string, ar: string) => ({ en, ar, fr: en, de: en, tr: en, pl: en })
+
+export const mockExportMarkets = {
+  heroTitle: loc('Export Markets', 'أسواق التصدير'),
+  heroSub: loc('', ''),
+  countriesLabel: loc('Global Reach', 'انتشارنا العالمي'),
+  countriesTitle: loc('Our Global Reach', 'انتشارنا العالمي'),
+  logisticsLabel: loc('', ''),
+  logisticsTitle: loc('', ''),
+  logisticsBody: loc('', ''),
+  countries: [
+    { id: 'eg', name: loc('Egypt', 'مصر'), flag: '🇪🇬', region: loc('Middle East', 'الشرق الأوسط') },
+    { id: 'sa', name: loc('Saudi Arabia', 'السعودية'), flag: '🇸🇦', region: loc('Middle East', 'الشرق الأوسط') },
+    { id: 'ae', name: loc('UAE', 'الإمارات'), flag: '🇦🇪', region: loc('Middle East', 'الشرق الأوسط') },
+    { id: 'kw', name: loc('Kuwait', 'الكويت'), flag: '🇰🇼', region: loc('Middle East', 'الشرق الأوسط') },
+    { id: 'jo', name: loc('Jordan', 'الأردن'), flag: '🇯🇴', region: loc('Middle East', 'الشرق الأوسط') },
+    { id: 'iq', name: loc('Iraq', 'العراق'), flag: '🇮🇶', region: loc('Middle East', 'الشرق الأوسط') },
+    { id: 'de', name: loc('Germany', 'ألمانيا'), flag: '🇩🇪', region: loc('Europe', 'أوروبا') },
+    { id: 'fr', name: loc('France', 'فرنسا'), flag: '🇫🇷', region: loc('Europe', 'أوروبا') },
+    { id: 'it', name: loc('Italy', 'إيطاليا'), flag: '🇮🇹', region: loc('Europe', 'أوروبا') },
+    { id: 'nl', name: loc('Netherlands', 'هولندا'), flag: '🇳🇱', region: loc('Europe', 'أوروبا') },
+    { id: 'pl', name: loc('Poland', 'بولندا'), flag: '🇵🇱', region: loc('Europe', 'أوروبا') },
+    { id: 'ly', name: loc('Libya', 'ليبيا'), flag: '🇱🇾', region: loc('Africa', 'أفريقيا') },
+    { id: 'sd', name: loc('Sudan', 'السودان'), flag: '🇸🇩', region: loc('Africa', 'أفريقيا') },
+    { id: 'ke', name: loc('Kenya', 'كينيا'), flag: '🇰🇪', region: loc('Africa', 'أفريقيا') },
+    { id: 'ng', name: loc('Nigeria', 'نيجيريا'), flag: '🇳🇬', region: loc('Africa', 'أفريقيا') },
+    { id: 'ma', name: loc('Morocco', 'المغرب'), flag: '🇲🇦', region: loc('Africa', 'أفريقيا') },
+    { id: 'tn', name: loc('Tunisia', 'تونس'), flag: '🇹🇳', region: loc('Africa', 'أفريقيا') },
+  ],
+}

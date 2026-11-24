@@ -29,7 +29,7 @@ import { getExportPolicyConfig } from '@/app/actions/exportPolicyActions'
 import { getGalleryConfig } from '@/app/actions/galleryActions'
 import { getAboutConfig } from '@/app/actions/aboutActions'
 import { getContactConfig } from '@/app/actions/contactActions'
-import { mockProducts, mockCategories } from './dev-fixtures'
+import { mockProducts, mockCategories, mockExportMarkets } from './dev-fixtures'
 import type { ProductDocument } from '@/types/products.types'
 
 const MOCK = process.env.FIRESTORE_MOCK === '1'
@@ -65,7 +65,7 @@ export const getCertificationsConfigCached = unstable_cache(
 )
 
 export const getExportMarketsConfigCached = unstable_cache(
-  async () => getExportMarketsConfig(),
+  async () => (MOCK ? mockExportMarkets : getExportMarketsConfig()),
   ['export-markets-config'],
   { tags: ['export-markets'] }
 )
