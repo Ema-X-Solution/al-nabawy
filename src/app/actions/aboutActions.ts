@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import { createDefaultAboutDocument, type AboutDocument } from '@/types/about.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateSection } from '@/lib/revalidate'
 
 const ABOUT_DOC_REF = 'settings/about'
 
@@ -39,7 +39,7 @@ export async function saveAboutConfig(
   try {
     const dRef = adminDb.doc(ABOUT_DOC_REF)
     await dRef.set({ ...config, updatedAt: new Date().toISOString() })
-    revalidatePath('/', 'layout')
+    revalidateSection('about', 'about')
     return { success: true }
   } catch (error) {
     console.error('Error saving about config:', error)

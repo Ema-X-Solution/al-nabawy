@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import type { Metadata } from 'next'
 import ContactForm from './ContactForm'
-import { getContactConfig } from '@/app/actions/contactActions'
+import { getContactConfigCached } from '@/lib/cached-data'
 import { Icons } from '@/lib/icons'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -20,7 +20,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const dict = await getDictionary(locale)
   const t = dict.contact
 
-  const config = await getContactConfig()
+  const config = await getContactConfigCached()
   const { getCategories } = await import('@/app/actions/categoriesActions')
   const categories = await getCategories()
   const publishedCategories = categories.filter(c => c.status === 'published')

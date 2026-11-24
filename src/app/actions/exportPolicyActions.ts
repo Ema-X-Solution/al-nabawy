@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import type { ExportPolicyDocument } from '@/types/exportPolicy.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateSection } from '@/lib/revalidate'
 
 const CONFIG_DOC = 'configs/export_policy'
 
@@ -20,7 +20,7 @@ export async function getExportPolicyConfig(): Promise<ExportPolicyDocument | nu
 export async function saveExportPolicyConfig(config: ExportPolicyDocument): Promise<{ success: boolean; error?: string }> {
   try {
     await adminDb.doc(CONFIG_DOC).set({ ...config, updatedAt: Date.now() })
-    revalidatePath('/', 'layout')
+    revalidateSection('export-policy', 'export-policy')
     return { success: true }
   } catch (error: any) {
     console.error('Error saving export policy config:', error)

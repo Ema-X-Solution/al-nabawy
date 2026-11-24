@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import type { CertificationsDocument } from '@/types/certifications.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateCertifications } from '@/lib/revalidate'
 
 const CERTIFICATIONS_DOC = 'settings/certifications_config'
 
@@ -19,7 +19,7 @@ export async function getCertificationsConfig(): Promise<CertificationsDocument 
 export async function saveCertificationsConfig(config: CertificationsDocument): Promise<{ success: boolean; error?: string }> {
   try {
     await adminDb.doc(CERTIFICATIONS_DOC).set(config)
-    revalidatePath('/', 'layout')
+    revalidateCertifications()
     return { success: true }
   } catch (error: any) {
     console.error('Error saving certifications config:', error)

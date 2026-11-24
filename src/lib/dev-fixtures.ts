@@ -1,0 +1,152 @@
+/**
+ * DEV-ONLY fixtures, used by src/lib/cached-data.ts when FIRESTORE_MOCK=1.
+ * Lets the public site run locally with zero Firestore reads (e.g. while the
+ * Spark daily quota is exhausted). Never set FIRESTORE_MOCK in production.
+ * Data mirrors real production products recorded on 2026-11-24.
+ */
+
+import type { ProductDocument } from '@/types/products.types'
+import type { CategoryDocument } from '@/types/categories.types'
+
+const L = (en: string, ar: string, tr = '', pl = '', de = '', fr = '') => ({ en, ar, tr, pl, de, fr })
+
+export const mockProducts: ProductDocument[] = [
+  {
+    id: 'prod_1786530060778',
+    slug: 'low-salt-cheese',
+    category: 'cheeses',
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: true,
+    name: L('Low Salt Cheese', 'جبنة ملح خفيف', 'Az Tuzlu Peynir', 'Ser o obniżonej zawartości soli', 'Käse mit wenig Salz', 'Fromage faible en sel'),
+    description: L(
+      'White cheese with reduced salt, made from fresh buffalo milk.',
+      'جبنة بيضاء بنسبة ملح مخفضة، مصنوعة من حليب الجاموس الطازج.',
+      'Taze manda sütünden üretilen, az tuzlu beyaz peynir.',
+      'Biały ser o obniżonej zawartości soli, ze świeżego mleka bawolego.',
+      'Weißkäse mit reduziertem Salzgehalt aus frischer Büffelmilch.',
+      'Fromage blanc à teneur réduite en sel, au lait de bufflonne frais.'
+    ),
+    packaging: L('Plastic buckets', 'عبوات بلاستيكية', 'Plastik kovalar', 'Pojemniki plastikowe', 'Kunststoffeimer', 'Seaux plastiques'),
+    weight: L('1kg / 5kg / 15kg', '١ / ٥ / ١٥ كجم', '1kg / 5kg / 15kg', '1kg / 5kg / 15kg', '1kg / 5kg / 15kg', '1kg / 5kg / 15kg'),
+    shelfLife: L('6 months chilled', '٦ شهور مبردة', '6 ay soğukta', '6 miesięcy w chłodzie', '6 Monate gekühlt', '6 mois réfrigéré'),
+    storage: L('Keep at 4°C', 'يحفظ في ٤ درجة مئوية', '4°C’de saklayın', 'Przechowywać w 4°C', 'Bei 4°C lagern', 'Conserver à 4°C'),
+    origin: L('Egypt', 'مصر', 'Mısır', 'Egipt', 'Ägypten', 'Égypte'),
+    createdAt: 1786530060778,
+    updatedAt: 1786530060778,
+  },
+  {
+    id: 'prod_1786441691008',
+    slug: 'vegan-feta',
+    category: 'cheeses',
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: false,
+    name: L('Vegan Feta', 'جبنة فيتا نباتية', 'Vegan Feta', 'Wegańska feta', 'Veganer Feta', 'Feta végétale'),
+    description: L(
+      'Plant-based feta-style cheese, dairy free.',
+      'جبنة فيتا نباتية خالية من الألبان.',
+      'Bitkisel bazlı, sütsüz feta tipi peynir.',
+      'Roślinny ser typu feta bez nabiału.',
+      'Pflanzlicher Feta-Style-Käse, laktosefrei.',
+      'Fromage végétal style feta, sans produits laitiers.'
+    ),
+    packaging: L('Plastic buckets', 'عبوات بلاستيكية', 'Plastik kovalar', 'Pojemniki plastikowe', 'Kunststoffeimer', 'Seaux plastiques'),
+    weight: L('1kg / 5kg', '١ / ٥ كجم', '1kg / 5kg', '1kg / 5kg', '1kg / 5kg', '1kg / 5kg'),
+    shelfLife: L('6 months chilled', '٦ شهور مبردة', '6 ay soğukta', '6 miesięcy w chłodzie', '6 Monate gekühlt', '6 mois réfrigéré'),
+    storage: L('Keep at 4°C', 'يحفظ في ٤ درجة مئوية', '4°C’de saklayın', 'Przechowywać w 4°C', 'Bei 4°C lagern', 'Conserver à 4°C'),
+    origin: L('Egypt', 'مصر', 'Mısır', 'Egipt', 'Ägypten', 'Égypte'),
+    createdAt: 1786441691008,
+    updatedAt: 1786441691008,
+  },
+  {
+    id: 'prod_1786437787957',
+    slug: 'vegan-kiri',
+    category: 'cheeses',
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: false,
+    name: L('Vegan Kiri', 'جبنة كيري نباتية', 'Vegan Kiri', 'Wegański serek Kiri', 'Veganer Kiri', 'Kiri végétal'),
+    description: L('Plant-based cream cheese portions.', 'جبنة كريمي نباتية.', 'Bitkisel krem peynir.', 'Roślinny serek śmietankowy.', 'Pflanzlicher Frischkäse.', 'Fromage frais végétal.'),
+    packaging: L('Portion packs', 'عبوات فردية', 'Porsiyon paketler', 'Opakowania porcyjne', 'Portionspackungen', 'Portions individuelles'),
+    weight: L('240g', '٢٤٠ جم', '240g', '240g', '240g', '240g'),
+    shelfLife: L('6 months chilled', '٦ شهور مبردة', '6 ay soğukta', '6 miesięcy w chłodzie', '6 Monate gekühlt', '6 mois réfrigéré'),
+    storage: L('Keep at 4°C', 'يحفظ في ٤ درجة مئوية', '4°C’de saklayın', 'Przechowywać w 4°C', 'Bei 4°C lagern', 'Conserver à 4°C'),
+    origin: L('Egypt', 'مصر', 'Mısır', 'Egipt', 'Ägypten', 'Égypte'),
+    createdAt: 1786437787957,
+    updatedAt: 1786437787957,
+  },
+  {
+    id: 'prod_1785249737421',
+    slug: 'buffalo-ghee',
+    category: 'ghee-butter',
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: false,
+    name: L('Buffalo Ghee', 'سمن جاموسي', 'Manda Yağı', 'Masło klarowane bawole', 'Büffelghee', 'Ghee de bufflonne'),
+    description: L('Pure buffalo ghee.', 'سمن جاموسي نقي.', 'Saf manda yağı.', 'Czyste masło klarowane bawole.', 'Reines Büffelghee.', 'Ghee pur de bufflonne.'),
+    packaging: L('Tins', 'علب معدنية', 'Teneke kutular', 'Puszki', 'Dosen', 'Boîtes métalliques'),
+    weight: L('700g / 1.5kg', '٧٠٠ جم / ١٫٥ كجم', '700g / 1.5kg', '700g / 1.5kg', '700g / 1.5kg', '700g / 1.5kg'),
+    shelfLife: L('12 months', '١٢ شهراً', '12 ay', '12 miesięcy', '12 Monate', '12 mois'),
+    storage: L('Cool dry place', 'مكان بارد وجاف', 'Serin kuru yer', 'Chłodne suche miejsce', 'Kühl und trocken', 'Endroit frais et sec'),
+    origin: L('Egypt', 'مصر', 'Mısır', 'Egipt', 'Ägypten', 'Égypte'),
+    createdAt: 1785249737421,
+    updatedAt: 1785249737421,
+  },
+  {
+    id: 'prod_1785162541069',
+    slug: 'natural-yogurt',
+    category: 'yogurt',
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: false,
+    name: L('Natural Yogurt', 'زبادي طبيعي', 'Doğal Yoğurt', 'Jogurt naturalny', 'Naturjoghurt', 'Yaourt nature'),
+    description: L('Plain natural yogurt.', 'زبادي طبيعي سادة.', 'Sade doğal yoğurt.', 'Naturalny jogurt bez dodatków.', 'Naturjoghurt ohne Zusätze.', 'Yaourt nature sans additifs.'),
+    packaging: L('Cups', 'أكواب', 'Kaplar', 'Kubeczki', 'Becher', 'Pots'),
+    weight: L('105g / 400g', '١٠٥ / ٤٠٠ جم', '105g / 400g', '105g / 400g', '105g / 400g', '105g / 400g'),
+    shelfLife: L('21 days chilled', '٢١ يوماً مبرداً', '21 gün soğukta', '21 dni w chłodzie', '21 Tage gekühlt', '21 jours réfrigéré'),
+    storage: L('Keep at 4°C', 'يحفظ في ٤ درجة مئوية', '4°C’de saklayın', 'Przechowywać w 4°C', 'Bei 4°C lagern', 'Conserver à 4°C'),
+    origin: L('Egypt', 'مصر', 'Mısır', 'Egipt', 'Ägypten', 'Égypte'),
+    createdAt: 1785162541069,
+    updatedAt: 1785162541069,
+  },
+]
+
+export const mockCategories: CategoryDocument[] = [
+  {
+    id: 'cat-cheeses',
+    slug: 'cheeses',
+    name: L('Cheeses', 'الجبن', 'Peynirler', 'Sery', 'Käse', 'Fromages'),
+    description: L('White and plant-based cheeses', 'جبن أبيض ونباتي', 'Beyaz ve bitkisel peynirler', 'Sery białe i roślinne', 'Weiß- und Pflanzenkäse', 'Fromages blancs et végétaux'),
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: true,
+    displayOrder: 1,
+    createdAt: 1,
+    updatedAt: 1,
+  },
+  {
+    id: 'cat-ghee-butter',
+    slug: 'ghee-butter',
+    name: L('Ghee & Butter', 'السمن والزبدة', 'Tereyağı', 'Masło i ghee', 'Ghee & Butter', 'Ghee & Beurre'),
+    description: L('Buffalo ghee and butter', 'سمن وزبدة جاموسي', 'Manda yağı ve tereyağı', 'Masło klarowane i masło', 'Büffelghee und Butter', 'Ghee et beurre de bufflonne'),
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: true,
+    displayOrder: 2,
+    createdAt: 2,
+    updatedAt: 2,
+  },
+  {
+    id: 'cat-yogurt',
+    slug: 'yogurt',
+    name: L('Yogurt', 'الزبادي', 'Yoğurt', 'Jogurt', 'Joghurt', 'Yaourt'),
+    description: L('Natural yogurt', 'زبادي طبيعي', 'Doğal yoğurt', 'Jogurt naturalny', 'Naturjoghurt', 'Yaourt nature'),
+    image: '/images/hero_bg.png',
+    status: 'published',
+    featured: true,
+    displayOrder: 3,
+    createdAt: 3,
+    updatedAt: 3,
+  },
+]

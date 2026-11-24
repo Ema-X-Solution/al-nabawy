@@ -3,14 +3,14 @@ import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getAboutConfig } from '@/app/actions/aboutActions'
+import { getAboutConfigCached } from '@/lib/cached-data'
 import type { AboutDocument, AboutLocale } from '@/types/about.types'
 import { Icons } from '@/lib/icons'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
   if (!hasLocale(lang)) return {}
-  const config = await getAboutConfig()
+  const config = await getAboutConfigCached()
   const locale = lang as AboutLocale
   return { title: config.hero.title[locale], description: config.story.body[locale] }
 }
@@ -21,7 +21,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   const locale = lang as AboutLocale
   const isRtl = locale === 'ar'
 
-  const config = await getAboutConfig()
+  const config = await getAboutConfigCached()
 
   const values = [
     { icon: <Icons.Target size={40} color="#169DF7" />, label: config.values.quality[locale] },

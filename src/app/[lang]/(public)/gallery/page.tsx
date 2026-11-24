@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import type { Metadata } from 'next'
 import GalleryClient from './GalleryClient'
-import { getGalleryConfig } from '@/app/actions/galleryActions'
+import { getGalleryConfigCached } from '@/lib/cached-data'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -17,7 +17,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ lang: 
   const locale = lang as Locale
   const dict = await getDictionary(locale)
 
-  const config = await getGalleryConfig()
+  const config = await getGalleryConfigCached()
 
   return (
     <>

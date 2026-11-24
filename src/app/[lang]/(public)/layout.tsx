@@ -2,7 +2,7 @@ import { getDictionary, type Locale } from '@/dictionaries'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import { getFooterConfig } from '@/app/actions/footerActions'
+import { getFooterConfigCached } from '@/lib/cached-data'
 
 export default async function PublicLayout({
   children,
@@ -14,7 +14,7 @@ export default async function PublicLayout({
   const { lang } = await params
   const locale = lang as Locale
   const dict = await getDictionary(locale)
-  const footerConfig = await getFooterConfig()
+  const footerConfig = await getFooterConfigCached()
   const whatsappNumber = footerConfig?.whatsapp || '+20123456789'
 
   return (

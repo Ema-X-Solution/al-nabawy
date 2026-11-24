@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import type { Metadata } from 'next'
-import { getCertificationsConfig } from '@/app/actions/certificationsActions'
+import { getCertificationsConfigCached } from '@/lib/cached-data'
 import Image from 'next/image'
 import { Icons } from '@/lib/icons'
 
@@ -19,7 +19,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
   const dict = await getDictionary(locale)
   const t = dict.certifications
 
-  const dbConfig = await getCertificationsConfig()
+  const dbConfig = await getCertificationsConfigCached()
   const isAr = locale === 'ar'
 
   const heroTitle = dbConfig?.heroTitle?.[locale] || (isAr ? (dbConfig as any)?.heroTitleAr : (dbConfig as any)?.heroTitleEn) || t.heroTitle

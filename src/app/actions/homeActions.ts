@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import { HomeDocument, createDefaultHomeDocument } from '@/types/home.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateHome } from '@/lib/revalidate'
 
 const HOME_SETTINGS_DOC = 'settings/home'
 
@@ -70,7 +70,7 @@ export async function saveHomeConfig(data: HomeDocument): Promise<{ success: boo
     }
 
     await dRef.set(dataToSave)
-    revalidatePath('/', 'layout')
+    revalidateHome()
     return { success: true }
   } catch (error) {
     console.error('Error saving home config:', error)

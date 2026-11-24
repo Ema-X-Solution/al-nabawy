@@ -1,5 +1,5 @@
 import { getDictionary, type Locale } from '@/dictionaries'
-import { getExportPolicyConfig } from '@/app/actions/exportPolicyActions'
+import { getExportPolicyConfigCached } from '@/lib/cached-data'
 import { createDefaultExportPolicyDocument } from '@/types/exportPolicy.types'
 
 
@@ -8,7 +8,7 @@ export default async function ExportPolicyPage({ params }: { params: Promise<{ l
   const dict = await getDictionary(lang as Locale)
   const isAr = lang === 'ar'
 
-  const dbConfig = await getExportPolicyConfig()
+  const dbConfig = await getExportPolicyConfigCached()
   const config = dbConfig || createDefaultExportPolicyDocument()
 
   const title = config.pageTitle[lang as Locale] || config.pageTitle.en

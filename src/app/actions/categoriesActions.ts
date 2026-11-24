@@ -2,7 +2,7 @@
 
 import { adminDb } from '@/lib/firebase-admin'
 import type { CategoryDocument } from '@/types/categories.types'
-import { revalidatePath } from 'next/cache'
+import { revalidateCategories } from '@/lib/revalidate'
 import { getProducts } from './productsActions'
 
 export async function getCategories(): Promise<CategoryDocument[]> {
@@ -44,7 +44,7 @@ export async function saveCategory(category: CategoryDocument): Promise<{ succes
     if (!c.slug) c.slug = c.id
 
     await adminDb.collection('categories').doc(c.id).set(c)
-    revalidatePath('/', 'layout')
+    revalidateCategories()
     return { success: true }
   } catch (error: any) {
     console.error('Error saving category:', error)
@@ -64,7 +64,7 @@ export async function deleteCategory(id: string): Promise<{ success: boolean; de
     batch.delete(adminDb.collection('categories').doc(id))
     await batch.commit()
 
-    revalidatePath('/', 'layout')
+    revalidateCategories()
     return { success: true, deletedProducts: linkedProducts.length }
   } catch (error: any) {
     console.error(`Error deleting category ${id}:`, error)
@@ -88,7 +88,7 @@ export async function deleteAllCategories(): Promise<{ success: boolean; deleted
     }
     await batch.commit()
 
-    revalidatePath('/', 'layout')
+    revalidateCategories()
     return {
       success: true,
       deletedCategories: categoriesSnap.docs.length,
