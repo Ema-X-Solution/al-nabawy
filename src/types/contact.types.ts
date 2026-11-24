@@ -10,7 +10,8 @@ export interface ContactDocument {
 
   // Contact Info
   infoTitle: ContactLocalizedString
-  address: string
+  // Localized map; a plain string from an older CMS doc stays valid
+  address: ContactLocalizedString | string
   phone: string
   whatsapp: string
   email: string
@@ -61,7 +62,14 @@ export function createDefaultContactDocument(): ContactDocument {
       de: 'Kontaktinformationen',
       fr: 'Informations de contact',
     },
-    address: 'Tala, Menoufia, Egypt',
+    address: {
+      en: 'Tala, Menoufia, Egypt',
+      ar: 'تلا، محافظة المنوفية، مصر',
+      tr: 'Tala, Menoufia, Mısır',
+      pl: 'Tala, Menoufia, Egipt',
+      de: 'Tala, Menoufia, Ägypten',
+      fr: 'Tala, Menoufia, Égypte',
+    },
     phone: '+20 10 08661480',
     whatsapp: '+20 10 08661480',
     email: 'info@alnabawy.com',

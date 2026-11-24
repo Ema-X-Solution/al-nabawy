@@ -177,7 +177,7 @@ export default function ContactCMSClient({ initialConfig }: Props) {
           </Grid2>
           <Grid2>
             <Field label="Email Address" value={config.email} onChange={v => patch('email', v)} placeholder="info@alnabawy.com" />
-            <Field label="Physical Address" value={config.address} onChange={v => patch('address', v)} placeholder="Industrial Area, Egypt" />
+            <Field label="Physical Address" value={typeof config.address === 'string' ? config.address : config.address.en} onChange={v => patch('address', v)} placeholder="Tala, Menoufia, Egypt" />
           </Grid2>
 
           <LangTabs lang={lang} setLang={setLang} />

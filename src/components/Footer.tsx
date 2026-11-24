@@ -169,14 +169,15 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
               {[
                 { icon: <Icons.MapPin size={16} />, text: address },
                 // Placeholder numbers stay hidden until real ones are set in the CMS
-                ...(phone1.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone1 }]),
-                ...(phone2.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone2 }]),
-                ...(whatsapp.includes('123 456') ? [] : [{ icon: <Icons.MessageCircle size={16} />, text: `${whatsapp} (WhatsApp)` }]),
+                ...(phone1.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone1, ltr: true }]),
+                ...(phone2.includes('123 456') ? [] : [{ icon: <Icons.Phone size={16} />, text: phone2, ltr: true }]),
+                ...(whatsapp.includes('123 456') ? [] : [{ icon: <Icons.MessageCircle size={16} />, text: `${whatsapp} (WhatsApp)`, ltr: true }]),
                 { icon: <Icons.Mail size={16} />, text: email },
               ].map((item, i) => (
                 <li key={i} style={{ display: 'flex', gap: '0.6rem', fontSize: '0.875rem', alignItems: 'flex-start' }}>
                   <span style={{ marginTop: '2px', color: '#169DF7' }}>{item.icon}</span>
-                  <span style={{ color: 'rgba(255,255,255,0.7)' }}>{item.text}</span>
+                  {/* Phone numbers always render left-to-right, isolated from the RTL flow */}
+                  <span style={{ color: 'rgba(255,255,255,0.7)', ...('ltr' in item && item.ltr ? { direction: 'ltr', unicodeBidi: 'isolate' } : {}) }}>{item.text}</span>
                 </li>
               ))}
             </ul>
