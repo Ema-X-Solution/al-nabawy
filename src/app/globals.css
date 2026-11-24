@@ -469,3 +469,46 @@ body {
   font-size: 1.1rem;
   box-shadow: 0 4px 16px rgba(22,157,247,0.3);
 }
+
+/* ===== HERO STAT CHIPS ===== */
+/* Desktop: compact but identical cards (shared width fits the longest label in any locale). */
+.hero-stat-chip {
+  min-width: 11.5rem;
+  text-align: center;
+}
+.hero-stat-chip > div:last-child {
+  white-space: nowrap;
+}
+/* Mobile: three identical cards in one row. */
+@media (max-width: 640px) {
+  .hero-stat-row {
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+  }
+  .hero-stat-chip {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0.6rem 0.35rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-stat-chip > div:first-child {
+    font-size: 1.3rem !important;
+  }
+  .hero-stat-chip > div:last-child {
+    font-size: 0.68rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* ===== WHY CHOOSE US: equal card heights ===== */
+.why-us-grid > .why-us-item {
+  height: 100%;
+}
+.why-us-card {
+  height: 100%;
+}

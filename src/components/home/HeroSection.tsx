@@ -128,6 +128,7 @@ export default function HeroSection({ lang, config, statsT }: HeroSectionProps) 
 
         {/* Stats chips */}
         <div
+          className="hero-stat-row"
           style={{
             display: 'flex',
             gap: '1rem',
@@ -141,7 +142,7 @@ export default function HeroSection({ lang, config, statsT }: HeroSectionProps) 
             { num: '20+', label: statsLabels.products },
             { num: '17+', label: statsLabels.countries },
           ].map((stat) => (
-            <div key={stat.label} className="glass" style={{ flex: '1 1 0', minWidth: '90px', textAlign: 'center', padding: '0.75rem 1.25rem', borderRadius: '0.75rem' }}>
+            <div key={stat.label} className="glass hero-stat-chip" style={{ padding: '0.75rem 1.25rem', borderRadius: '0.75rem' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white' }}>{stat.num}</div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.8)', marginTop: '0.15rem' }}>
                 {stat.label}
