@@ -35,7 +35,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const related = await getRelatedProductsCached(product.category, decodedSlug)
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
   const footerConfig = await getFooterConfigCached()
-  const whatsapp = footerConfig?.whatsapp || '+20123456789'
+  const whatsapp = footerConfig?.whatsapp || '+201008661480'
 
   return (
     <>

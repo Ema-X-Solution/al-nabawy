@@ -38,12 +38,30 @@
     "title": "Catégories de Produits",
     "subtitle": "Découvrez notre gamme complète de produits laitiers premium fabriqués selon les normes internationales",
     "items": {
-      "milk": { "name": "Produits Laitiers", "desc": "Produits laitiers UHT, pasteurisés et écrémés frais." },
-      "cheese": { "name": "Fromage", "desc": "Mozzarella, cheddar, fromage blanc et variétés de spécialité." },
-      "butter": { "name": "Beurre", "desc": "Beurre laitier de première qualité non salé et salé." },
-      "cream": { "name": "Crème", "desc": "Crème entière, crème fouettée et crème de cuisson." },
-      "milkPowder": { "name": "Poudre de Lait", "desc": "Poudre de lait entier et écrémé en vrac." },
-      "ingredients": { "name": "Ingrédients Laitiers", "desc": "Poudre de lactosérum, lactose, caséine et plus." }
+      "milk": {
+        "name": "Produits Laitiers",
+        "desc": "Produits laitiers UHT, pasteurisés et écrémés frais."
+      },
+      "cheese": {
+        "name": "Fromage",
+        "desc": "Mozzarella, cheddar, fromage blanc et variétés de spécialité."
+      },
+      "butter": {
+        "name": "Beurre",
+        "desc": "Beurre laitier de première qualité non salé et salé."
+      },
+      "cream": {
+        "name": "Crème",
+        "desc": "Crème entière, crème fouettée et crème de cuisson."
+      },
+      "milkPowder": {
+        "name": "Poudre de Lait",
+        "desc": "Poudre de lait entier et écrémé en vrac."
+      },
+      "ingredients": {
+        "name": "Ingrédients Laitiers",
+        "desc": "Poudre de lactosérum, lactose, caséine et plus."
+      }
     },
     "viewDetails": "Voir les Détails"
   },
@@ -52,10 +70,22 @@
     "title": "Nos Avantages Concurrentiels",
     "subtitle": "Nous fixons la norme en matière de qualité, de sécurité et de fiabilité dans l'industrie laitière mondiale",
     "items": {
-      "natural": { "title": "100% Naturel", "desc": "Fabriqué à partir de vrai lait et d'ingrédients naturels sans additifs artificiels." },
-      "quality": { "title": "Qualité Internationale", "desc": "Processus de fabrication certifiés ISO, HACCP, HALAL et FDA." },
-      "expert": { "title": "Équipe d'Experts", "desc": "Une équipe expérimentée avec une connaissance approfondie de l'industrie laitière." },
-      "global": { "title": "Exportation Mondiale", "desc": "Exportation vers plus de 17 pays dans le monde sur 3 continents." }
+      "natural": {
+        "title": "100% Naturel",
+        "desc": "Fabriqué à partir de vrai lait et d'ingrédients naturels sans additifs artificiels."
+      },
+      "quality": {
+        "title": "Qualité Internationale",
+        "desc": "Processus de fabrication certifiés ISO, HACCP, HALAL et FDA."
+      },
+      "expert": {
+        "title": "Équipe d'Experts",
+        "desc": "Une équipe expérimentée avec une connaissance approfondie de l'industrie laitière."
+      },
+      "global": {
+        "title": "Exportation Mondiale",
+        "desc": "Exportation vers plus de 17 pays dans le monde sur 3 continents."
+      }
     }
   },
   "facility": {
@@ -69,10 +99,22 @@
     "title": "Certifié Internationalement",
     "subtitle": "Nos produits répondent aux normes mondiales les plus strictes en matière de sécurité et de qualité alimentaires",
     "items": {
-      "iso": { "title": "ISO 22000", "desc": "Norme internationale de gestion de la sécurité alimentaire." },
-      "haccp": { "title": "HACCP", "desc": "Analyse des risques et maîtrise des points critiques." },
-      "halal": { "title": "HALAL", "desc": "Certifié halal pour les marchés musulmans mondiaux." },
-      "fda": { "title": "FDA", "desc": "Approuvé par la Food and Drug Administration des États-Unis." }
+      "iso": {
+        "title": "ISO 22000",
+        "desc": "Norme internationale de gestion de la sécurité alimentaire."
+      },
+      "haccp": {
+        "title": "HACCP",
+        "desc": "Analyse des risques et maîtrise des points critiques."
+      },
+      "halal": {
+        "title": "HALAL",
+        "desc": "Certifié halal pour les marchés musulmans mondiaux."
+      },
+      "fda": {
+        "title": "FDA",
+        "desc": "Approuvé par la Food and Drug Administration des États-Unis."
+      }
     }
   },
   "exportMap": {
@@ -104,7 +146,7 @@
     "quickLinks": "Liens Rapides",
     "products": "Produits",
     "contactInfo": "Informations de Contact",
-    "address": "Zone Industrielle, Égypte",
+    "address": "Tala, Menoufia, Égypte",
     "copyright": "© 2024 Usine Laitière Al-Nabawy. Tous Droits Réservés.",
     "privacy": "Politique de Confidentialité",
     "terms": "Termes & Conditions"
@@ -194,8 +236,8 @@
     "name": "Nom Complet",
     "company": "Nom de l'Entreprise",
     "country": "Pays",
-    "email": "Adresse E-mail",
-    "phone": "Numéro de Téléphone",
+    "email": "info@alnabawy.com",
+    "phone": "+20 123 456 7890",
     "interest": "Produit d'Intérêt",
     "select": "— Sélectionner —",
     "message": "Message",
@@ -204,10 +246,8 @@
     "success": "Merci ! Nous vous contacterons bientôt.",
     "error": "Un problème est survenu. Veuillez réessayer.",
     "infoTitle": "Informations de Contact",
-    "address": "Zone Industrielle, Égypte",
-    "phone": "+20 123 456 7890",
+    "address": "Tala, Menoufia, Égypte",
     "whatsapp": "+20 123 456 789",
-    "email": "info@alnabawy.com",
     "hours": "Heures d'Ouverture",
     "hoursValue": "Dimanche – Jeudi : 9h00 – 17h00"
   },
