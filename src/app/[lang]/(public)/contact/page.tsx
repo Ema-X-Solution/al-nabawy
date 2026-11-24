@@ -111,7 +111,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                 }}
                 id="contact-whatsapp-link"
               >
-                <Icons.MessageCircle size={22} /> WhatsApp: {t.whatsapp}
+                <WhatsAppIcon size={22} color="white" /> <span style={{ direction: 'ltr', unicodeBidi: 'isolate' }}>{config.whatsapp}</span>
               </a>
 
               {/* Map */}
