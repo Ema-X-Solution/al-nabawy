@@ -39,9 +39,9 @@ export default function CertificationsSection({ lang, config, certsData }: Props
                 className="cert-card"
                 style={{ borderTop: `4px solid ${item.color || '#169DF7'}` }}
               >
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+                <div style={{ position: 'relative', width: '100%', height: '160px', marginBottom: '1rem', background: '#f9fafb', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {item.image ? (
-                    <img src={item.image} alt={item.title[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']} style={{ width: 48, height: 48, objectFit: 'contain' }} />
+                    <img src={item.image} alt={item.title[lang as 'en'|'ar'|'tr'|'pl'|'de'|'fr']} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '12px' }} />
                   ) : (
                     <Icons.Award size={48} color={item.color || "#169DF7"} />
                   )}

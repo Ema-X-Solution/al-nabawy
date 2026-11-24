@@ -50,7 +50,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
             <ContactForm 
               lang={locale} 
               config={config} 
-              tSystem={{ success: t.success, error: t.error, submitting: t.submitting }} 
+              tSystem={{ success: t.success, error: t.error, submitting: t.submitting, selectPlaceholder: t.select }} 
               productOptions={publishedCategories.map(c => ({ id: c.id, name: c.name[locale] || Object.values(c.name)[0] }))} 
             />
 

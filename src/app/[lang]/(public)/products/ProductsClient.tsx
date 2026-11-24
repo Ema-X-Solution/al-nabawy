@@ -411,8 +411,8 @@ export default function ProductsClient({ lang, t, initialProducts, categories }:
                   <h3 style={{ fontWeight: 700, fontSize: '0.95rem', color: '#1F2937', marginBottom: '0.4rem' }}>
                     {p.name[localeStr]}
                   </h3>
-                  <p style={{ color: '#6b7280', fontSize: '0.8rem', lineHeight: 1.5, flex: 1, marginBottom: '0.75rem' }}>
-                    {p.description[localeStr]?.slice(0, 80)}...
+                  <p style={{ color: '#6b7280', fontSize: '0.8rem', lineHeight: 1.5, flex: 1, marginBottom: '0.75rem', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 3, overflow: 'hidden' }}>
+                    {p.description[localeStr]}
                   </p>
                   <Link
                     href={`/${lang}/products/${encodeURIComponent(p.slug || p.id)}`}

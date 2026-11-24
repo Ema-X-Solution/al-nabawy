@@ -124,6 +124,7 @@ body {
 
 .section {
   padding: 5rem 1.5rem;
+  scroll-margin-top: 90px; /* keep section titles clear of the fixed 72px header */
 }
 .section-sm {
   padding: 3rem 1.5rem;
@@ -298,6 +299,18 @@ body {
 [dir="rtl"] .whatsapp-btn {
   right: auto;
   left: 2rem;
+}
+@media (max-width: 768px) {
+  .whatsapp-btn {
+    width: 48px;
+    height: 48px;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    right: 1rem;
+  }
+  [dir="rtl"] .whatsapp-btn {
+    right: auto;
+    left: 1rem;
+  }
 }
 
 /* ===== PRODUCT CARD ===== */

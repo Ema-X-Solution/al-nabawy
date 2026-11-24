@@ -5,9 +5,15 @@ import type { HomeHero, HomeLocale } from '@/types/home.types'
 interface HeroSectionProps {
   lang: HomeLocale
   config: HomeHero
+  statsT?: { years: string; products: string; countries: string }
 }
 
-export default function HeroSection({ lang, config }: HeroSectionProps) {
+export default function HeroSection({ lang, config, statsT }: HeroSectionProps) {
+  const statsLabels = statsT ?? {
+    years: lang === 'ar' ? 'سنوات خبرة' : 'Years Experience',
+    products: lang === 'ar' ? 'منتج ألبان' : 'Dairy Products',
+    countries: lang === 'ar' ? 'دولة تصدير' : 'Export Countries',
+  }
   return (
     <section className="hero-section" id="hero">
       {/* Background Image */}
@@ -43,8 +49,8 @@ export default function HeroSection({ lang, config }: HeroSectionProps) {
       </div>
 
       {/* Content */}
-      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '0 1.5rem' }}>
-        <div style={{ maxWidth: '700px' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '0 1.5rem', paddingTop: '6rem', paddingBottom: '3rem' }}>
+        <div style={{ maxWidth: '760px' }}>
           {/* Badge */}
           {/* <div
             style={{
@@ -69,12 +75,12 @@ export default function HeroSection({ lang, config }: HeroSectionProps) {
           {/* Headline */}
           <h1
             style={{
-              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+              fontSize: 'clamp(1.9rem, 4.2vw, 3.4rem)',
               fontWeight: 800,
               color: 'white',
-              lineHeight: 1.1,
-              marginTop: '1.5rem',
-              marginBottom: '1rem',
+              lineHeight: 1.35,
+              marginTop: '0.5rem',
+              marginBottom: '1.25rem',
               animation: 'fadeUp 0.8s ease 0.3s both',
               textShadow: '0 2px 20px rgba(0,0,0,0.2)',
               fontFamily: lang === 'ar' ? 'Cairo, sans-serif' : 'Poppins, sans-serif',
@@ -125,17 +131,17 @@ export default function HeroSection({ lang, config }: HeroSectionProps) {
           style={{
             display: 'flex',
             gap: '1rem',
-            marginTop: '4rem',
+            marginTop: '2.5rem',
             flexWrap: 'wrap',
             animation: 'fadeUp 0.8s ease 0.75s both',
           }}
         >
           {[
-            { num: '15+', label: lang === 'ar' ? 'سنوات خبرة' : 'Years Experience' },
-            { num: '20+', label: lang === 'ar' ? 'منتج ألبان' : 'Dairy Products' },
-            { num: '17+', label: lang === 'ar' ? 'دولة تصدير' : 'Export Countries' },
+            { num: '15+', label: statsLabels.years },
+            { num: '20+', label: statsLabels.products },
+            { num: '17+', label: statsLabels.countries },
           ].map((stat) => (
-            <div key={stat.label} className="glass" style={{ padding: '0.75rem 1.25rem', borderRadius: '0.75rem' }}>
+            <div key={stat.label} className="glass" style={{ flex: '1 1 0', minWidth: '90px', textAlign: 'center', padding: '0.75rem 1.25rem', borderRadius: '0.75rem' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white' }}>{stat.num}</div>
               <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.8)', marginTop: '0.15rem' }}>
                 {stat.label}
