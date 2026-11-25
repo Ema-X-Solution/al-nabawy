@@ -9,9 +9,10 @@ import { Icons } from '@/lib/icons'
 interface Props {
   lang: HomeLocale
   config: HomeOverview
+  countriesCount?: number
 }
 
-export default function CompanyOverview({ lang, config }: Props) {
+export default function CompanyOverview({ lang, config, countriesCount }: Props) {
   return (
     <section className="section bg-section-light" id="overview">
       <div className="container">
@@ -37,7 +38,7 @@ export default function CompanyOverview({ lang, config }: Props) {
               {[
                 { target: 15, suffix: '+', label: config.statsYears[lang] },
                 { target: 20, suffix: '+', label: config.statsProducts[lang] },
-                { target: 17, suffix: '+', label: config.statsCountries[lang] },
+                { target: countriesCount ?? 17, suffix: '+', label: config.statsCountries[lang] },
               ].map((s) => (
                 <div key={s.label} className="stat-card">
                   <AnimatedCounter target={s.target} suffix={s.suffix} />

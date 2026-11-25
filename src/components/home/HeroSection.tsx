@@ -6,9 +6,10 @@ interface HeroSectionProps {
   lang: HomeLocale
   config: HomeHero
   statsT?: { years: string; products: string; countries: string }
+  countriesCount?: number
 }
 
-export default function HeroSection({ lang, config, statsT }: HeroSectionProps) {
+export default function HeroSection({ lang, config, statsT, countriesCount }: HeroSectionProps) {
   const statsLabels = statsT ?? {
     years: lang === 'ar' ? 'سنوات خبرة' : 'Years Experience',
     products: lang === 'ar' ? 'منتج ألبان' : 'Dairy Products',
@@ -140,7 +141,7 @@ export default function HeroSection({ lang, config, statsT }: HeroSectionProps) 
           {[
             { num: '15+', label: statsLabels.years },
             { num: '20+', label: statsLabels.products },
-            { num: '17+', label: statsLabels.countries },
+            { num: `${countriesCount ?? 17}+`, label: statsLabels.countries },
           ].map((stat) => (
             <div key={stat.label} className="glass hero-stat-chip" style={{ padding: '0.75rem 1.25rem', borderRadius: '0.75rem' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white' }}>{stat.num}</div>
