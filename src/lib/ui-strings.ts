@@ -14,6 +14,9 @@ const strings = {
   loading: {
     en: 'Loading...', ar: 'جارٍ التحميل...', tr: 'Yükleniyor...', pl: 'Ładowanie...', de: 'Wird geladen...', fr: 'Chargement...',
   },
+  exportCountries: {
+    en: 'Export Countries', ar: 'دولة نصدّر إليها', tr: 'İhracat Yaptığımız Ülke', pl: 'Krajów Eksportu', de: 'Exportländer', fr: "Pays d'exportation",
+  },
   certifiedFactory: {
     en: 'Certified Factory', ar: 'مصنع معتمد', tr: 'Sertifikalı Fabrika', pl: 'Certyfikowana fabryka', de: 'Zertifizierte Fabrik', fr: 'Usine certifiée',
   },
