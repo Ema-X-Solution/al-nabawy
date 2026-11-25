@@ -11,6 +11,9 @@ const strings = {
   exportPolicy: {
     en: 'Export Policy', ar: 'سياسة التصدير', tr: 'İhracat Politikası', pl: 'Polityka eksportowa', de: 'Exportrichtlinie', fr: "Politique d'exportation",
   },
+  loading: {
+    en: 'Loading...', ar: 'جارٍ التحميل...', tr: 'Yükleniyor...', pl: 'Ładowanie...', de: 'Wird geladen...', fr: 'Chargement...',
+  },
   certifiedFactory: {
     en: 'Certified Factory', ar: 'مصنع معتمد', tr: 'Sertifikalı Fabrika', pl: 'Certyfikowana fabryka', de: 'Zertifizierte Fabrik', fr: 'Usine certifiée',
   },
