@@ -133,10 +133,10 @@ export default async function ExportMarketsPage({ params }: { params: Promise<{ 
               <p style={{ color: '#6b7280', lineHeight: 1.8, marginBottom: '1.5rem', whiteSpace: 'pre-line' }}>{logisticsBody}</p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                 {[
-                  { icon: <Icons.Ship size={20} color="#169DF7" />, label: (t as any).logisticsSea || (locale === 'ar' ? 'شحن بحري' : 'Sea Freight') },
-                  { icon: <Icons.Plane size={20} color="#169DF7" />, label: (t as any).logisticsAir || (locale === 'ar' ? 'شحن جوي' : 'Air Freight') },
-                  { icon: <Icons.Truck size={20} color="#169DF7" />, label: (t as any).logisticsRoad || (locale === 'ar' ? 'نقل بري' : 'Road Transport') },
-                  { icon: <Icons.Snowflake size={20} color="#169DF7" />, label: (t as any).logisticsReefer || (locale === 'ar' ? 'حاويات مبردة' : 'Reefer Containers') },
+                  { icon: <Icons.Ship size={20} color="#169DF7" />, label: t.logisticsSea },
+                  { icon: <Icons.Plane size={20} color="#169DF7" />, label: t.logisticsAir },
+                  { icon: <Icons.Truck size={20} color="#169DF7" />, label: t.logisticsRoad },
+                  { icon: <Icons.Snowflake size={20} color="#169DF7" />, label: t.logisticsReefer },
                 ].map((item) => (
                   <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#f8fafc', borderRadius: '0.5rem', padding: '0.75rem', border: '1px solid rgba(22,157,247,0.1)' }}>
                     <span style={{ display: 'flex', alignItems: 'center' }}>{item.icon}</span>

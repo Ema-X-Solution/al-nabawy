@@ -4,6 +4,7 @@ import type { HomeWhyUs, HomeLocale } from '@/types/home.types'
 interface Props {
   lang: HomeLocale
   config: HomeWhyUs
+  countriesCount?: number
 }
 
 const icons = {
@@ -29,7 +30,8 @@ const icons = {
   ),
 }
 
-export default function WhyChooseUs({ lang, config }: Props) {
+export default function WhyChooseUs({ lang, config, countriesCount }: Props) {
+  const fill = (text: string) => text.replace(/\{count\}/g, String(countriesCount ?? ''))
   const items = [
     { key: 'natural', ...config.natural },
     { key: 'quality', ...config.quality },
@@ -98,8 +100,8 @@ export default function WhyChooseUs({ lang, config }: Props) {
                 >
                   {icons[item.key as keyof typeof icons]}
                 </div>
-                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.75rem' }}>{item.title[lang]}</h3>
-                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>{item.desc[lang]}</p>
+                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.75rem' }}>{fill(item.title[lang])}</h3>
+                <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.7 }}>{fill(item.desc[lang])}</p>
               </div>
             </ScrollAnimation>
           ))}

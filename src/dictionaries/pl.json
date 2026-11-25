@@ -178,7 +178,9 @@
     "search": "Szukaj produktów...",
     "allCategories": "Wszystkie Kategorie",
     "viewDetails": "Zobacz Szczegóły",
-    "noResults": "Brak produktów."
+    "noResults": "Brak produktów.",
+    "filter": "Filtruj kategorie",
+    "close": "Zamknij"
   },
   "productDetail": {
     "packaging": "Opakowanie",
@@ -198,7 +200,9 @@
     "heroTitle": "Nasze Certyfikaty",
     "heroSub": "Uznane międzynarodowo standardy jakości i bezpieczeństwa",
     "label": "Certyfikaty",
-    "validity": "Ważny Do"
+    "validity": "Ważny Do",
+    "commitmentTitle": "Nasze zaangażowanie w jakość",
+    "commitmentBody": "Dbamy o to, aby na każdym etapie produkcji, od surowców po końcowe pakowanie, utrzymywać najwyższe standardy bezpieczeństwa żywności i jakości."
   },
   "exportMarkets": {
     "heroTitle": "Rynki Eksportowe",
@@ -216,7 +220,11 @@
     },
     "logisticsLabel": "Logistyka",
     "logisticsTitle": "Niezawodna Wysyłka Światowa",
-    "logisticsBody": "Współpracujemy z wiodącymi firmami spedycyjnymi aby zapewnić terminową dostawę."
+    "logisticsBody": "Współpracujemy z wiodącymi firmami spedycyjnymi aby zapewnić terminową dostawę.",
+    "logisticsSea": "Transport morski",
+    "logisticsAir": "Transport lotniczy",
+    "logisticsRoad": "Transport drogowy",
+    "logisticsReefer": "Kontenery chłodnicze"
   },
   "gallery": {
     "heroTitle": "Galeria",
@@ -236,7 +244,7 @@
     "name": "Imię i Nazwisko",
     "company": "Nazwa Firmy",
     "country": "Kraj",
-    "email": "info@alnabawy.com",
+    "email": "alnbwy660@gmail.com",
     "phone": "+20 123 456 7890",
     "interest": "Interesujący Produkt",
     "select": "— Wybierz —",

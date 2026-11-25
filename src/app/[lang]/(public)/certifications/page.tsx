@@ -83,12 +83,10 @@ export default async function CertificationsPage({ params }: { params: Promise<{
           {/* Commitment section */}
           <div style={{ marginTop: '4rem', background: 'linear-gradient(135deg,#169DF7,#0d6fb8)', borderRadius: '1.5rem', padding: '3rem 2rem', textAlign: 'center', color: 'white' }}>
             <h2 style={{ fontWeight: 800, fontSize: '1.75rem', marginBottom: '1rem' }}>
-              {locale === 'ar' ? 'التزامنا بالجودة' : 'Our Commitment to Quality'}
+              {t.commitmentTitle}
             </h2>
             <p style={{ opacity: 0.9, maxWidth: '580px', margin: '0 auto', lineHeight: 1.7 }}>
-              {locale === 'ar'
-                ? 'نحن ملتزمون بالحفاظ على أعلى معايير سلامة الغذاء والجودة في كل مرحلة من مراحل الإنتاج.'
-                : 'We are committed to maintaining the highest food safety and quality standards at every stage of production, from raw materials to final packaging.'}
+              {t.commitmentBody}
             </p>
           </div>
         </div>

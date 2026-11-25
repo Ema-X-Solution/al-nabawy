@@ -200,7 +200,9 @@
     "heroTitle": "شهاداتنا",
     "heroSub": "معايير دولية للجودة والسلامة",
     "label": "الشهادات",
-    "validity": "صالح حتى"
+    "validity": "صالح حتى",
+    "commitmentTitle": "التزامنا بالجودة",
+    "commitmentBody": "نحن ملتزمون بالحفاظ على أعلى معايير سلامة الغذاء والجودة في كل مرحلة من مراحل الإنتاج."
   },
   "exportMarkets": {
     "heroTitle": "أسواق التصدير",
@@ -218,7 +220,11 @@
     },
     "logisticsLabel": "اللوجستيات",
     "logisticsTitle": "شحن موثوق حول العالم",
-    "logisticsBody": "نتشارك مع كبرى شركات الشحن لضمان وصول طلبك في الوقت المحدد."
+    "logisticsBody": "نتشارك مع كبرى شركات الشحن لضمان وصول طلبك في الوقت المحدد.",
+    "logisticsSea": "شحن بحري",
+    "logisticsAir": "شحن جوي",
+    "logisticsRoad": "نقل بري",
+    "logisticsReefer": "حاويات مبردة"
   },
   "gallery": {
     "heroTitle": "معرض الصور",
@@ -238,7 +244,7 @@
     "name": "الاسم الكامل",
     "company": "اسم الشركة",
     "country": "الدولة",
-    "email": "info@alnabawy.com",
+    "email": "alnbwy660@gmail.com",
     "phone": "+20 123 456 7890",
     "interest": "المنتج المهتم به",
     "select": "— اختر —",

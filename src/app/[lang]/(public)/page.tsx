@@ -60,7 +60,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           case 'categories':
             return <ProductCategories key={meta.id} lang={locale} config={config.categories} categories={publishedCategories} />
           case 'whyUs':
-            return <WhyChooseUs key={meta.id} lang={locale} config={config.whyUs} />
+            return <WhyChooseUs key={meta.id} lang={locale} config={config.whyUs} countriesCount={exportConfig?.countries?.length} />
           case 'facility':
             return <ProductionFacility key={meta.id} lang={locale} config={config.facility} />
           case 'certifications':

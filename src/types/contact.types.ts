@@ -72,7 +72,7 @@ export function createDefaultContactDocument(): ContactDocument {
     },
     phone: '+20 10 08661480',
     whatsapp: '+20 10 08661480',
-    email: 'info@alnabawy.com',
+    email: 'alnbwy660@gmail.com',
     hours: {
       en: 'Business Hours',
       ar: 'ساعات العمل',
