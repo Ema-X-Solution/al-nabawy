@@ -6,6 +6,7 @@ import { Icons } from '@/lib/icons'
 import { uiString } from '@/lib/ui-strings'
 
 interface Props {
+  categoryName?: string
   product: ProductDocument
   lang: string
   dict: any // Full dictionary
@@ -13,7 +14,7 @@ interface Props {
   whatsapp: string
 }
 
-export default function ProductDetailView({ product, lang, dict, isPreview = false, whatsapp }: Props) {
+export default function ProductDetailView({ product, lang, dict, isPreview = false, whatsapp, categoryName }: Props) {
   const t = dict.productDetail
   const isRtl = lang === 'ar'
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
@@ -36,7 +37,7 @@ export default function ProductDetailView({ product, lang, dict, isPreview = fal
         <div style={{ background: '#f8fafc', borderBottom: '1px solid #e5e7eb', padding: '1rem 1.5rem', marginTop: '72px' }}>
           <div className="container" style={{ display: 'flex', gap: '0.5rem', fontSize: '0.875rem', color: '#6b7280', alignItems: 'center' }}>
             <Link href={`/${lang}`} style={{ color: '#169DF7', textDecoration: 'none' }}>
-              {lang === 'ar' ? 'الرئيسية' : 'Home'}
+              {dict.nav?.home || (lang === 'ar' ? 'الرئيسية' : 'Home')}
             </Link>
             <span>›</span>
             <Link href={`/${lang}/products`} style={{ color: '#169DF7', textDecoration: 'none' }}>
@@ -70,7 +71,7 @@ export default function ProductDetailView({ product, lang, dict, isPreview = fal
             {/* Info */}
             <div>
               <span style={{ background: '#e0f2fe', color: '#169DF7', fontSize: '0.8rem', fontWeight: 700, padding: '0.25rem 0.9rem', borderRadius: '9999px' }}>
-                {dict.categories.items[product.category]?.name || product.category}
+                {categoryName || dict.categories.items[product.category]?.name || product.category}
               </span>
               <h1 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 800, color: '#1F2937', margin: '1rem 0 0.75rem', fontFamily: lang === 'ar' ? 'Cairo,sans-serif' : 'Poppins,sans-serif' }}>
                 {name}

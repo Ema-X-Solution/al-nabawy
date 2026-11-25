@@ -5,6 +5,7 @@ import { getFooterConfig } from '@/app/actions/footerActions'
 import { getCategories } from '@/app/actions/categoriesActions'
 import { Icons } from '@/lib/icons'
 import WhatsAppIcon from '@/components/WhatsAppIcon'
+import { uiString } from '@/lib/ui-strings'
 
 interface FooterProps {
   lang: Locale
@@ -206,7 +207,7 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
           <span>{copyrightLive}</span>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <Link href={`/${lang}/export-policy`} style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}>
-              {isAr ? 'سياسة التصدير' : 'Export Policy'}
+              {uiString('exportPolicy', lang)}
             </Link>
           </div>
         </div>
