@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import type { Locale } from '@/dictionaries'
+import { uiString } from '@/lib/ui-strings'
 
 const locales: { code: Locale; label: string; name: string; flagUrl: string }[] = [
   { code: 'en', label: 'EN', name: 'English',  flagUrl: 'https://flagcdn.com/gb.svg' },
@@ -179,7 +180,7 @@ export default function LanguageSwitcher({ currentLang, scrolled = false }: { cu
         {/* Header */}
         <div style={{ padding: '12px 16px 8px', borderBottom: '1px solid #f0f0f0' }}>
           <p style={{ margin: 0, fontSize: 10, fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-            Select Language
+            {uiString('selectLanguage', currentLang)}
           </p>
         </div>
 

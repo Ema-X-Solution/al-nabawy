@@ -20,7 +20,7 @@ export default async function SettingsPage({ params }: { params: Promise<{ lang:
     phone1: "+20 123 456 7890",
     phone2: "+20 123 456 789",
     whatsapp: "+20 123 456 789",
-    email: "info@alnabawy.com",
+    email: "alnbwy660@gmail.com",
     copyrightEn: "© 2024 Al-Nabawy Dairy Factory. All Rights Reserved.",
     copyrightAr: "© 2024 مصنع النبوي لمنتجات الألبان. جميع الحقوق محفوظة.",
     socialLinks: [

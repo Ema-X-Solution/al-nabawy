@@ -35,13 +35,15 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
   const categories = await getCategories()
   const isAr = lang === 'ar'
 
-  const slogan = dbConfig ? (isAr ? dbConfig.sloganAr : dbConfig.sloganEn) : t.slogan
+  // The CMS only has EN/AR fields; other languages use their dictionary text
+  const hasCmsLang = lang === 'ar' || lang === 'en'
+  const slogan = dbConfig && hasCmsLang ? (isAr ? dbConfig.sloganAr : dbConfig.sloganEn) : t.slogan
   const address = dbConfig ? (isAr ? dbConfig.addressAr : dbConfig.addressEn) : t.address
   const phone1 = dbConfig?.phone1 || '+20 10 08661480'
   const phone2 = dbConfig?.phone2 || '+20 123 456 789'
   const whatsapp = dbConfig?.whatsapp || '+20 10 08661480'
-  const email = dbConfig?.email || 'info@alnabawy.com'
-  const copyright = dbConfig ? (isAr ? dbConfig.copyrightAr : dbConfig.copyrightEn) : t.copyright
+  const email = dbConfig?.email || 'alnbwy660@gmail.com'
+  const copyright = dbConfig && hasCmsLang ? (isAr ? dbConfig.copyrightAr : dbConfig.copyrightEn) : t.copyright
   // Always show the current year, even if the CMS text still carries an old one
   const copyrightLive = copyright.replace(/\b(19|20)\d{2}\b/, String(new Date().getFullYear()))
 

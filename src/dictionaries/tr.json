@@ -178,7 +178,9 @@
     "search": "Ürün ara...",
     "allCategories": "Tüm Kategoriler",
     "viewDetails": "Detayları Görüntüle",
-    "noResults": "Ürün bulunamadı."
+    "noResults": "Ürün bulunamadı.",
+    "filter": "Kategorileri Filtrele",
+    "close": "Kapat"
   },
   "productDetail": {
     "packaging": "Ambalaj",
@@ -198,7 +200,9 @@
     "heroTitle": "Sertifikalarımız",
     "heroSub": "Uluslararası kalite ve güvenlik standartları",
     "label": "Sertifikalar",
-    "validity": "Geçerlilik"
+    "validity": "Geçerlilik",
+    "commitmentTitle": "Kaliteye Bağlılığımız",
+    "commitmentBody": "Hammaddeden son ambalajlamaya kadar üretimin her aşamasında en yüksek gıda güvenliği ve kalite standartlarını korumaya kararlıyız."
   },
   "exportMarkets": {
     "heroTitle": "İhracat Pazarları",
@@ -216,7 +220,11 @@
     },
     "logisticsLabel": "Lojistik",
     "logisticsTitle": "Dünya Genelinde Güvenilir Nakliye",
-    "logisticsBody": "Siparişinizin zamanında ve mükemmel durumda ulaşmasını sağlamak için önde gelen nakliye şirketleriyle ortaklık kuruyoruz."
+    "logisticsBody": "Siparişinizin zamanında ve mükemmel durumda ulaşmasını sağlamak için önde gelen nakliye şirketleriyle ortaklık kuruyoruz.",
+    "logisticsSea": "Deniz Taşımacılığı",
+    "logisticsAir": "Hava Kargo",
+    "logisticsRoad": "Karayolu Taşımacılığı",
+    "logisticsReefer": "Frigorifik Konteynerler"
   },
   "gallery": {
     "heroTitle": "Galeri",
@@ -236,7 +244,7 @@
     "name": "Ad Soyad",
     "company": "Şirket Adı",
     "country": "Ülke",
-    "email": "info@alnabawy.com",
+    "email": "alnbwy660@gmail.com",
     "phone": "+20 123 456 7890",
     "interest": "İlgilenilen Ürün",
     "select": "— Seçin —",

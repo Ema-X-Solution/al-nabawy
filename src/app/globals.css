@@ -500,8 +500,12 @@ body {
     font-size: 1.3rem !important;
   }
   .hero-stat-chip > div:last-child {
-    font-size: 0.68rem !important;
-    white-space: nowrap;
+    font-size: 0.64rem !important;
+    line-height: 1.25;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+    max-width: 100%;
   }
 }
 

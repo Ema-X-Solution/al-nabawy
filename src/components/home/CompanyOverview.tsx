@@ -5,6 +5,7 @@ import VideoSpot from '@/components/home/VideoSpot'
 import ScrollAnimation from '@/components/ScrollAnimation'
 import type { HomeOverview, HomeLocale } from '@/types/home.types'
 import { Icons } from '@/lib/icons'
+import { uiString } from '@/lib/ui-strings'
 
 interface Props {
   lang: HomeLocale
@@ -82,7 +83,7 @@ export default function CompanyOverview({ lang, config, countriesCount }: Props)
                   <span style={{ display: 'flex', alignItems: 'center' }}><Icons.Trophy size={24} color="#f59e0b" /></span>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '0.85rem', color: '#1F2937' }}>ISO 22000</div>
-                    <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>Certified Factory</div>
+                    <div style={{ fontSize: '0.7rem', color: '#6b7280' }}>{uiString('certifiedFactory', lang)}</div>
                   </div>
                 </div>
               }

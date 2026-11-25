@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { Locale } from '@/dictionaries'
 import type { ProductDocument } from '@/types/products.types'
 import type { CategoryDocument } from '@/types/categories.types'
+import { uiString } from '@/lib/ui-strings'
 
 interface Props {
   lang: Locale
@@ -388,7 +389,7 @@ export default function ProductsClient({ lang, t, initialProducts, categories }:
                       sizes="(max-width: 768px) 100vw, 25vw"
                     />
                   ) : (
-                    <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f4f6', color: '#9ca3af' }}>No Image</div>
+                    <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f3f4f6', color: '#9ca3af' }}>{uiString('noImage', lang)}</div>
                   )}
                   <span
                     style={{

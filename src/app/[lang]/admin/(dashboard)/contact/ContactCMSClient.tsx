@@ -176,7 +176,7 @@ export default function ContactCMSClient({ initialConfig }: Props) {
             <Field label="WhatsApp Number" value={config.whatsapp} onChange={v => patch('whatsapp', v)} placeholder="+20 123 456 789" />
           </Grid2>
           <Grid2>
-            <Field label="Email Address" value={config.email} onChange={v => patch('email', v)} placeholder="info@alnabawy.com" />
+            <Field label="Email Address" value={config.email} onChange={v => patch('email', v)} placeholder="alnbwy660@gmail.com" />
             <Field label="Physical Address" value={typeof config.address === 'string' ? config.address : config.address.en} onChange={v => patch('address', v)} placeholder="Tala, Menoufia, Egypt" />
           </Grid2>
 

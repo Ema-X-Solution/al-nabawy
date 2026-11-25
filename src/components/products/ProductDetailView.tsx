@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { ProductDocument } from '@/types/products.types'
 import { Icons } from '@/lib/icons'
+import { uiString } from '@/lib/ui-strings'
 
 interface Props {
   product: ProductDocument
@@ -62,7 +63,7 @@ export default function ProductDetailView({ product, lang, dict, isPreview = fal
               {product.image ? (
                 <Image src={product.image} alt={name} fill style={{ objectFit: 'cover' }} />
               ) : (
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', background: '#f3f4f6', color: '#9ca3af' }}>No Image</div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', background: '#f3f4f6', color: '#9ca3af' }}>{uiString('noImage', lang)}</div>
               )}
             </div>
 
