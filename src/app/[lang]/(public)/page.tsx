@@ -23,7 +23,7 @@ export async function generateMetadata({
   const locale = lang as HomeLocale
   const dict = await getDictionary(locale)
   return {
-    title: dict.meta.siteName,
+    title: { absolute: dict.meta.siteName },
     description: dict.meta.description,
   }
 }

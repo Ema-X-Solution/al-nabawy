@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
-import { getProductsCached, getProductBySlugCached, getRelatedProductsCached, getFooterConfigCached } from '@/lib/cached-data'
+import { getProductsCached, getProductBySlugCached, getRelatedProductsCached, getFooterConfigCached, getCategoriesCached } from '@/lib/cached-data'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -35,11 +35,15 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const related = await getRelatedProductsCached(product.category, decodedSlug)
   const localeStr = lang as 'en' | 'ar' | 'tr' | 'pl' | 'de' | 'fr'
   const footerConfig = await getFooterConfigCached()
+  const norm = (s: string) => (s || '').toLowerCase().trim()
+  const categories = await getCategoriesCached()
+  const cat = categories.find((c) => norm(c.slug) === norm(product.category) || norm(c.id) === norm(product.category))
+  const categoryName = cat?.name?.[localeStr] || cat?.name?.en
   const whatsapp = footerConfig?.whatsapp || '+201008661480'
 
   return (
     <>
-      <ProductDetailView product={product} lang={lang} dict={dict} isPreview={false} whatsapp={whatsapp} />
+      <ProductDetailView product={product} lang={lang} dict={dict} isPreview={false} whatsapp={whatsapp} categoryName={categoryName} />
       
       {/* Related */}
       {related.length > 0 && (

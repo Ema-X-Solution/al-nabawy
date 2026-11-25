@@ -8,6 +8,9 @@ const strings = {
   noImage: {
     en: 'No Image', ar: 'لا توجد صورة', tr: 'Görsel Yok', pl: 'Brak zdjęcia', de: 'Kein Bild', fr: 'Aucune image',
   },
+  exportPolicy: {
+    en: 'Export Policy', ar: 'سياسة التصدير', tr: 'İhracat Politikası', pl: 'Polityka eksportowa', de: 'Exportrichtlinie', fr: "Politique d'exportation",
+  },
   certifiedFactory: {
     en: 'Certified Factory', ar: 'مصنع معتمد', tr: 'Sertifikalı Fabrika', pl: 'Certyfikowana fabryka', de: 'Zertifizierte Fabrik', fr: 'Usine certifiée',
   },
