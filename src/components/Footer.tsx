@@ -53,7 +53,10 @@ export default async function Footer({ lang, t, navT, catT }: FooterProps) {
     { platform: 'Instagram', url: '#', svgIcon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z' },
     { platform: 'LinkedIn', url: '#', svgIcon: 'M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z M9.75 15.02V8.98L15.5 12l-5.75 3.02z' },
   ]
-  const socialLinks = dbConfig?.socialLinks?.length ? dbConfig.socialLinks : defaultSocialLinks
+  // Hide icons that have no real URL yet (empty or "#"), e.g. LinkedIn
+  const socialLinks = (dbConfig?.socialLinks?.length ? dbConfig.socialLinks : defaultSocialLinks).filter(
+    (s) => s.url && s.url.trim() !== '' && s.url.trim() !== '#'
+  )
 
   return (
     <footer style={{ background: '#0f1929', color: 'rgba(255,255,255,0.8)', marginTop: 'auto' }}>
