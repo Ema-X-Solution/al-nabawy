@@ -5,6 +5,7 @@ import ExportMap, { project, type MapMarker, type MapHighlight } from '@/compone
 import { COUNTRY_NAMES } from '@/components/home/map-data'
 
 import type { ExportMarketsDocument } from '@/types/exportMarkets.types'
+import { uiString } from '@/lib/ui-strings'
 
 interface Props {
   lang: HomeLocale
@@ -103,7 +104,7 @@ export default function ExportMarkets({ lang, config, exportData }: Props) {
               {lang === 'ar' ? `+${countries.length}` : `${countries.length}+`}
             </div>
             <div style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 600, fontSize: '1.05rem' }}>
-              {lang === 'ar' ? 'دولة نصدّر إليها' : 'Export Countries'}
+              {uiString('exportCountries', lang)}
             </div>
           </div>
           <ExportMap markers={markers} highlights={highlights} />
