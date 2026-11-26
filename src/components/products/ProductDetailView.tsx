@@ -25,7 +25,7 @@ export default function ProductDetailView({ product, lang, dict, isPreview = fal
     { label: t.shelfLife, value: product.shelfLife[localeStr] },
     { label: t.storage, value: product.storage[localeStr] },
     { label: t.origin, value: product.origin[localeStr] },
-  ]
+  ].filter((spec) => typeof spec.value === 'string' && spec.value.trim() !== '')
 
   const name = product.name[localeStr]
   const desc = product.description[localeStr]
